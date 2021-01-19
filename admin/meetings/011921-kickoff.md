@@ -25,4 +25,4 @@
   - "Sprit Veggies" chosen for now
   - Vaguely VeggieTales theme
   
-  ** Meeting ended at 11:00 AM**
+  **Meeting ended at 11:00 AM**
