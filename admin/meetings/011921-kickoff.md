@@ -41,4 +41,4 @@
 ### Agenda
 - General working meeting, continuing to get things set up
 
-  **Meeting ended at 4:30 AM**
+  **Meeting ended at 4:30 PM**
