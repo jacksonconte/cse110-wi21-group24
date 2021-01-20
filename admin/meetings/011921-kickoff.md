@@ -35,6 +35,8 @@
 - Ahmed Hussaini
 - David Jeong
 - Anshul Singh
+- Anurag Asthana
+- Adam Yoshinaga
 
 ### Agenda
 - General working meeting, continuing to get things set up
