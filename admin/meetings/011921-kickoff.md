@@ -26,3 +26,17 @@
   - Vaguely VeggieTales theme
   
   **Meeting ended at 11:00 AM**
+
+# Group 24 Kickoff Meeting #2
+*Jan 19, 2021, 04:03 PM*
+
+### Present Group Members:
+- Jackson Conte
+- Ahmed Hussaini
+- David Jeong
+- Anshul Singh
+
+### Agenda
+- General working meeting, continuing to get things set up
+
+  **Meeting ended at 11:00 AM**
