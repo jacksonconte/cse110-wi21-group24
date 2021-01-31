@@ -26,6 +26,7 @@ Team members in attendance:
 - Ahmed
 - David
 - Nimish
+- Anurag
 
 Roger TBD
 
