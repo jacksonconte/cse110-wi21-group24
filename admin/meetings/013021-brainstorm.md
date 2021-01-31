@@ -30,4 +30,10 @@ Team members in attendance:
 
 Roger TBD
 
-4. Interface (20:00-21:00)
+4. Interface (20:00-20:40)
+
+5. Logistics, meetings, research
+- Nimish, Adam interested in continuous animation
+- Noah, interested in local storage
+- Dynamic formatting task list with JS
+- This meeting time works well in the future
