@@ -11,4 +11,22 @@ Team members in attendance:
 - Anurag Asthana
 - Roger Ji
 
-Working on the brainstorming assignment, by creating user personas, feature sets, interface, and user stories.
+1. Brainstorming personas (19:00-19:35)
+2. Brainstorming user stories (19:35-19:50)
+3. Discussing initial role interest (19:50-20:00)
+
+### Interested in Design
+- Jackson (both)
+- Anshul (both)
+- Adam (no preference)
+- 
+
+### Not interested in design (backend/testing/devops)
+- Noah
+- Ahmed
+- David
+- Nimish
+
+Roger TBD
+
+4. Interface
