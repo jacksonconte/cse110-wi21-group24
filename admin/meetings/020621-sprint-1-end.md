@@ -4,4 +4,4 @@
 
 ### Split group work: Pipeline & Pitch Slides (19:05-20:00)
 
-### Pipeline Discussion (20:00-)
+### Pipeline Discussion/Work (20:00-)
