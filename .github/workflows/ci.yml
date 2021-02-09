@@ -9,8 +9,8 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Install Jest
-      run: yarn global add jest-cli
+      run: yarn global add jest
     - name: Run ESLint
       run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
     - name: Run tests
-      run: jest tests/*  
+      run: yarn run test tests/sum.test.js  
