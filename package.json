@@ -8,4 +8,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "prettier": "2.2.1"
   }
+  "scripts": {
+    "test": "jest"
+  }
 }
