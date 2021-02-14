@@ -6,4 +6,6 @@ extends:
 parserOptions:
   ecmaVersion: 12
   sourceType: module
-rules: {}
+rules:
+  semi: "always"
+  indent: ["error", "4"]
