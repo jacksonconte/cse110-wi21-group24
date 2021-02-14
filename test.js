@@ -27,8 +27,8 @@ console.log(subNum(4, 5));
 /**
  * Multiplies two numbers
  * @method
- * @param {Number} num1 
- * @param {Number} num2 
+ * @param {Number} num1
+ * @param {Number} num2
  * @returns {Number} product of the two numbers
  */
 function multNum(num1, num2) {
