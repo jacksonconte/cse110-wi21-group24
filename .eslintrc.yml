@@ -8,4 +8,4 @@ parserOptions:
   sourceType: module
 rules:
   semi: "always"
-  indent: ["error", "4"]
+  indent: ["error", 4]
