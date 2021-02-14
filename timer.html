@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploratory Code</title>
     <script src='scripts/main.js'></script>
-    <style src='style.css'></style>
+    <link rel="stylesheet" href='style.css'/>
   </head>
 
   <body>
-    <div id="timer">
-      <p id="timer-readout">00:00</p>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Timer</a>
+      <a href="#">Task List</a>
+      <a href="#">Analytics</a>
+      <a href="#">Settings</a>
     </div>
-    <button id="button">Start</button>
+
+    <button id="openButton" class="openbtn" onclick="openNav()">
+      &#9776;
+    </button>
+    <div id="timey">
+      <div id="timer">
+        <p id="timer-readout">00:00</p>
+      </div>
+      <button id="button">Start</button>
+    </div>
   </body>
 </html>
