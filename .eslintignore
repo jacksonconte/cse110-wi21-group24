@@ -1,3 +1,1 @@
-./node_modules
-./docs/scripts/*.js
-./docs/scripts/prettify/*.js
+docs/*
