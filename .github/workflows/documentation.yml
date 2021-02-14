@@ -10,5 +10,5 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Run JSdoc
-      run: yarn run jsdoc -r
+      run: yarn run jsdoc -r .
           
