@@ -1,0 +1,52 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #333;
+  }
+  
+  #countdown {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+
+    text-align: center;
+  }
+  
+  #countdown-number {
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+  }
+  
+  svg {
+    position: relative;
+    margin: auto;
+    display: block;
+    width: 250px;
+    height: 250px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
+
+  svg text {
+    transform-origin: center;
+    transform: rotate(90deg);
+  }
+  
+  svg circle {
+    stroke-dasharray: 628px; 
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: white;
+    fill: none;
+    animation: countdown 20s linear infinite forwards; /* time needs to be user input */
+  }
+  
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
+    }
+    to {
+      stroke-dashoffset: 628px; /* needs to be calculated, not hard coded in */
+    }
+  }
