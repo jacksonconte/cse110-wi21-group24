@@ -6,4 +6,5 @@
 - Complaining about the last lab (19:15-20)
   - Roger found tutorials on circular animation for timer
 - Presentation of hi-fi wireframe (19:20-25)
-- Task splitting & creation of issues
+- Task splitting & creation of issues (19:25-19:43)
+- Mob programming to start files
