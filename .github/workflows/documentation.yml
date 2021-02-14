@@ -8,8 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate Documentation
-        uses: andstor/jsdoc-action@v1.2.0
+        uses: andstor/jsdoc-action@v1
         with:
+          source_dir: ./
           recurse: true
           output_dir: ./out
           
