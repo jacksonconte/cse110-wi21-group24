@@ -4,7 +4,7 @@
         "include": ["."],
         "exclude": ["node_modules"]
     },
-    "recurseDepth": 11,
+    "recurseDepth": 10,
     "opts": {
         "destination": "./docs/",
         "recurse": true
