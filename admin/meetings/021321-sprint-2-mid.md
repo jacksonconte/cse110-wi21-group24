@@ -7,4 +7,6 @@
   - Roger found tutorials on circular animation for timer
 - Presentation of hi-fi wireframe (19:20-25)
 - Task splitting & creation of issues (19:25-19:43)
-- Mob programming to start files
+- Mob programming to start files (19:43-20:00)
+- More task splitting (20:00-20:15)
+- Branching off (20:15-21:09)
