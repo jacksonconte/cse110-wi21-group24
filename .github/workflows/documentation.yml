@@ -9,6 +9,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install modules
       run: yarn
-    - name: Run JSdoc
-      run: yarn run jsdoc -c jsdocconfig.json
+    - name: Run JSDoc to Markdown
+      run: yarn run jsdoc2md -c jsdocconfig.json
+    - name: Upload Documentation to Wiki
+      uses: SwiftDocOrg/github-wiki-publish-action@v1
+      with:
+        path: Documentation
+      env:
+        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           
