@@ -9,7 +9,7 @@ function addNum(num1, num2) {
   return num1 + num2;
 }
 
-console.log(addNum(4, 5));
+console.log(addNum(4, 2));
 
 /**
  * Subtracts two numbers
@@ -22,7 +22,7 @@ function subNum(num1, num2) {
   return num1 - num2;
 }
 
-console.log(subNum(4, 5));
+console.log(subNum(4, 2));
 
 /**
  * Multiplies two numbers
@@ -35,4 +35,10 @@ function multNum(num1, num2) {
   return num1 * num2;
 }
 
-console.log(multNum(4, 5));
+console.log(multNum(4, 2));
+
+function divNum(num1, num2) {
+  return num1 * num2;
+}
+
+console.log(divNum(4, 2));
