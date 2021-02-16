@@ -1,13 +1,18 @@
-#some random stuff for eslinting action on push
-name: CI
+name: Lint and Test
 on: push
 jobs:
   build:
+    name: Lint code base
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Install modules
       run: yarn
-    - name: Run ESLint
+    - name: Linting
       run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
-      
+    - name: Clean up
+      run: rm -rf node_modules yarn.lock
+    # TODO: Setup after tests are setup
+    # - name: Testing
+    #   run: yarn run jest
