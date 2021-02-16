@@ -2,7 +2,7 @@ name: Lint and Test
 on: push
 jobs:
   build:
-    name: Lint code base
+    name: Linting and Testing
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -11,8 +11,8 @@ jobs:
       run: yarn
     - name: Linting
       run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
-    - name: Clean up
-      run: rm -rf node_modules yarn.lock
     # TODO: Setup after tests are setup
     # - name: Testing
     #   run: yarn run jest
+    - name: Clean up
+      run: rm -rf node_modules yarn.lock
