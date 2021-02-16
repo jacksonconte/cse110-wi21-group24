@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="scripts/task-item.js"></script>
-    <style src='style.css'></style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Test Tasks Page</title>
+    <script src='scripts/main.js'></script>
+    <link rel="stylesheet" href='style.css'/>
   </head>
-  <body>
-    <ul id="tasks">
-      <li>Placeholder Task</li>
-    </ul>
+
+  <body style="background-color: #f8f8ff;">
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="timer.html">Timer</a>
+      <a href="javascript:void(0)" onclick="closeNav()">Task List</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <button id="openButton" class="openbtn" onclick="openNav()">
+      &#9776;
+    </button>
+    <div id="filler">
+      <p>Tasks or smthg</p>
+    </div>
   </body>
 </html>

@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exploratory Code</title>
+    <title>Sidebar Test Timer</title>
     <script src='scripts/main.js'></script>
     <link rel="stylesheet" href='style.css'/>
   </head>
 
-  <body>
+  <body style="background-color: #f8f8ff;">
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">Timer</a>
-      <a href="#">Task List</a>
-      <a href="#">Analytics</a>
-      <a href="#">Settings</a>
+      <a href="javascript:void(0)" onclick="closeNav()">Timer</a>
+      <a href="tasks.html">Task List</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="settings.html">Settings</a>
     </div>
 
     <button id="openButton" class="openbtn" onclick="openNav()">
       &#9776;
     </button>
-    <div id="timey">
+    <div id="filler">
       <div id="timer">
         <p id="timer-readout">00:00</p>
       </div>

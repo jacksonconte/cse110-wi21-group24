@@ -6,7 +6,7 @@
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: #ECF0F1; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -14,49 +14,68 @@
   
   /* The sidebar links */
   .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
+    margin: 10px;
+    background-color:#BDC3C7;
+    border: solid;
+    border-radius: 5px;
+    border-color: #000000;
     text-decoration: none;
+    text-align: center;
     font-size: 25px;
-    color: #818181;
+    color: #000000;
     display: block;
     transition: 0.3s;
+    white-space: nowrap; /* Stop text from wrapping during animation */
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidebar a:hover {
-    color: #f1f1f1;
+    background-color: #8eccff;
   }
   
   /* Position and style the close button (top right corner) */
   .sidebar .closebtn {
+    background: none;
     position: absolute;
+    padding: 0 11px;
     top: 0;
-    right: 25px;
+    right: 0px;
+    border: none;
     font-size: 36px;
-    margin-left: 50px;
+    margin-right: 10px;
   }
+
+  /* When you mouse over the close button, change its color */
+  .sidebar .closebtn:hover {
+    background-color: #fa8ea0;
+  }
+  
   
   /* The button used to open the sidebar */
   .openbtn {
     position: fixed;
     left: 50px;
+    top: 25px;
     font-size: 20px;
     cursor: pointer;
-    background-color: white;
+    background-color: #f8f8ff;
     color: black;
     padding: 10px 15px;
     border: none;
   }
   
   .openbtn:hover {
-    background-color: #444;
+    background-color: rgb(161, 161, 161);
+    border-radius: 5px;
   }
 
-  #timey{
+  #filler{
       position: fixed;
       left: 50%;
       top: 50%;
   }
+
   
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
