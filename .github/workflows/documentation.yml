@@ -11,7 +11,7 @@ jobs:
       run: |
         git config --local user.email "aasthana@ucsd.edu"
         git config --local user.name "anuragasthana"
-        git clone https://github.com/jacksonconte/cse110-wi21-group24.git.wiki
+        git clone git@github.com:jacksonconte/cse110-wi21-group24.wiki.git
     - name: Install modules
       run: yarn
     - name: Run JSDoc to Markdown
