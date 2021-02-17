@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Clone Wiki
       run: |
-        git config --local user.email "<>"
-        git config --local user.name "Github Actions Bot"
+        git config --local user.email "aasthana@ucsd.edu"
+        git config --local user.name "anuragasthana"
         git clone https://github.com/jacksonconte/cse110-wi21-group24.git.wiki
     - name: Install modules
       run: yarn
