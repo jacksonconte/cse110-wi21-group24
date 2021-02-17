@@ -69,4 +69,4 @@ Divides two numbers
 | num1 | <code>Number</code> | 
 | num2 | <code>Number</code> | 
 
-Done in 0.71s.
+Done in 0.66s.
