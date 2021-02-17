@@ -13,9 +13,10 @@
   }
   
   /* The sidebar links */
-  .sidebar a {
+  .sidebar button {
     padding: 8px 8px 8px 8px;
     margin: 10px;
+    width: 90%;
     background-color:#BDC3C7;
     border: solid;
     border-radius: 5px;
@@ -30,12 +31,13 @@
   }
   
   /* When you mouse over the navigation links, change their color */
-  .sidebar a:hover {
+  .sidebar button:hover {
     background-color: #8eccff;
   }
   
   /* Position and style the close button (top right corner) */
   .sidebar .closebtn {
+    width: fit-content;
     background: none;
     position: absolute;
     padding: 0 11px;
@@ -70,10 +72,18 @@
     border-radius: 5px;
   }
 
-  #filler{
-      position: fixed;
-      left: 50%;
-      top: 50%;
+  #display {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+  }
+
+  .content {
+    display: none;
+  }
+
+  #timer {
+    display: block;
   }
 
   
@@ -88,7 +98,7 @@
     .sidebar {
       padding-top: 15px;
     }
-    .sidebar a {
+    .sidebar button {
       font-size: 18px;
     }
   }

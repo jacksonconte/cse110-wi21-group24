@@ -10,21 +10,31 @@
 
   <body style="background-color: #f8f8ff;">
     <div id="mySidebar" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="javascript:void(0)" onclick="closeNav()">Timer</a>
-      <a href="tasks.html">Task List</a>
-      <a href="analytics.html">Analytics</a>
-      <a href="settings.html">Settings</a>
+      <button class="closebtn" onclick="closeNav()">&times;</button>
+      <button id="timerbtn" onclick="closeNav()">Timer</button>
+      <button id="tasksbtn" onclick="openTasks()">Task List</button>
+      <button id="analyticsbtn" onclick="openAnalytics()">Analytics</button>
+      <button id="settingsbtn" onclick="openSettings()">Settings</button>
     </div>
 
     <button id="openButton" class="openbtn" onclick="openNav()">
       &#9776;
     </button>
-    <div id="filler">
-      <div id="timer">
+
+    <div id="display">
+      <div id="timer" class="content">
         <p id="timer-readout">00:00</p>
+        <button id="button">Start</button>
       </div>
-      <button id="button">Start</button>
+      <div id="tasks" class="content">
+        <p>Tasks or smthg</p>
+      </div>
+      <div id="settings" class="content">
+        <p>Settings or smthg</p>
+      </div>
+      <div id="analytics" class="content">
+        <p>Analytics or smthg</p>
+      </div>
     </div>
   </body>
 </html>
