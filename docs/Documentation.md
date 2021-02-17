@@ -1,72 +1,110 @@
 yarn run v1.22.5
-$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f '*'
+$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/**'
+## Classes
+
+<dl>
+<dt><a href="#Triangle">Triangle</a></dt>
+<dd></dd>
+<dt><a href="#Triangle">Triangle</a></dt>
+<dd></dd>
+</dl>
+
 ## Functions
 
 <dl>
-<dt><a href="#addNum">addNum(num1, num2)</a> ⇒ <code>Number</code></dt>
-<dd><p>Adds two numbers together</p>
+<dt><a href="#area">area()</a> ⇒ <code>Number</code></dt>
+<dd><p>Calclulates the area of the Triangle</p>
 </dd>
-<dt><a href="#subNum">subNum(num1, num2)</a> ⇒ <code>Number</code></dt>
-<dd><p>Subtracts two numbers</p>
+<dt><a href="#perimeter">perimeter(side1, side2, side3)</a> ⇒ <code>Number</code></dt>
+<dd><p>Calculates the perimeter of a Triangle</p>
 </dd>
-<dt><a href="#multNum">multNum(num1, num2)</a> ⇒ <code>Number</code></dt>
-<dd><p>Multiplies two numbers</p>
-</dd>
-<dt><a href="#divNum">divNum(num1, num2)</a> ⇒ <code>Number</code></dt>
-<dd><p>Divides two numbers</p>
+<dt><a href="#foobar">foobar(x, y)</a> ⇒</dt>
+<dd><p>Does a random thing</p>
 </dd>
 </dl>
 
-<a name="addNum"></a>
+<a name="Triangle"></a>
 
-## addNum(num1, num2) ⇒ <code>Number</code>
-Adds two numbers together
+## Triangle
+**Kind**: global class  
 
-**Kind**: global function  
-**Returns**: <code>Number</code> - sum of the two numbers  
+* [Triangle](#Triangle)
+    * [new Triangle()](#new_Triangle_new)
+    * [new Triangle(base, height)](#new_Triangle_new)
 
-| Param | Type |
-| --- | --- |
-| num1 | <code>Number</code> | 
-| num2 | <code>Number</code> | 
+<a name="new_Triangle_new"></a>
 
-<a name="subNum"></a>
+### new Triangle()
+A class made to hold the properties of a triangle
 
-## subNum(num1, num2) ⇒ <code>Number</code>
-Subtracts two numbers
+<a name="new_Triangle_new"></a>
 
-**Kind**: global function  
-**Returns**: <code>Number</code> - difference of the two numbers  
+### new Triangle(base, height)
+Constructor of a Triangle object
 
-| Param | Type |
-| --- | --- |
-| num1 | <code>Number</code> | 
-| num2 | <code>Number</code> | 
-
-<a name="multNum"></a>
-
-## multNum(num1, num2) ⇒ <code>Number</code>
-Multiplies two numbers
-
-**Kind**: global function  
-**Returns**: <code>Number</code> - product of the two numbers  
 
 | Param | Type |
 | --- | --- |
-| num1 | <code>Number</code> | 
-| num2 | <code>Number</code> | 
+| base | <code>Number</code> | 
+| height | <code>Number</code> | 
 
-<a name="divNum"></a>
+<a name="Triangle"></a>
 
-## divNum(num1, num2) ⇒ <code>Number</code>
-Divides two numbers
+## Triangle
+**Kind**: global class  
 
-**Kind**: global function  
-**Returns**: <code>Number</code> - quotient of the two numbers  
+* [Triangle](#Triangle)
+    * [new Triangle()](#new_Triangle_new)
+    * [new Triangle(base, height)](#new_Triangle_new)
+
+<a name="new_Triangle_new"></a>
+
+### new Triangle()
+A class made to hold the properties of a triangle
+
+<a name="new_Triangle_new"></a>
+
+### new Triangle(base, height)
+Constructor of a Triangle object
+
 
 | Param | Type |
 | --- | --- |
-| num1 | <code>Number</code> | 
-| num2 | <code>Number</code> | 
+| base | <code>Number</code> | 
+| height | <code>Number</code> | 
 
-Done in 0.59s.
+<a name="area"></a>
+
+## area() ⇒ <code>Number</code>
+Calclulates the area of the Triangle
+
+**Kind**: global function  
+**Returns**: <code>Number</code> - The area of the Triangle  
+<a name="perimeter"></a>
+
+## perimeter(side1, side2, side3) ⇒ <code>Number</code>
+Calculates the perimeter of a Triangle
+
+**Kind**: global function  
+**Returns**: <code>Number</code> - The perimeter of the Triangle  
+
+| Param | Type |
+| --- | --- |
+| side1 | <code>Number</code> | 
+| side2 | <code>Number</code> | 
+| side3 | <code>Number</code> | 
+
+<a name="foobar"></a>
+
+## foobar(x, y) ⇒
+Does a random thing
+
+**Kind**: global function  
+**Returns**: The sum of x and y  
+
+| Param | Type |
+| --- | --- |
+| x | <code>Number</code> | 
+| y | <code>Number</code> | 
+
+Done in 0.75s.
