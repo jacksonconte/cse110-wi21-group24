@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Check for docs directory
+      run: mkdir docs
     - name: Install modules
       run: yarn
     - name: Run JSDoc to Markdown
