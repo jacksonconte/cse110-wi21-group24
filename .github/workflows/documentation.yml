@@ -15,7 +15,7 @@ jobs:
       run: |
         git config --local user.email "test@github.com"
         git config --local user.name "Github Action Test"
-        git add ./documentation
+        git add .
         git commit -m "Generating documentation"
     - name: Upload Documentation to Wiki
       uses: SwiftDocOrg/github-wiki-publish-action@v1
