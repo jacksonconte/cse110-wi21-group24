@@ -1,25 +1,36 @@
-/*
 let timerStarted = false;
-let timerSeconds, intervalID, button, readout;
+let timerSeconds, intervalID, button, readout, circle;
 const DURATION = 60; // seconds for timer
 
 function startTimer() {
     intervalID = setInterval(tick, 1000);
-    button.innerHTML = 'Stop';
+    circle.style['animation-duration'] = DURATION + 's';
+    circle.style['animation-play-state'] = 'running';
+    button.innerHTML = 'STOP';
     timerStarted = true;
 }
 function stopTimer() {
     clearInterval(intervalID);
-    button.innerHTML = 'Start';
+    circle.style['animation-play-state'] = 'paused';
+    circle.style['stroke-dashoffset'] = '0px';
+    
+    button.innerHTML = 'START';
     timerStarted = false;
     timerSeconds = DURATION;
-    readout.innerHTML = timerSeconds;
+    readout.innerHTML = convertToPrettyTime(timerSeconds);
 }
 function tick() {
-    readout.innerHTML = --timerSeconds;
+    timerSeconds--;
+    readout.innerHTML = convertToPrettyTime(timerSeconds);
     if (timerSeconds == 0) stopTimer();
 }
 
+function convertToPrettyTime(seconds) {
+    minutes = Math.floor(seconds / 60);
+    return ((minutes < 10 ? "0" : "") + minutes.toString() + ":" + (seconds % 60 < 10 ? "0" : "") + (seconds % 60).toString());
+}
+
+/*
 window.addEventListener('DOMContentLoaded', () => {
     button = document.getElementById('toggle');
     readout = document.getElementById('readout');
@@ -33,21 +44,24 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 });
 */
+/*
+function setTime(time) {
+    let countdown = 20;
+
+    readout.innerHTML = countdown;
+
+    intervalID = setInterval(() => {
+        countdown = --countdown <= 0 ? 20 : countdown;
+        readout.innerHTML = countdown;
+    }, 1000);
+}*/
 
 window.addEventListener('DOMContentLoaded', () => {
     button = document.getElementById('toggle');
-    readout = document.getElementById('readout');
-    
-    var countdownNumberEl = document.getElementById('countdown-number');
-    var countdown = 10;
+    readout = document.getElementById('countdown-number');
+    circle = document.querySelector('circle');
 
-    countdownNumberEl.textContent = countdown;
-
-    setInterval(function () {
-        countdown = --countdown <= 0 ? 10 : countdown;
-
-        countdownNumberEl.textContent = countdown;
-    }, 1000);
+    readout.innerHTML = convertToPrettyTime(DURATION);
 
     button.onclick = () => {
         if (timerStarted) {
