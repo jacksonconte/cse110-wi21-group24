@@ -10,17 +10,22 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Run JSDoc to Markdown
-      run: yarn run jsdoc2md -f './*.js' -c jsdocconfig.json
-    - name: Commit documentation
+      run: yarn run jsdoc2md -f '*' > ./docs/Documentation.md
+    - name: Commit Documentation
       run: |
-        git config --local user.email "test@github.com"
-        git config --local user.name "Github Action Test"
-        git add ./documentation
+        git config --local user.name "anuragasthana"
+        rm -rf node_modules
+        git add .
         git commit -m "Generating documentation"
+    - name: Push changes # push the output folder to your repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        force: true
     - name: Upload Documentation to Wiki
       uses: SwiftDocOrg/github-wiki-publish-action@v1
       with:
-        path: documentation
+        path: "docs"
       env:
         GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           
