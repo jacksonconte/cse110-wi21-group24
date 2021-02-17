@@ -15,8 +15,7 @@ jobs:
       run: |
         git config --local user.email "test@github.com"
         git config --local user.name "Github Action Test"
-        git branch -mv origin master
         git add .
         git commit -m "Generating documentation"
-        git push origin master
+        git push https://github.com/jacksonconte/cse110-wi21-group24.git master
           
