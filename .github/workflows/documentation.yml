@@ -7,14 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run JSDoc to Markdown
-      run: yarn run jsdoc2md -f '*' >> documentation.md
-    - name: Commit Documentation
+    - name: Clone Wiki
       run: |
         git config --local user.email "<>"
         git config --local user.name "Github Actions Bot"
+        git clone https://github.com/jacksonconte/cse110-wi21-group24.git.wiki
+    - name: Install modules
+      run: yarn
+    - name: Run JSDoc to Markdown
+      run: yarn run jsdoc2md -f '*' > documentation.md
+    - name: Commit Documentation
+      run: |
+        rm -rf node_modules
         git add .
         git commit -m "Generating documentation"
         git push https://github.com/jacksonconte/cse110-wi21-group24.git.wiki master
