@@ -45,7 +45,7 @@ console.log(multNum(4, 2));
  * @returns {Number} quotient of the two numbers
  */
 function divNum(num1, num2) {
-  return num1 * num2;
+  return num1 / num2;
 }
 
 console.log(divNum(4, 2));
