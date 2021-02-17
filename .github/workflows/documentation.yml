@@ -17,6 +17,5 @@ jobs:
         git config --local user.name "Github Actions Bot"
         git add .
         git commit -m "Generating documentation"
-        git pull https://github.com/jacksonconte/cse110-wi21-group24.git.wiki master
         git push https://github.com/jacksonconte/cse110-wi21-group24.git.wiki master
           
