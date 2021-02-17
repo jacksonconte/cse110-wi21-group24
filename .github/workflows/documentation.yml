@@ -17,5 +17,5 @@ jobs:
         git config --local user.name "Github Action Test"
         git add .
         git commit -m "Generating documentation"
-        git push origin ${GITHUB_REF##*/}
+        git push origin master
           
