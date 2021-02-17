@@ -10,12 +10,12 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Run JSDoc to Markdown
-      run: yarn run jsdoc2md -f './*.js' -c jsdocconfig.json
+      run: yarn run jsdoc2md -f './*.js' -c jsdocconfig.json | documentation.md
     - name: Commit Documentation
       run: |
-        git config --local user.email "test@github.com"
-        git config --local user.name "Github Action Test"
+        git config --local user.email "<>"
+        git config --local user.name "Github Actions Bot"
         git add .
         git commit -m "Generating documentation"
-        git push https://github.com/jacksonconte/cse110-wi21-group24.git master
+        git push https://github.com/jacksonconte/cse110-wi21-group24.git.wiki master
           
