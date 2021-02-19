@@ -34,17 +34,16 @@ svg text {
 
 .animate {
   stroke-dasharray: 628px;
-  stroke-dashoffset: 0px;
-  stroke-linecap: flat;
+  /* stroke-dashoffset: 0px;*/
+  stroke-linecap: butt;
   stroke-width: 6px;
   stroke: red;
   fill: none;
   /* animation: countdown 10s linear infinite forwards; /* time needs to be user input */
   animation-name: countdown;
-  animation-direction: forwards;
-  animation-iteration-count: infinite;
+  /*animation-iteration-count: infinite;*/
   animation-timing-function: linear;
-  animation-duration: 20s;
+  /* animation-duration: 20s;*/
   animation-play-state: paused;
 }
 
