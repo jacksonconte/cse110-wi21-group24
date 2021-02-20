@@ -18,5 +18,5 @@ jobs:
     # TODO: Setup after tests are setup
     # - name: Testing
     #   run: yarn run jest
-    - name: Clean up
-      run: rm -rf node_modules
+    # - name: Clean up
+    #   run: rm -rf node_modules
