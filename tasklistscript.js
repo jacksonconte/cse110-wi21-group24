@@ -36,7 +36,19 @@ class TaskItem extends HTMLElement {
             <style>
                 .task {
                     display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    background-color: white;
+                    filter: drop-shadow(0px 2px 5px rgb(0,0,0,0.4));
+                    margin: 10px;
+                    height: 50px;
+                    border: solid 1px;   
+                    border-color: gray;
                 }
+                .task-name, .task-est-pomos, .task-act-pomos, button {
+                    margin: 0px 50px 0px 50px; 
+                }
+
             </style>
         `;
 
