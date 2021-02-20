@@ -3,23 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar Test Timer</title>
+    <title>Sidebar Test</title>
     <script src='scripts/main.js'></script>
     <link rel="stylesheet" href='style.css'/>
   </head>
 
   <body style="background-color: #f8f8ff;">
     <div id="mySidebar" class="sidebar">
-      <button class="closebtn" onclick="closeNav()">&times;</button>
       <button id="timerbtn" onclick="closeNav()">Timer</button>
       <button id="tasksbtn" onclick="openTasks()">Task List</button>
       <button id="analyticsbtn" onclick="openAnalytics()">Analytics</button>
       <button id="settingsbtn" onclick="openSettings()">Settings</button>
     </div>
 
-    <button id="openButton" class="openbtn" onclick="openNav()">
+    <span id="openButton" onclick="openNav()">
       &#9776;
-    </button>
+    </span>
 
     <div id="display">
       <div id="timer" class="content">
