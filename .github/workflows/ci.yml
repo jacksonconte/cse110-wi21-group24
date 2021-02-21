@@ -15,6 +15,8 @@ jobs:
       run: yarn run eslint . --ext .js,.jsx
     - name: Lint HTML
       run: yarn run htmlhint "**/*.html"
+    - name: Lint CSS
+      run: yarn run stylelint "**/*.css"
     # TODO: Setup after tests are setup
     # - name: Testing
     #   run: yarn run jest
