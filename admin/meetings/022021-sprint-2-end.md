@@ -7,4 +7,7 @@ Members absent: Adam Yoshinaga
 - Merge performed for timer, sidebar, and task list.
 - Functionality preserved but CSS alignment broken
 
-**Dividing up tasks for Sprint 3 (20:40-20:50)**
+**Dividing up tasks for Sprint 3: Beta/Cleanup (20:40-20:50)**
+- linking task list to timer
+- CSS cleanup
+- documentation thru commenting
