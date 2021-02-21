@@ -12,11 +12,11 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Lint JS
-      run: yarn run eslint . --ext .js,.jsx
+      run: yarn run eslint source/ --ext .js,.jsx
     - name: Lint HTML
-      run: yarn run htmlhint "**/*.html"
+      run: yarn run htmlhint "source/**/*.html"
     - name: Lint CSS
-      run: yarn run stylelint "**/*.css"
+      run: yarn run stylelint "source/**/*.css"
     # TODO: Setup after tests are setup
     # - name: Testing
     #   run: yarn run jest
