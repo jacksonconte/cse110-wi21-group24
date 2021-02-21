@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro Timer</title>
-    <script src='scripts/sidebar.js'></script>
-    <script src='scripts/timer.js'></script>
-    <link rel="stylesheet" href='style.css'/>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/timer.js"></script>
+    <script src="scripts/tasks.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body style="background-color: #f8f8ff;">
+  <body style="background-color: #f8f8ff">
     <div id="mySidebar" class="sidebar">
       <button id="timerbtn" onclick="closeNav()">Timer</button>
       <button id="tasksbtn" onclick="openTasks()">Task List</button>
@@ -17,12 +18,9 @@
       <button id="settingsbtn" onclick="openSettings()">Settings</button>
     </div>
 
-    <span id="openButton" onclick="openNav()">
-      &#9776;
-    </span>
+    <span id="openButton" onclick="openNav()"> &#9776; </span>
 
     <div id="display">
-
       <div id="timer" class="content">
         <div id="countdown">
           <svg id="circle_svg">
@@ -35,7 +33,7 @@
             >
               0
             </text>
-            <circle cx="50%" cy="50%" r="100" class="animate"/>
+            <circle cx="50%" cy="50%" r="100" class="animate" />
           </svg>
         </div>
         <div id="toggle-div">
@@ -44,8 +42,32 @@
       </div>
 
       <div id="tasks" class="content">
-        <p>Tasks or smthg</p>
+        <div class="task-inputs">
+          <label class="task-input-field" for="input-task-name"
+            >Enter task:</label
+          >
+          <input
+            type="text"
+            class="task-input-field"
+            value="140 Midterm :("
+            id="input-task-name"
+          />
+          <label for="input-pomos" class="task-input-field"
+            >Enter number of pomos:</label
+          >
+          <input
+            type="number"
+            class="task-input-field"
+            value="10"
+            id="input-pomos"
+          />
+          <button class="task-input-field" id="add-task-button">
+            Add Task
+          </button>
+        </div>
+        <div class="task-list"></div>
       </div>
+
       <div id="settings" class="content">
         <p>Settings or smthg</p>
       </div>
