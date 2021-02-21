@@ -107,4 +107,4 @@ Does a random thing
 | x | <code>Number</code> | 
 | y | <code>Number</code> | 
 
-Done in 0.73s.
+Done in 0.58s.
