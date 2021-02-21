@@ -1,0 +1,61 @@
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #ECF0F1; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+  
+/* The sidebar links */
+.sidebar button {
+  padding: 8px 8px 8px 8px;
+  margin: 10px;
+  width: 90%;
+  background-color:#BDC3C7;
+  border: solid;
+  border-radius: 5px;
+  border-color: #000000;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+  white-space: nowrap; /* Stop text from wrapping during animation */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar button:hover {
+  background-color: #8eccff;
+}
+
+/* The button used to open the sidebar */
+#openButton {
+  position: fixed;
+  font-size: 45px;
+  cursor: pointer;
+  color: black;
+  padding-left: 15px;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+#display {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
+.content {
+  display: none;
+}
+
+#timer {
+  display: block;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Test</title>
+    <script src='scripts/main.js'></script>
+    <link rel="stylesheet" href='style.css'/>
+  </head>
+
+  <body style="background-color: #f8f8ff;">
+    <div id="mySidebar" class="sidebar">
+      <button id="timerbtn" onclick="closeNav()">Timer</button>
+      <button id="tasksbtn" onclick="openTasks()">Task List</button>
+      <button id="analyticsbtn" onclick="openAnalytics()">Analytics</button>
+      <button id="settingsbtn" onclick="openSettings()">Settings</button>
+    </div>
+
+    <span id="openButton" onclick="openNav()">
+      &#9776;
+    </span>
+
+    <div id="display">
+      <div id="timer" class="content">
+        <p id="timer-readout">00:00</p>
+        <button id="button">Start</button>
+      </div>
+      <div id="tasks" class="content">
+        <p>Tasks or smthg</p>
+      </div>
+      <div id="settings" class="content">
+        <p>Settings or smthg</p>
+      </div>
+      <div id="analytics" class="content">
+        <p>Analytics or smthg</p>
+      </div>
+    </div>
+  </body>
+</html>
