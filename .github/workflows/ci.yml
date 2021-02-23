@@ -1,6 +1,6 @@
 name: Lint and Test
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Lint JS
-      run: yarn run eslint source/ --ext .js,.jsx
+      run: yarn run eslint "source/**"
     - name: Lint HTML
       run: yarn run htmlhint "source/**/*.html"
     - name: Lint CSS
