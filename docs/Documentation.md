@@ -21,6 +21,24 @@ $ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/js
 <dt><a href="#foobar">foobar(x, y)</a> ⇒</dt>
 <dd><p>Does a random thing</p>
 </dd>
+<dt><a href="#openNav">openNav()</a></dt>
+<dd><p>Pulls out sidebar, moves menu button left, sets menu button to close sidebar</p>
+</dd>
+<dt><a href="#closeNav">closeNav()</a></dt>
+<dd><p>Hides sidebar, moves menu button right, sets menu button to open sidebar</p>
+</dd>
+<dt><a href="#openTimer">openTimer()</a></dt>
+<dd><p>Displays timer content, updates menu buttons</p>
+</dd>
+<dt><a href="#openTasks">openTasks()</a></dt>
+<dd><p>Displays tasks content, updates menu buttons</p>
+</dd>
+<dt><a href="#openAnalytics">openAnalytics()</a></dt>
+<dd><p>Displays analytics content, updates menu buttons</p>
+</dd>
+<dt><a href="#openSettings">openSettings()</a></dt>
+<dd><p>Displays settings content, updates menu buttons</p>
+</dd>
 </dl>
 
 <a name="Triangle"></a>
@@ -107,4 +125,40 @@ Does a random thing
 | x | <code>Number</code> | 
 | y | <code>Number</code> | 
 
-Done in 0.70s.
+<a name="openNav"></a>
+
+## openNav()
+Pulls out sidebar, moves menu button left, sets menu button to close sidebar
+
+**Kind**: global function  
+<a name="closeNav"></a>
+
+## closeNav()
+Hides sidebar, moves menu button right, sets menu button to open sidebar
+
+**Kind**: global function  
+<a name="openTimer"></a>
+
+## openTimer()
+Displays timer content, updates menu buttons
+
+**Kind**: global function  
+<a name="openTasks"></a>
+
+## openTasks()
+Displays tasks content, updates menu buttons
+
+**Kind**: global function  
+<a name="openAnalytics"></a>
+
+## openAnalytics()
+Displays analytics content, updates menu buttons
+
+**Kind**: global function  
+<a name="openSettings"></a>
+
+## openSettings()
+Displays settings content, updates menu buttons
+
+**Kind**: global function  
+Done in 0.77s.
