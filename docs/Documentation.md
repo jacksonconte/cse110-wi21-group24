@@ -21,6 +21,18 @@ $ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/js
 <dt><a href="#foobar">foobar(x, y)</a> ⇒</dt>
 <dd><p>Does a random thing</p>
 </dd>
+<dt><a href="#checkSettings">checkSettings()</a></dt>
+<dd><p>Checks if settings exist in local storage. If not, creates defaults.</p>
+</dd>
+<dt><a href="#submitSettings">submitSettings()</a></dt>
+<dd><p>Updates settings in local storage based on inputs on settings page</p>
+</dd>
+<dt><a href="#resetSettings">resetSettings()</a></dt>
+<dd><p>Resets settings in local storage to defaults</p>
+</dd>
+<dt><a href="#setSettings">setSettings()</a></dt>
+<dd><p>Sets values on settings page based on local storage values</p>
+</dd>
 <dt><a href="#openNav">openNav()</a></dt>
 <dd><p>Pulls out sidebar, moves menu button left, sets menu button to close sidebar</p>
 </dd>
@@ -125,6 +137,30 @@ Does a random thing
 | x | <code>Number</code> | 
 | y | <code>Number</code> | 
 
+<a name="checkSettings"></a>
+
+## checkSettings()
+Checks if settings exist in local storage. If not, creates defaults.
+
+**Kind**: global function  
+<a name="submitSettings"></a>
+
+## submitSettings()
+Updates settings in local storage based on inputs on settings page
+
+**Kind**: global function  
+<a name="resetSettings"></a>
+
+## resetSettings()
+Resets settings in local storage to defaults
+
+**Kind**: global function  
+<a name="setSettings"></a>
+
+## setSettings()
+Sets values on settings page based on local storage values
+
+**Kind**: global function  
 <a name="openNav"></a>
 
 ## openNav()
@@ -161,4 +197,4 @@ Displays analytics content, updates menu buttons
 Displays settings content, updates menu buttons
 
 **Kind**: global function  
-Done in 0.77s.
+Done in 0.80s.
