@@ -1,5 +1,7 @@
 name: Lint and Test
-on: push
+
+on: [push, pull_request]
+
 jobs:
   build:
     name: Linting and Testing
@@ -9,10 +11,12 @@ jobs:
       uses: actions/checkout@v2
     - name: Install modules
       run: yarn
-    - name: Linting
-      run: yarn run eslint . --ext .js,.jsx
+    - name: Lint JS
+      run: yarn run eslint source/ --ext .js,.jsx
+    - name: Lint HTML
+      run: yarn run htmlhint "source/**/*.html"
+    - name: Lint CSS
+      run: yarn run stylelint "source/**/*.css"
     # TODO: Setup after tests are setup
     # - name: Testing
     #   run: yarn run jest
-    - name: Clean up
-      run: rm -rf node_modules yarn.lock
