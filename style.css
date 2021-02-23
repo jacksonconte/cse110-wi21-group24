@@ -100,7 +100,8 @@ svg text {
 
 /* The button used to open the sidebar */
 #openButton {
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   font-size: 45px;
   cursor: pointer;
   color: black;
@@ -110,7 +111,8 @@ svg text {
 }
 
 #display {
-  position: fixed;
+  /* position: fixed; */
+  position: static;
   left: 50%;
 }
 
