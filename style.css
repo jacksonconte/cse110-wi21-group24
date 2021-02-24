@@ -6,6 +6,15 @@ body {
   font-family: sans-serif;
 }
 
+#settings {
+  text-align: center;
+}
+
+#settings-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #countdown {
   position: relative;
   margin: 0 auto;
