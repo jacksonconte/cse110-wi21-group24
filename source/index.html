@@ -7,10 +7,11 @@
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/timer.js"></script>
     <script src="scripts/tasks.js"></script>
+    <script src="scripts/settings.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body style="background-color: #f8f8ff">
+  <body style="background-color: #f8f8ff" onload="checkSettings()">
     <div id="mySidebar" class="sidebar">
       <button id="timerbtn" onclick="closeNav()">Timer</button>
       <button id="tasksbtn" onclick="openTasks()">Task List</button>
@@ -69,7 +70,60 @@
       </div>
 
       <div id="settings" class="content">
-        <p>Settings or smthg</p>
+        <table id="settings-table">
+          <tr>
+            <td>
+              <label for="work-pomo-time">Work Pomo Length (in minutes)</label>
+            </td>
+            <td>
+              <input type="number" value="25" id="work-pomo-time">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="short-break-time">Short Break Length (in minutes)</label>
+            </td>
+            <td>
+              <input type="number" value="5" id="short-break-time">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="long-break-time">Long Break Length (in minutes)</label>
+            </td>
+            <td>
+              <input type="number" value="15" id="long-break-time">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Toggle Analytics</p>
+            </td>
+            <td>
+              <label for="analytics-on">On</label>
+              <input type="radio" name="analytics-toggle" id="analytics-on" value="On" checked>
+              <label for="analytics-off">Off</label>
+              <input type="radio" name="analytics-toggle" id="analytics-off" value="Off">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Toggle Dark Mode</p>
+            </td>
+            <td>
+              <label for="dark-mode-on">On</label>
+              <input type="radio" name="dark-mode-toggle" id="dark-mode-on" value="On">
+              <label for="dark-mode-off">Off</label>
+              <input type="radio" name="dark-mode-toggle" id="dark-mode-off" value="Off" checked>
+            </td>
+          </tr>
+        </table>
+        <button id="submit-button" onclick="submitSettings()">Submit</button>
+        <button id="reset-button" onclick="resetSettings()">Reset to Defaults</button>
+        <form>
+
+
+        </form>
       </div>
       <div id="analytics" class="content">
         <p>Analytics or smthg</p>
