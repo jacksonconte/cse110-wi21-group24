@@ -1,15 +1,37 @@
 let timerStarted = false;
 let timerSeconds, intervalID, button, readout, circle;
-const DURATION = 60; // seconds for timer
+const DURATION = 5; // seconds for timer
 
 function startTimer() {
   intervalID = setInterval(tick, 1000);
+  let circle = document.getElementsByTagName("circle")[0];
   circle.style["animation-duration"] = DURATION + "s";
   circle.style["animation-play-state"] = "running";
 
   button.innerHTML = "STOP";
   timerStarted = true;
   //TODO: make sidebar disapear
+}
+
+function resumeTimer() {
+  if (timerSeconds < DURATION) {
+    let newCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+    document.getElementsByClassName("animate")[0].remove(); //removes old circle
+
+    //draws the new circle
+    newCircle.setAttribute('class', 'animate');
+    newCircle.setAttribute('cx', '50%');
+    newCircle.setAttribute('cy', '50%');
+    newCircle.setAttribute('r', '100');
+
+    //below sets the css variable circleBarOffset to the correct values
+    newCircle.style.animationDuration = (timerSeconds) + "s";
+    newCircle.style.animationPlayState = "running";
+    newCircle.style.setProperty("--circleBarOffset", (628/DURATION) * (DURATION - timerSeconds) + "px");
+    
+    //sets the new circle to be running and the circle bar at correct position
+    document.getElementById("circle_svg").appendChild(newCircle);
+  }
 }
 
 // stops and resets timer
@@ -21,10 +43,16 @@ function stopTimer() {
   button.innerHTML = "START";
   timerSeconds = DURATION;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
-  // TODO: make sidebar reappear
+
+  //forces a rerender of the svg 
   let temp = document.getElementById("circle_svg");
   document.getElementById("circle_svg").remove();
   document.getElementById("countdown").appendChild(temp);
+
+  //removes circle bar offsets so we dont have any half circles rendering
+  let circle = document.getElementsByTagName("circle")[0];
+  circle.setAttribute('style', "");
+  circle.style.setProperty("--circleBarOffset", "0px");
 }
 
 // reflows animation
@@ -32,7 +60,6 @@ function resetAnimation() {
   circle.style.animation = "none";
   circle.offsetHeight; // trigger reflow
   circle.style.animation = null;
-
 }
 
 // decrements time each second

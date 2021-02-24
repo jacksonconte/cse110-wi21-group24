@@ -35,7 +35,7 @@ svg text {
 
 .animate {
   stroke-dasharray: 628px;
-  /* stroke-dashoffset: 0px;*/
+  /* stroke-dashoffset: 0px; */
   stroke-linecap: butt;
   stroke-width: 6px;
   stroke: red;
@@ -50,7 +50,7 @@ svg text {
 
 @keyframes countdown {
   from {
-    stroke-dashoffset: 0px;
+    stroke-dashoffset: var(--circleBarOffset);
   }
   to {
     stroke-dashoffset: 628px; /* needs to be calculated, not hard coded in */
@@ -139,4 +139,8 @@ svg text {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+:root {
+  --circleBarOffset: 0px;
 }
