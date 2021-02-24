@@ -1,7 +1,7 @@
 /**
  * @description Checks if settings exist in local storage. If not, creates defaults.
  */
-function checkSettings() {
+function checkSettings () {
   if (window.localStorage.getItem("workPomoTime") === null) {
     window.localStorage.setItem("workPomoTime", 25);
   }
