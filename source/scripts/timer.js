@@ -1,11 +1,23 @@
 let timerStarted = false;
-let timerSeconds, intervalID, button, readout, circle;
-const DURATION = 5; // seconds for timer
+let timerSeconds, intervalID, button, readout, circle, duration;
+
+function showSetButtons() {
+  document.getElementById('set-pomo').display = 'initial';
+  document.getElementById('set-short').display = 'initial';
+  document.getElementById('set-long').display = 'initial';
+}
+
+function hideSetButtons() {
+  document.getElementById('set-pomo').display = 'none';
+  document.getElementById('set-short').display = 'none';
+  document.getElementById('set-long').display = 'none';
+}
 
 function startTimer() {
+  hideSetButtons();
   intervalID = setInterval(tick, 1000);
   let circle = document.getElementsByTagName("circle")[0];
-  circle.style["animation-duration"] = DURATION + "s";
+  circle.style["animation-duration"] = duration + "s";
   circle.style["animation-play-state"] = "running";
 
   button.innerHTML = "STOP";
@@ -14,7 +26,7 @@ function startTimer() {
 }
 
 function resumeTimer() {
-  if (timerSeconds < DURATION) {
+  if (timerSeconds < duration) {
     let newCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
     document.getElementsByClassName("animate")[0].remove(); //removes old circle
 
@@ -25,9 +37,9 @@ function resumeTimer() {
     newCircle.setAttribute('r', '100');
 
     //below sets the css variable circleBarOffset to the correct values
-    newCircle.style.animationDuration = (timerSeconds) + "s";
+    newCircle.style.animationduration = (timerSeconds) + "s";
     newCircle.style.animationPlayState = "running";
-    newCircle.style.setProperty("--circleBarOffset", (628/DURATION) * (DURATION - timerSeconds) + "px");
+    newCircle.style.setProperty("--circleBarOffset", (628/duration) * (duration - timerSeconds) + "px");
     
     //sets the new circle to be running and the circle bar at correct position
     document.getElementById("circle_svg").appendChild(newCircle);
@@ -36,12 +48,13 @@ function resumeTimer() {
 
 // stops and resets timer
 function stopTimer() {
+  showSetButtons();
   timerStarted = false;
   clearInterval(intervalID);
   resetAnimation();
 
   button.innerHTML = "START";
-  timerSeconds = DURATION;
+  timerSeconds = duration;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
 
   //forces a rerender of the svg 
@@ -81,13 +94,18 @@ function convertToPrettyTime(seconds) {
   );
 }
 
+function setTime(minutes) {
+  duration = minutes * 60;
+  readout.innerHTML = convertToPrettyTime(duration);
+}
+
 // sets element vars and defines button onclick
 window.addEventListener("DOMContentLoaded", () => {
   button = document.getElementById("toggle");
   readout = document.getElementById("countdown-number");
   circle = document.querySelector("circle");
 
-  readout.innerHTML = convertToPrettyTime(DURATION);
+  setTime(localStorage.getItem('workPomoTime'));
 
   button.onclick = () => {
     if (timerStarted) {
@@ -95,6 +113,16 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       startTimer();
     }
-    timerSeconds = DURATION;
+    timerSeconds = duration;
   };
+
+  document.getElementById('set-pomo').onclick = () => {
+    setTime(Number(localStorage.getItem('workPomoTime')));
+  }
+  document.getElementById('set-short').onclick = () => {
+    setTime(Number(localStorage.getItem('shortBreakTime')));
+  }
+  document.getElementById('set-long').onclick = () => {
+    setTime(Number(localStorage.getItem('longBreakTime')));
+  }
 });
