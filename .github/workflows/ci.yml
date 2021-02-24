@@ -11,7 +11,7 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Lint JS
-      run: yarn run eslint "source/**"
+      run: yarn run eslint "source/**/*.js"
     - name: Lint HTML
       run: yarn run htmlhint "source/**/*.html"
     - name: Lint CSS
