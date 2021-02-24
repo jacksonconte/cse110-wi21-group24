@@ -3,6 +3,16 @@ body {
   height: 100%;
   width: 100%;
   background-color: white;
+  font-family: sans-serif;
+}
+
+#settings {
+  text-align: center;
+}
+
+#settings-table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #countdown {
