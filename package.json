@@ -13,6 +13,7 @@
     "jsdoc-to-markdown": "^6.0.1",
     "prettier": "2.2.1",
     "stylelint": "^13.11.0",
+    "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0"
   }
 }
