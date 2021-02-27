@@ -15,6 +15,8 @@ We will use [Prettier](https://prettier.io/) to format our codebase.
    - Run `npx prettier --write .` from the project root directory to format all files in our codebase.
    - Run `npx prettier --write <path>` to format a file or directory.
 1. VSCode
+   - `CMD/CTRL + Shift + P` -> Format Document
+   - There are other options you could use [here](https://github.com/prettier/prettier-vscode#usage).
 
 # HTML
 
@@ -33,8 +35,8 @@ Check out the list of [stylelint rules](https://stylelint.io/user-guide/rules/li
 
 **Using stylelint in VSCode**
 
-- Install and enable the [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) 
-extension in VSCode.
+- Install and enable the [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+  extension in VSCode.
 
 # JavaScript
 
