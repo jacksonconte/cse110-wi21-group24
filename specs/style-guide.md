@@ -20,6 +20,8 @@ the root directory. To learn more about these rules, check out the list of
 
 # JavaScript
 
+Prettier will take care of **most** of the formatting.
+
 **Rules:** https://standardjs.com/rules.html
 
 **Exceptions:**
