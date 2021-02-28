@@ -1,6 +1,5 @@
 yarn run v1.22.5
-$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/\*\*'
-
+$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/**'
 ## Functions
 
 <dl>
@@ -21,57 +20,53 @@ $ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/js
 <a name="addNum"></a>
 
 ## addNum(num1, num2) ⇒ <code>Number</code>
-
 Adds two numbers together
 
 **Kind**: global function  
-**Returns**: <code>Number</code> - sum of the two numbers
+**Returns**: <code>Number</code> - sum of the two numbers  
 
-| Param | Type                |
-| ----- | ------------------- |
-| num1  | <code>Number</code> |
-| num2  | <code>Number</code> |
+| Param | Type |
+| --- | --- |
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
 <a name="subNum"></a>
 
 ## subNum(num1, num2) ⇒ <code>Number</code>
-
 Subtracts two numbers
 
 **Kind**: global function  
-**Returns**: <code>Number</code> - difference of the two numbers
+**Returns**: <code>Number</code> - difference of the two numbers  
 
-| Param | Type                |
-| ----- | ------------------- |
-| num1  | <code>Number</code> |
-| num2  | <code>Number</code> |
+| Param | Type |
+| --- | --- |
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
 <a name="multNum"></a>
 
 ## multNum(num1, num2) ⇒ <code>Number</code>
-
 Multiplies two numbers
 
 **Kind**: global function  
-**Returns**: <code>Number</code> - product of the two numbers
+**Returns**: <code>Number</code> - product of the two numbers  
 
-| Param | Type                |
-| ----- | ------------------- |
-| num1  | <code>Number</code> |
-| num2  | <code>Number</code> |
+| Param | Type |
+| --- | --- |
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
 <a name="divNum"></a>
 
 ## divNum(num1, num2) ⇒ <code>Number</code>
-
 Divides two numbers
 
 **Kind**: global function  
-**Returns**: <code>Number</code> - quotient of the two numbers
+**Returns**: <code>Number</code> - quotient of the two numbers  
 
-| Param | Type                |
-| ----- | ------------------- |
-| num1  | <code>Number</code> |
-| num2  | <code>Number</code> |
+| Param | Type |
+| --- | --- |
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
 Done in 0.66s.
