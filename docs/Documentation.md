@@ -1,5 +1,6 @@
 yarn run v1.22.5
-$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/**'
+$ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/\*\*'
+
 ## Functions
 
 <dl>
@@ -38,60 +39,70 @@ $ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/js
 <a name="checkSettings"></a>
 
 ## checkSettings()
+
 Checks if settings exist in local storage. If not, creates defaults.
 
 **Kind**: global function  
 <a name="submitSettings"></a>
 
 ## submitSettings()
+
 Updates settings in local storage based on inputs on settings page
 
 **Kind**: global function  
 <a name="resetSettings"></a>
 
 ## resetSettings()
+
 Resets settings in local storage to defaults
 
 **Kind**: global function  
 <a name="setSettings"></a>
 
 ## setSettings()
+
 Sets values on settings page based on local storage values
 
 **Kind**: global function  
 <a name="openNav"></a>
 
 ## openNav()
+
 Pulls out sidebar, moves menu button left, sets menu button to close sidebar
 
 **Kind**: global function  
 <a name="closeNav"></a>
 
 ## closeNav()
+
 Hides sidebar, moves menu button right, sets menu button to open sidebar
 
 **Kind**: global function  
 <a name="openTimer"></a>
 
 ## openTimer()
+
 Displays timer content, updates menu buttons
 
 **Kind**: global function  
 <a name="openTasks"></a>
 
 ## openTasks()
+
 Displays tasks content, updates menu buttons
 
 **Kind**: global function  
 <a name="openAnalytics"></a>
 
 ## openAnalytics()
+
 Displays analytics content, updates menu buttons
 
 **Kind**: global function  
 <a name="openSettings"></a>
 
 ## openSettings()
+
 Displays settings content, updates menu buttons
 
 **Kind**: global function  
