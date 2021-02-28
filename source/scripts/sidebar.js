@@ -20,6 +20,7 @@ function closeNav() {
  * @description Displays timer content, updates menu buttons
  */
 function openTimer() {
+  resumeTimer();
   /* display appropriate content */
   document.getElementById("tasks").style.display = "none";
   document.getElementById("analytics").style.display = "none";

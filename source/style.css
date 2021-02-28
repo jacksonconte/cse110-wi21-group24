@@ -3,6 +3,16 @@ body {
   height: 100%;
   width: 100%;
   background-color: white;
+  font-family: sans-serif;
+}
+
+#settings {
+  text-align: center;
+}
+
+#settings-table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #countdown {
@@ -34,8 +44,8 @@ svg text {
 }
 
 .animate {
-  stroke-dasharray: 628px;
-  /* stroke-dashoffset: 0px;*/
+  stroke-dasharray: var(--strokeDashOffset); 
+  /* stroke-dashoffset: 0px; */
   stroke-linecap: butt;
   stroke-width: 6px;
   stroke: red;
@@ -50,10 +60,10 @@ svg text {
 
 @keyframes countdown {
   from {
-    stroke-dashoffset: 0px;
+    stroke-dashoffset: var(--circleBarOffset);
   }
   to {
-    stroke-dashoffset: 628px; /* needs to be calculated, not hard coded in */
+    stroke-dashoffset: var(--strokeDashOffset); 
   }
 }
 
@@ -100,7 +110,8 @@ svg text {
 
 /* The button used to open the sidebar */
 #openButton {
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   font-size: 45px;
   cursor: pointer;
   color: black;
@@ -109,8 +120,10 @@ svg text {
   z-index: 2;
 }
 
+
 #display {
-  position: fixed;
+  /* position: fixed; */
+  position: static;
   left: 50%;
 }
 
@@ -137,4 +150,9 @@ svg text {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+:root {
+  --circleBarOffset: 0px;
+  --strokeDashOffset: 628px;
 }
