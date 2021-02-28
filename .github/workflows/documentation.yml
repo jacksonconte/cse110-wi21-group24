@@ -20,7 +20,7 @@ jobs:
           thisBranch=$(git branch --show-current)
           git add .
           git commit -m "Generating documentation"
-          git push origin HEAD:${thisBranch}
+          git push origin $GITHUB_REF
     #- name: Push changes # push the output folder to your repo
     #  uses: ad-m/github-push-action@master
     #  with:
