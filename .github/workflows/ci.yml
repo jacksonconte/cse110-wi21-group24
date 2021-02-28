@@ -18,5 +18,6 @@ jobs:
       run: yarn run htmlhint "source/**/*.html"
     - name: Lint CSS
       run: yarn run stylelint "source/**/*.css"
-    - name: Testing
-      run: yarn test
+    # TODO: Setup after tests are setup
+    # - name: Testing
+    #   run: yarn run jest
