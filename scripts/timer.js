@@ -3,17 +3,6 @@ let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
 let currTaskPomos = 0;
 
-// function showSetButtons() {
-//   document.getElementById('set-pomo').display = 'initial';
-//   document.getElementById('set-short').display = 'initial';
-//   document.getElementById('set-long').display = 'initial';
-// }
-
-// function hideSetButtons() {
-//   document.getElementById('set-pomo').display = 'none';
-//   document.getElementById('set-short').display = 'none';
-//   document.getElementById('set-long').display = 'none';
-// }
 
 function timerOpen() {
   if(!timerStarted){
@@ -35,19 +24,6 @@ function timerOpen() {
     }
   }
 
-
-}
-
-function addQueue() {
-  let tasks = document.getElementsByName('list-tasks');
-  for(var i = 0; i < tasks.length; i++){
-    if(tasks[i].checked){
-
-    }
-  }
-}
-
-function removeQueue() {
 
 }
 
@@ -191,13 +167,4 @@ window.addEventListener("DOMContentLoaded", () => {
     timerSeconds = duration;
   };
 
-  // document.getElementById('set-pomo').onclick = () => {
-  //   setTime(Number(localStorage.getItem('workPomoTime')));
-  // }
-  // document.getElementById('set-short').onclick = () => {
-  //   setTime(Number(localStorage.getItem('shortBreakTime')));
-  // }
-  // document.getElementById('set-long').onclick = () => {
-  //   setTime(Number(localStorage.getItem('longBreakTime')));
-  // }
 });
