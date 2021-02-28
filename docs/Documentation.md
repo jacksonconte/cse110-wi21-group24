@@ -95,4 +95,4 @@ Displays analytics content, updates menu buttons
 Displays settings content, updates menu buttons
 
 **Kind**: global function  
-Done in 0.73s.
+Done in 0.76s.
