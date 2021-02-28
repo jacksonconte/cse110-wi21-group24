@@ -16,17 +16,19 @@ jobs:
         git config --local user.name "Documentation Generator"
         rm -rf node_modules
         rm yarn.lock
+        thisBranch=$(git branch --show-current)
         git add .
         git commit -m "Generating documentation"
-    - name: Push changes # push the output folder to your repo
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-        force: true
-    - name: Upload Documentation to Wiki
-      uses: SwiftDocOrg/github-wiki-publish-action@v1
-      with:
-        path: "docs"
-      env:
-        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        git push origin ${thisBranch}
+    #- name: Push changes # push the output folder to your repo
+    #  uses: ad-m/github-push-action@master
+    #  with:
+    #    github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+    #    force: true
+    # - name: Upload Documentation to Wiki
+    #  uses: SwiftDocOrg/github-wiki-publish-action@v1
+    #  with:
+    #    path: "docs"
+    #  env:
+    #    GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           
