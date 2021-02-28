@@ -44,7 +44,7 @@ svg text {
 }
 
 .animate {
-  stroke-dasharray: 628px;
+  stroke-dasharray: var(--strokeDashOffset); 
   /* stroke-dashoffset: 0px; */
   stroke-linecap: butt;
   stroke-width: 6px;
@@ -63,7 +63,7 @@ svg text {
     stroke-dashoffset: var(--circleBarOffset);
   }
   to {
-    stroke-dashoffset: 628px; /* needs to be calculated, not hard coded in */
+    stroke-dashoffset: var(--strokeDashOffset); 
   }
 }
 
@@ -153,4 +153,5 @@ svg text {
 
 :root {
   --circleBarOffset: 0px;
+  --strokeDashOffset: 628px;
 }
