@@ -32,7 +32,6 @@ function resetAnimation() {
   circle.style.animation = "none";
   circle.offsetHeight; // trigger reflow
   circle.style.animation = null;
-
 }
 
 // decrements time each second

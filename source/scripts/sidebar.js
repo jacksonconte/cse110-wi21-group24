@@ -2,9 +2,9 @@
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
 function openNav() {
-    document.getElementById("mySidebar").style.width = "350px";
-    document.getElementById("openButton").style.paddingLeft = "275px";
-    document.getElementById("openButton").onclick = closeNav;
+  document.getElementById("mySidebar").style.width = "350px";
+  document.getElementById("openButton").style.paddingLeft = "275px";
+  document.getElementById("openButton").onclick = closeNav;
 }
 
 /**

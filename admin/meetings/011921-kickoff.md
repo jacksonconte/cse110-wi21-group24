@@ -1,7 +1,9 @@
 # Group 24 Kickoff Meeting #1
-*Jan 19, 2021, 10:00 AM*
+
+_Jan 19, 2021, 10:00 AM_
 
 ### Present Group Members:
+
 - Jackson Conte
 - Adam Yoshinaga
 - Noah Verdegan
@@ -10,6 +12,7 @@
 - Roger Ji
 
 ### Agenda
+
 - Repo (created here)
   - Collaborators added
 - Role interest
@@ -22,15 +25,18 @@
   - Two truths, one lie
   - Deliberately bad PSA rap
 - Team name/page
+
   - "Sprit Veggies" chosen for now
   - Vaguely VeggieTales theme
-  
+
   **Meeting ended at 11:00 AM**
 
 # Group 24 Kickoff Meeting #2
-*Jan 19, 2021, 04:03 PM*
+
+_Jan 19, 2021, 04:03 PM_
 
 ### Present Group Members:
+
 - Jackson Conte
 - Ahmed Hussaini
 - David Jeong
@@ -39,6 +45,7 @@
 - Adam Yoshinaga
 
 ### Agenda
+
 - General working meeting, continuing to get things set up
 
   **Meeting ended at 4:30 PM**
