@@ -15,6 +15,7 @@ function startTimer() {
   if(pomoIndex % 2 == 0){
     document.getElementById('openButton').style.color = document.body.style.backgroundColor;
     document.getElementById('openButton').onclick = '';
+    document.getElementById('openButton').style.cursor = 'default';
   }
 }
 
@@ -82,6 +83,7 @@ function stopTimer() {
 
   document.getElementById('openButton').style.color = 'black';
   document.getElementById('openButton').onclick = openNav;
+  document.getElementById('openButton').style.cursor = 'pointer';
   circle.style.animationPlayState = "paused";
 }
 
