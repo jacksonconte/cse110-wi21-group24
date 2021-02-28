@@ -3,11 +3,22 @@ let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
 let currTaskPomos = 0;
 
-/**
- * @function timerOpen
- * @description updates timer duration based on pomo stage
- */
-function timerOpen() {
+function startTimer() {
+  document.getElementById('end-task').style.display = 'none';
+  intervalID = setInterval(tick, 1000);
+  let circle = document.getElementsByTagName("circle")[0];
+  circle.style["animation-duration"] = duration + "s";
+  circle.style["animation-play-state"] = "running";
+
+  button.innerHTML = "STOP";
+  timerStarted = true;
+  if(pomoIndex % 2 == 0){
+    document.getElementById('openButton').style.color = document.body.style.backgroundColor;
+    document.getElementById('openButton').onclick = '';
+  }
+}
+
+function resumeTimer() {
   if(!timerStarted){
     switch(pomoIndex) {
       case 0:
@@ -26,34 +37,7 @@ function timerOpen() {
         
     }
   }
-
-
-}
-
-/**
- * @function startTimer
- * @description starts timer with tick interval
- */
-function startTimer() {
-  // hideSetButtons();
-  intervalID = setInterval(tick, 1000);
-  let circle = document.getElementsByTagName("circle")[0];
-  circle.style["animation-duration"] = duration + "s";
-  circle.style["animation-play-state"] = "running";
-
-  button.innerHTML = "STOP";
-  timerStarted = true;
-  if(pomoIndex % 2 == 0){
-    document.getElementById('openButton').style.color = document.body.style.backgroundColor;
-    document.getElementById('openButton').onclick = '';
-  }
-}
-
-/**
- * @function resumeTimer
- * @description re-renders timer page after user navigates back to it through nav bar
- */
-function resumeTimer() {
+  
   if (timerSeconds < duration) {
     let newCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
     document.getElementsByClassName("animate")[0].remove(); //removes old circle
@@ -79,7 +63,6 @@ function resumeTimer() {
  * @description stops timer and resets animation
  */
 function stopTimer() {
-  // showSetButtons();
   timerStarted = false;
   clearInterval(intervalID);
   resetAnimation();
@@ -149,9 +132,11 @@ function incrementPomo(){
     case 3:
     case 5:
       setTime(localStorage.getItem('shortBreakTime'));
+      document.getElementById('end-task').style.display = 'initial';
       break;
     case 7:
       setTime(localStorage.getItem('longBreakTime'));
+      document.getElementById('end-task').style.display = 'initial';
       
   }
 }
