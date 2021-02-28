@@ -2,11 +2,11 @@
 
 ## Agenda
 
-[] Implement unit testing
+[ ] Implement unit testing
 
-[] Integrate task list into timer
+[ ] Integrate task list into timer
 
-[] Automate break allocation
+[ ] Automate break allocation
 
 Absent: David
 Late: Roger, Adam
