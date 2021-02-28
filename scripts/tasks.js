@@ -1,5 +1,9 @@
 var dict = {}
-
+/**
+ * @description gets the max key value in the dictionary
+ * @param {dict} dict
+ * @returns {Number} The largest key in the dictionary
+ */
 function getMax(dict) {
     var currentMax = -1
     for (var key in dict) {
@@ -9,7 +13,11 @@ function getMax(dict) {
     }
     return Number(currentMax)
 }
-function setId(){
+/**
+ * @description Sets the ID for the element to be added to the dict
+ * @returns {String} Returns the ID in string form
+ */
+function setId() {
     let nextId = 0
     if (Object.keys(dict).length > 0) {
         nextId = getMax(dict) + 1
@@ -18,8 +26,15 @@ function setId(){
     }
     return nextId.toString()
 }
-//Custom component
+/**
+ * @class TaskItem
+ * @description A custom component that defines the task
+ */
 class TaskItem extends HTMLElement {
+    /**
+     * @constructor
+     * @description Constructor of the TaskItem class
+     */
     constructor() {
         super()
         this.attachShadow({
@@ -37,16 +52,25 @@ class TaskItem extends HTMLElement {
         var actualPomos = document.createElement('p')
         actualPomos.setAttribute('class', 'task-act-pomos')
         actualPomos.textContent = 'TBD'
-        var button = document.createElement('button')
-        button.textContent = 'Remove Task'
-        button.addEventListener('click', removeTask)
-
+        var startButton = document.createElement('button')
+        startButton.textContent = 'Start Task'
+        startButton.addEventListener('click', startTask)
+        var removeButton = document.createElement('button')
+        removeButton.textContent = 'Remove Task'
+        removeButton.addEventListener('click', removeTask)
+        /**
+         * @method removeTask
+         * @description removes task from dictionary and window
+         */
         function removeTask() {
             delete dict[dv.id]
             localStorage.setItem('tasks', JSON.stringify(dict))
             this.parentElement.remove()
         }
 
+        function startTask(){
+            console.log("hi")
+        }
         this.shadowRoot.innerHTML = `
             <style>
                 .task {
@@ -60,17 +84,18 @@ class TaskItem extends HTMLElement {
                     border: solid 1px;   
                     border-color: gray;
                 }
-                .task-name, .task-est-pomos, .task-act-pomos, button {
+                .task-name, .task-est-pomos, .task-act-pomos, removeButton {
                     margin: 0px 50px 0px 50px; 
                 }
 
             </style>
-        `;
+        `
 
         dv.appendChild(taskName)
         dv.appendChild(estPomos)
         dv.appendChild(actualPomos)
-        dv.appendChild(button)
+        dv.appendChild(startButton)
+        dv.appendChild(removeButton)
         this.shadowRoot.append(dv)
     }
 }
@@ -97,7 +122,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var submitButton = document.getElementById('add-task-button')
     submitButton.addEventListener('click', submitTask)
-
+    /**
+     * @method submitTask
+     * @description Adds task to dictionary and window
+     */
     function submitTask() {
         let item = document.createElement('task-item')
         let itemName = item.shadowRoot.querySelector('.task-name')
