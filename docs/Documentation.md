@@ -1,164 +1,72 @@
 yarn run v1.22.5
 $ /home/runner/work/cse110-wi21-group24/cse110-wi21-group24/node_modules/.bin/jsdoc2md -f 'source/**'
-## Classes
-
-<dl>
-<dt><a href="#Triangle">Triangle</a></dt>
-<dd></dd>
-<dt><a href="#Triangle">Triangle</a></dt>
-<dd></dd>
-</dl>
-
 ## Functions
 
 <dl>
-<dt><a href="#area">area()</a> ⇒ <code>Number</code></dt>
-<dd><p>Calclulates the area of the Triangle</p>
+<dt><a href="#addNum">addNum(num1, num2)</a> ⇒ <code>Number</code></dt>
+<dd><p>Adds two numbers together</p>
 </dd>
-<dt><a href="#perimeter">perimeter(side1, side2, side3)</a> ⇒ <code>Number</code></dt>
-<dd><p>Calculates the perimeter of a Triangle</p>
+<dt><a href="#subNum">subNum(num1, num2)</a> ⇒ <code>Number</code></dt>
+<dd><p>Subtracts two numbers</p>
 </dd>
-<dt><a href="#foobar">foobar(x, y)</a> ⇒</dt>
-<dd><p>Does a random thing</p>
+<dt><a href="#multNum">multNum(num1, num2)</a> ⇒ <code>Number</code></dt>
+<dd><p>Multiplies two numbers</p>
 </dd>
-<dt><a href="#openNav">openNav()</a></dt>
-<dd><p>Pulls out sidebar, moves menu button left, sets menu button to close sidebar</p>
-</dd>
-<dt><a href="#closeNav">closeNav()</a></dt>
-<dd><p>Hides sidebar, moves menu button right, sets menu button to open sidebar</p>
-</dd>
-<dt><a href="#openTimer">openTimer()</a></dt>
-<dd><p>Displays timer content, updates menu buttons</p>
-</dd>
-<dt><a href="#openTasks">openTasks()</a></dt>
-<dd><p>Displays tasks content, updates menu buttons</p>
-</dd>
-<dt><a href="#openAnalytics">openAnalytics()</a></dt>
-<dd><p>Displays analytics content, updates menu buttons</p>
-</dd>
-<dt><a href="#openSettings">openSettings()</a></dt>
-<dd><p>Displays settings content, updates menu buttons</p>
+<dt><a href="#divNum">divNum(num1, num2)</a> ⇒ <code>Number</code></dt>
+<dd><p>Divides two numbers</p>
 </dd>
 </dl>
 
-<a name="Triangle"></a>
+<a name="addNum"></a>
 
-## Triangle
-**Kind**: global class  
+## addNum(num1, num2) ⇒ <code>Number</code>
+Adds two numbers together
 
-* [Triangle](#Triangle)
-    * [new Triangle()](#new_Triangle_new)
-    * [new Triangle(base, height)](#new_Triangle_new)
-
-<a name="new_Triangle_new"></a>
-
-### new Triangle()
-A class made to hold the properties of a triangle
-
-<a name="new_Triangle_new"></a>
-
-### new Triangle(base, height)
-Constructor of a Triangle object
-
+**Kind**: global function  
+**Returns**: <code>Number</code> - sum of the two numbers  
 
 | Param | Type |
 | --- | --- |
-| base | <code>Number</code> | 
-| height | <code>Number</code> | 
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
-<a name="Triangle"></a>
+<a name="subNum"></a>
 
-## Triangle
-**Kind**: global class  
+## subNum(num1, num2) ⇒ <code>Number</code>
+Subtracts two numbers
 
-* [Triangle](#Triangle)
-    * [new Triangle()](#new_Triangle_new)
-    * [new Triangle(base, height)](#new_Triangle_new)
-
-<a name="new_Triangle_new"></a>
-
-### new Triangle()
-A class made to hold the properties of a triangle
-
-<a name="new_Triangle_new"></a>
-
-### new Triangle(base, height)
-Constructor of a Triangle object
-
+**Kind**: global function  
+**Returns**: <code>Number</code> - difference of the two numbers  
 
 | Param | Type |
 | --- | --- |
-| base | <code>Number</code> | 
-| height | <code>Number</code> | 
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
-<a name="area"></a>
+<a name="multNum"></a>
 
-## area() ⇒ <code>Number</code>
-Calclulates the area of the Triangle
-
-**Kind**: global function  
-**Returns**: <code>Number</code> - The area of the Triangle  
-<a name="perimeter"></a>
-
-## perimeter(side1, side2, side3) ⇒ <code>Number</code>
-Calculates the perimeter of a Triangle
+## multNum(num1, num2) ⇒ <code>Number</code>
+Multiplies two numbers
 
 **Kind**: global function  
-**Returns**: <code>Number</code> - The perimeter of the Triangle  
+**Returns**: <code>Number</code> - product of the two numbers  
 
 | Param | Type |
 | --- | --- |
-| side1 | <code>Number</code> | 
-| side2 | <code>Number</code> | 
-| side3 | <code>Number</code> | 
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
-<a name="foobar"></a>
+<a name="divNum"></a>
 
-## foobar(x, y) ⇒
-Does a random thing
+## divNum(num1, num2) ⇒ <code>Number</code>
+Divides two numbers
 
 **Kind**: global function  
-**Returns**: The sum of x and y  
+**Returns**: <code>Number</code> - quotient of the two numbers  
 
 | Param | Type |
 | --- | --- |
-| x | <code>Number</code> | 
-| y | <code>Number</code> | 
+| num1 | <code>Number</code> | 
+| num2 | <code>Number</code> | 
 
-<a name="openNav"></a>
-
-## openNav()
-Pulls out sidebar, moves menu button left, sets menu button to close sidebar
-
-**Kind**: global function  
-<a name="closeNav"></a>
-
-## closeNav()
-Hides sidebar, moves menu button right, sets menu button to open sidebar
-
-**Kind**: global function  
-<a name="openTimer"></a>
-
-## openTimer()
-Displays timer content, updates menu buttons
-
-**Kind**: global function  
-<a name="openTasks"></a>
-
-## openTasks()
-Displays tasks content, updates menu buttons
-
-**Kind**: global function  
-<a name="openAnalytics"></a>
-
-## openAnalytics()
-Displays analytics content, updates menu buttons
-
-**Kind**: global function  
-<a name="openSettings"></a>
-
-## openSettings()
-Displays settings content, updates menu buttons
-
-**Kind**: global function  
-Done in 0.77s.
+Done in 0.66s.

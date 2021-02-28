@@ -49,3 +49,5 @@ function divNum(num1, num2) {
 }
 
 console.log(divNum(4, 2));
+
+module.exports = addNum;
