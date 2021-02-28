@@ -1,20 +1,58 @@
 let timerStarted = false;
 let timerSeconds, intervalID, button, readout, circle, duration;
+let pomoIndex = 0;
+let currTaskPomos = 0;
 
-function showSetButtons() {
-  document.getElementById('set-pomo').display = 'initial';
-  document.getElementById('set-short').display = 'initial';
-  document.getElementById('set-long').display = 'initial';
+// function showSetButtons() {
+//   document.getElementById('set-pomo').display = 'initial';
+//   document.getElementById('set-short').display = 'initial';
+//   document.getElementById('set-long').display = 'initial';
+// }
+
+// function hideSetButtons() {
+//   document.getElementById('set-pomo').display = 'none';
+//   document.getElementById('set-short').display = 'none';
+//   document.getElementById('set-long').display = 'none';
+// }
+
+function timerOpen() {
+  if(!timerStarted){
+    switch(pomoIndex) {
+      case 0:
+      case 2:
+      case 4:
+      case 6:
+        setTime(localStorage.getItem('workPomoTime'));
+        break;
+      case 1:
+      case 3:
+      case 5:
+        setTime(localStorage.getItem('shortBreakTime'));
+        break;
+      case 7:
+        setTime(localStorage.getItem('longBreakTime'));
+        
+    }
+  }
+
+
 }
 
-function hideSetButtons() {
-  document.getElementById('set-pomo').display = 'none';
-  document.getElementById('set-short').display = 'none';
-  document.getElementById('set-long').display = 'none';
+function addQueue() {
+  let tasks = document.getElementsByName('list-tasks');
+  for(var i = 0; i < tasks.length; i++){
+    if(tasks[i].checked){
+      
+    }
+  }
+}
+
+function removeQueue() {
+
 }
 
 function startTimer() {
-  hideSetButtons();
+  // hideSetButtons();
   intervalID = setInterval(tick, 1000);
   let circle = document.getElementsByTagName("circle")[0];
   circle.style["animation-duration"] = duration + "s";
@@ -22,7 +60,10 @@ function startTimer() {
 
   button.innerHTML = "STOP";
   timerStarted = true;
-  //TODO: make sidebar disapear
+  if(pomoIndex % 2 == 0){
+    document.getElementById('openButton').style.color = document.body.style.backgroundColor;
+    document.getElementById('openButton').onclick = '';
+  }
 }
 
 function resumeTimer() {
@@ -48,7 +89,7 @@ function resumeTimer() {
 
 // stops and resets timer
 function stopTimer() {
-  showSetButtons();
+  // showSetButtons();
   timerStarted = false;
   clearInterval(intervalID);
   resetAnimation();
@@ -66,6 +107,9 @@ function stopTimer() {
   let circle = document.getElementsByTagName("circle")[0];
   circle.setAttribute('style', "");
   circle.style.setProperty("--circleBarOffset", "0px");
+
+  document.getElementById('openButton').style.color = 'black';
+  document.getElementById('openButton').onclick = openNav;
 }
 
 // reflows animation
@@ -79,7 +123,38 @@ function resetAnimation() {
 function tick() {
   timerSeconds--;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
-  if (timerSeconds == 0) stopTimer();
+  if (timerSeconds == 0){
+    incrementPomo();
+    stopTimer();
+  }
+}
+
+//increments pomo count
+function incrementPomo(){
+  if(pomoIndex == 7){
+    pomoIndex = 0;
+  } else{
+    pomoIndex++;
+  }
+  if(pomoIndex % 2 == 1){
+    currTaskPomos++;
+  }
+  switch(pomoIndex) {
+    case 0:
+    case 2:
+    case 4:
+    case 6:
+      setTime(localStorage.getItem('workPomoTime'));
+      break;
+    case 1:
+    case 3:
+    case 5:
+      setTime(localStorage.getItem('shortBreakTime'));
+      break;
+    case 7:
+      setTime(localStorage.getItem('longBreakTime'));
+      
+  }
 }
 
 // converts seconds to mm:ss
@@ -116,13 +191,13 @@ window.addEventListener("DOMContentLoaded", () => {
     timerSeconds = duration;
   };
 
-  document.getElementById('set-pomo').onclick = () => {
-    setTime(Number(localStorage.getItem('workPomoTime')));
-  }
-  document.getElementById('set-short').onclick = () => {
-    setTime(Number(localStorage.getItem('shortBreakTime')));
-  }
-  document.getElementById('set-long').onclick = () => {
-    setTime(Number(localStorage.getItem('longBreakTime')));
-  }
+  // document.getElementById('set-pomo').onclick = () => {
+  //   setTime(Number(localStorage.getItem('workPomoTime')));
+  // }
+  // document.getElementById('set-short').onclick = () => {
+  //   setTime(Number(localStorage.getItem('shortBreakTime')));
+  // }
+  // document.getElementById('set-long').onclick = () => {
+  //   setTime(Number(localStorage.getItem('longBreakTime')));
+  // }
 });
