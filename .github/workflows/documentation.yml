@@ -18,6 +18,7 @@ jobs:
           rm -rf node_modules
           rm yarn.lock
           thisBranch=$(git branch --show-current)
+          git pull origin $GITHUB_HEAD_REF
           git add .
           git commit -m "Generating documentation"
           git push origin $GITHUB_HEAD_REF
