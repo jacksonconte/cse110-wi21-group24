@@ -32,8 +32,6 @@ function openTimer() {
   document.getElementById("tasksbtn").onclick = openTasks;
   document.getElementById("analyticsbtn").onclick = openAnalytics;
   document.getElementById("settingsbtn").onclick = openSettings;
-  
-  timerOpen();
 
   closeNav();
 }
