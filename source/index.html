@@ -62,7 +62,11 @@
             class="task-input-field"
             value="10"
             id="input-pomos"
+            min="0" 
+            step="1" 
+            oninput="validity.valid||(value='');"
           />
+
           <button class="task-input-field" id="add-task-button">
             Add Task
           </button>
