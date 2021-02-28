@@ -19,4 +19,4 @@ jobs:
     - name: Lint CSS
       run: yarn run stylelint "source/**/*.css"
     - name: Testing
-      run: yarn run jest
+      run: yarn jest
