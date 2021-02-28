@@ -42,7 +42,7 @@ function addQueue() {
   let tasks = document.getElementsByName('list-tasks');
   for(var i = 0; i < tasks.length; i++){
     if(tasks[i].checked){
-      
+
     }
   }
 }
@@ -78,7 +78,7 @@ function resumeTimer() {
     newCircle.setAttribute('r', '100');
 
     //below sets the css variable circleBarOffset to the correct values
-    newCircle.style.animationduration = (timerSeconds) + "s";
+    newCircle.style.animationDuration = (timerSeconds) + "s";
     newCircle.style.animationPlayState = "running";
     newCircle.style.setProperty("--circleBarOffset", (628/duration) * (duration - timerSeconds) + "px");
     
@@ -105,11 +105,11 @@ function stopTimer() {
 
   //removes circle bar offsets so we dont have any half circles rendering
   let circle = document.getElementsByTagName("circle")[0];
-  circle.setAttribute('style', "");
   circle.style.setProperty("--circleBarOffset", "0px");
 
   document.getElementById('openButton').style.color = 'black';
   document.getElementById('openButton').onclick = openNav;
+  circle.style.animationPlayState = "paused";
 }
 
 // reflows animation
