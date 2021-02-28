@@ -9,7 +9,9 @@
     <script src="scripts/tasks.js"></script>
     <script src="scripts/settings.js"></script>
     <link rel="stylesheet" href="style.css" />
-  </head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap" rel="stylesheet">  </head>
 
   <body style="background-color: #f8f8ff" onload="checkSettings()">
     <div id="mySidebar" class="sidebar">
@@ -26,6 +28,7 @@
         <div id='curr-task'></div>
         <div id='pomo-status'>Work Pomo</div>
         <div id="countdown">
+          <div class = "title"> Pomodoro Timer </div>
           <svg id="circle_svg">
             <text
               id="countdown-number"
@@ -39,6 +42,7 @@
             <circle cx="50%" cy="50%" r="100" class="animate" />
           </svg>
         </div>
+        <br>
         <div id="toggle-div">
           <button id="toggle">START</button>
           <button id="end-task" style="display:none;" onclick="endTask()">TASK FINISHED</button>
@@ -80,7 +84,7 @@
         <table id="settings-table">
           <tr>
             <td>
-              <label for="work-pomo-time">Work Pomo Length (in minutes)</label>
+              <label for="work-pomo-time">Work Pomo Length (in minutes): &nbsp</label>
             </td>
             <td>
               <input type="number" value="25" id="work-pomo-time">
@@ -88,7 +92,7 @@
           </tr>
           <tr>
             <td>
-              <label for="short-break-time">Short Break Length (in minutes)</label>
+              <label for="short-break-time">Short Break Length (in minutes): &nbsp</label>
             </td>
             <td>
               <input type="number" value="5" id="short-break-time">
@@ -96,7 +100,7 @@
           </tr>
           <tr>
             <td>
-              <label for="long-break-time">Long Break Length (in minutes)</label>
+              <label for="long-break-time">Long Break Length (in minutes): &nbsp</label>
             </td>
             <td>
               <input type="number" value="15" id="long-break-time">
@@ -104,7 +108,7 @@
           </tr>
           <tr>
             <td>
-              <p>Toggle Analytics</p>
+              Toggle Analytics
             </td>
             <td>
               <label for="analytics-on">On</label>
@@ -115,7 +119,7 @@
           </tr>
           <tr>
             <td>
-              <p>Toggle Dark Mode</p>
+              Toggle Dark Mode
             </td>
             <td>
               <label for="dark-mode-on">On</label>
