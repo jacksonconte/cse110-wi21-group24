@@ -13,23 +13,19 @@ jobs:
         run: yarn run jsdoc2md -f 'source/**' > ./docs/Documentation.md
       - name: Commit Documentation
         run: |
-          git config user.name "Documentation Generator"
-          git config user.email "<>"
+          git config --global user.name "Documentation Generator"
           rm -rf node_modules
           rm yarn.lock
-          thisBranch=$(git branch --show-current)
-          git pull origin $GITHUB_HEAD_REF
           git add .
           git commit -m "Generating documentation"
-          git push origin $GITHUB_HEAD_REF
-    #- name: Push changes # push the output folder to your repo
-    #  uses: ad-m/github-push-action@master
-    #  with:
-    #    github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-    #    force: true
-    # - name: Upload Documentation to Wiki
-    #  uses: SwiftDocOrg/github-wiki-publish-action@v1
-    #  with:
-    #    path: "docs"
-    #  env:
-    #    GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          force: true
+      - name: Upload Documentation to Wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "docs"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
