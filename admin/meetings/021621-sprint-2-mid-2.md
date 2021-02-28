@@ -3,6 +3,7 @@
 ## Branched coding jam towards MVP
 
 In attendance:
+
 - Jackson
 - Anshul
 - Adam

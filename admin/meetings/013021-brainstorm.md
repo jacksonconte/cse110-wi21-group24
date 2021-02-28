@@ -1,7 +1,9 @@
 # Meeting minutes for 30 January 2021
+
 ## Brainstorming
 
 Team members in attendance:
+
 - Jackson Conte
 - Anshul Singh
 - Adam Yoshinaga
@@ -16,12 +18,14 @@ Team members in attendance:
 3. Discussing initial role interest (19:50-20:00)
 
 ### Interested in Design
+
 - Jackson (both)
 - Anshul (both)
 - Adam (no preference)
-- 
+-
 
 ### Not interested in design (backend/testing/devops)
+
 - Noah
 - Ahmed
 - David
@@ -33,6 +37,7 @@ Roger TBD
 4. Interface (20:00-20:40)
 
 5. Logistics, meetings, research (20:40-21:00)
+
 - Nimish, Adam interested in continuous animation
 - Noah, interested in local storage
 - Dynamic formatting task list with JS

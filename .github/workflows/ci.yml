@@ -6,17 +6,17 @@ jobs:
     name: Linting and Testing
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Check if Prettier was ran
-      run: npx prettier --check .
-    - name: Lint JS
-      run: yarn run eslint "source/**/*.js"
-    - name: Lint HTML
-      run: yarn run htmlhint "source/**/*.html"
-    - name: Lint CSS
-      run: yarn run stylelint "source/**/*.css"
-    - name: Testing
-      run: yarn jest
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Check if Prettier was ran
+        run: npx prettier --check .
+      - name: Lint JS
+        run: yarn run eslint "source/**/*.js"
+      - name: Lint HTML
+        run: yarn run htmlhint "source/**/*.html"
+      - name: Lint CSS
+        run: yarn run stylelint "source/**/*.css"
+      - name: Testing
+        run: yarn jest
