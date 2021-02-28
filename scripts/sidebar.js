@@ -3,7 +3,8 @@
  */
 function openNav() {
     document.getElementById("mySidebar").style.width = "350px";
-    document.getElementById("openButton").style.paddingLeft = "275px";
+    document.getElementById("openButton").style.cursor = "cursor";
+    document.getElementById("openButton").style.marginLeft = "260px";
     document.getElementById("openButton").onclick = closeNav;
 }
 
@@ -12,7 +13,7 @@ function openNav() {
  */
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("openButton").style.paddingLeft = "15px";
+  document.getElementById("openButton").style.marginLeft = "5px";
   document.getElementById("openButton").onclick = openNav;
 }
 
