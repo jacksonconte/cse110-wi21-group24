@@ -1,4 +1,4 @@
-const addNum = require("../pipeline_tests/randomtest");
+const addNum = require("../source/pipeline_tests/randomtest");
 
 describe("addNum tests", () => {
   test("Adds 4 and 2 to be equal to 6", () => {
