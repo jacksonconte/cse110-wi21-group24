@@ -2,6 +2,23 @@ let timerStarted = false;
 let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
 let currTaskPomos = 0;
+let currTaskID = -1;
+
+function setCurrTask(taskID){
+  currTaskID = taskID;
+  currTaskPomos = 0;
+}
+
+function endTask(){
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+  tasks[currTaskID][2] = currTaskPomos;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  currTaskID = -1;
+  var currentDiv = document.getElementById('curr-task')
+  currentDiv.innerHTML = '';
+  document.getElementById('end-task').style.display = 'none';
+  loadTasks();
+}
 
 function startTimer() {
   document.getElementById('end-task').style.display = 'none';
@@ -129,16 +146,21 @@ function incrementPomo(){
     case 4:
     case 6:
       setTime(localStorage.getItem('workPomoTime'));
+      document.getElementById('pomo-status').innerHTML = 'Work Pomo';
       break;
     case 1:
     case 3:
     case 5:
       setTime(localStorage.getItem('shortBreakTime'));
-      document.getElementById('end-task').style.display = 'initial';
+      document.getElementById('pomo-status').innerHTML = 'Short Break';
+      if(currTaskID != -1)
+        document.getElementById('end-task').style.display = 'initial';
       break;
     case 7:
       setTime(localStorage.getItem('longBreakTime'));
-      document.getElementById('end-task').style.display = 'initial';
+      document.getElementById('pomo-status').innerHTML = 'Long Break';
+      if(currTaskID != -1)
+        document.getElementById('end-task').style.display = 'initial';
       
   }
 }

@@ -23,6 +23,8 @@
 
     <div id="display">
       <div id="timer" class="content">
+        <div id='curr-task'></div>
+        <div id='pomo-status'>Work Pomo</div>
         <div id="countdown">
           <svg id="circle_svg">
             <text
@@ -39,7 +41,7 @@
         </div>
         <div id="toggle-div">
           <button id="toggle">START</button>
-          <button id="end-task" style="display:none;">TASK FINISHED</button>
+          <button id="end-task" style="display:none;" onclick="endTask()">TASK FINISHED</button>
         </div>
       </div>
 
@@ -71,7 +73,7 @@
             Add Task
           </button>
         </div>
-        <div class="task-list"></div>
+        <div id='task-list-id' class="task-list"></div>
       </div>
 
       <div id="settings" class="content">
