@@ -3,7 +3,10 @@ let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
 let currTaskPomos = 0;
 
-
+/**
+ * @function timerOpen
+ * @description updates timer duration based on pomo stage
+ */
 function timerOpen() {
   if(!timerStarted){
     switch(pomoIndex) {
@@ -27,6 +30,10 @@ function timerOpen() {
 
 }
 
+/**
+ * @function startTimer
+ * @description starts timer with tick interval
+ */
 function startTimer() {
   // hideSetButtons();
   intervalID = setInterval(tick, 1000);
@@ -42,6 +49,10 @@ function startTimer() {
   }
 }
 
+/**
+ * @function resumeTimer
+ * @description re-renders timer page after user navigates back to it through nav bar
+ */
 function resumeTimer() {
   if (timerSeconds < duration) {
     let newCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
@@ -63,7 +74,10 @@ function resumeTimer() {
   }
 }
 
-// stops and resets timer
+/**
+ * @function stopTimer
+ * @description stops timer and resets animation
+ */
 function stopTimer() {
   // showSetButtons();
   timerStarted = false;
@@ -88,14 +102,20 @@ function stopTimer() {
   circle.style.animationPlayState = "paused";
 }
 
-// reflows animation
+/**
+ * @function resetAnimation
+ * @description triggers animation reflow
+ */
 function resetAnimation() {
   circle.style.animation = "none";
   circle.offsetHeight; // trigger reflow
   circle.style.animation = null;
 }
 
-// decrements time each second
+/**
+ * @method tick
+ * @description updates timer each second
+ */
 function tick() {
   timerSeconds--;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
@@ -105,7 +125,10 @@ function tick() {
   }
 }
 
-//increments pomo count
+/**
+ * @function incrementPomo
+ * @description updates number of pomos at end of pomo
+ */
 function incrementPomo(){
   if(pomoIndex == 7){
     pomoIndex = 0;
@@ -133,7 +156,12 @@ function incrementPomo(){
   }
 }
 
-// converts seconds to mm:ss
+/**
+ * @function convertToPrettyTime
+ * @description converts seconds to MM:SS
+ * @param {Number} seconds 
+ * @return {String} formatted time
+ */
 function convertToPrettyTime(seconds) {
   minutes = Math.floor(seconds / 60);
   return (
@@ -145,6 +173,11 @@ function convertToPrettyTime(seconds) {
   );
 }
 
+/**
+ * @function setTime 
+ * @description updates timer readout on page
+ * @param {number} minutes 
+ */
 function setTime(minutes) {
   duration = minutes * 60;
   readout.innerHTML = convertToPrettyTime(duration);
