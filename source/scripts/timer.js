@@ -4,6 +4,7 @@ let pomoIndex = 0;
 let currTaskPomos = 0;
 
 function startTimer() {
+  
   document.getElementById('end-task').style.display = 'none';
   intervalID = setInterval(tick, 1000);
   let circle = document.getElementsByTagName("circle")[0];
@@ -13,9 +14,10 @@ function startTimer() {
   button.innerHTML = "STOP";
   timerStarted = true;
   if(pomoIndex % 2 == 0){
-    document.getElementById('openButton').style.color = document.body.style.backgroundColor;
-    document.getElementById('openButton').onclick = '';
-    document.getElementById('openButton').style.cursor = 'default';
+    //document.getElementById('openButton').style.color = document.body.style.backgroundColor;
+    //document.getElementById('openButton').onclick = '';
+    //document.getElementById('openButton').style.cursor = 'default';
+    document.getElementById('openButton').style.visibility = "hidden";
   }
 }
 
@@ -81,9 +83,10 @@ function stopTimer() {
   let circle = document.getElementsByTagName("circle")[0];
   circle.style.setProperty("--circleBarOffset", "0px");
 
-  document.getElementById('openButton').style.color = 'black';
-  document.getElementById('openButton').onclick = openNav;
-  document.getElementById('openButton').style.cursor = 'pointer';
+  //document.getElementById('openButton').style.color = 'black';
+  //document.getElementById('openButton').onclick = openNav;
+  //document.getElementById('openButton').style.cursor = 'pointer';
+  document.getElementById('openButton').style.visibility = "";
   circle.style.animationPlayState = "paused";
 }
 
