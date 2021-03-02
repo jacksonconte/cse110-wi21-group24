@@ -21,8 +21,8 @@ function setId() {
     let nextId = 0
     if (Object.keys(dict).length > 0) {
         nextId = getMax(dict) + 1
-    } else {
-        nextId = 1
+      } else {
+      nextId = 1
     }
     return nextId.toString()
 }
@@ -51,7 +51,7 @@ class TaskItem extends HTMLElement {
         estPomos.setAttribute('class', 'task-est-pomos')
         var actualPomos = document.createElement('div')
         actualPomos.setAttribute('class', 'task-act-pomos')
-        actualPomos.textContent = 'TBD'
+        actualPomos.textContent = '--'
         var startButton = document.createElement('button')
         startButton.textContent = 'Start Task'
         startButton.addEventListener('click', startTask)
@@ -67,9 +67,26 @@ class TaskItem extends HTMLElement {
             localStorage.setItem('tasks', JSON.stringify(dict))
             this.parentElement.remove()
         }
-
+        function clear() {
+            this.parentElement.remove()            
+        }
         function startTask(){
-            console.log("hi")
+            resumeTimer();
+            /* display appropriate content */
+            document.getElementById("tasks").style.display = "none";
+            document.getElementById("analytics").style.display = "none";
+            document.getElementById("settings").style.display = "none";
+            document.getElementById("timer").style.display = "block";
+
+            /* update buttons */
+            document.getElementById("timerbtn").onclick = closeNav;
+            document.getElementById("tasksbtn").onclick = openTasks;
+            document.getElementById("analyticsbtn").onclick = openAnalytics;
+            document.getElementById("settingsbtn").onclick = openSettings;
+
+            document.getElementById('curr-task').innerHTML = dict[dv.id][0];
+            setCurrTask(dv.id);
+            closeNav();
         }
         this.shadowRoot.innerHTML = `
             <style>
@@ -107,23 +124,35 @@ class TaskItem extends HTMLElement {
 
 customElements.define('task-item', TaskItem)
 
+function loadTasks(){
+    taskListDiv = document.getElementById('task-list-id');
+    while(taskListDiv.firstChild){
+        taskListDiv.removeChild(taskListDiv.firstChild);
+    }
+    tempDict = JSON.parse(localStorage.getItem('tasks'))
+    for (var key in tempDict) {
+        dict[key] = tempDict[key]
+        let item = document.createElement('task-item')
+        let itemName = item.shadowRoot.querySelector('.task-name')
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        item.shadowRoot.querySelector('.task').id = key
+        itemName.innerText = dict[key][0]
+        itemEstPomos.innerText = dict[key][1]
+        itemActPomos.innerText = dict[key][2]
+        var container = document.querySelector('.task-list')
+        container.append(item)
+        
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     //repopulating page if 'tasks' in local storage is not null
     if (!(window.localStorage.getItem('tasks') === null)) {
-        tempDict = JSON.parse(localStorage.getItem('tasks'))
-        for (var key in tempDict) {
-            dict[key] = tempDict[key]
-            let item = document.createElement('task-item')
-            let itemName = item.shadowRoot.querySelector('.task-name')
-            let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
-            let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
-            item.shadowRoot.querySelector('.task').id = key
-            itemName.innerText = dict[key][0]
-            itemEstPomos.innerText = dict[key][1]
-            var container = document.querySelector('.task-list')
-            container.append(item)
-        }
+        loadTasks()
     }
+
+
 
     var submitButton = document.getElementById('add-task-button')
     submitButton.addEventListener('click', submitTask)
@@ -141,9 +170,10 @@ window.addEventListener('DOMContentLoaded', () => {
         let taskDiv = item.shadowRoot.querySelector('.task')
         itemName.innerText = userTaskInput.value
         itemEstPomos.innerText = userPomosInput.value
+        itemActPomos.innerText = "--"
         var container = document.querySelector('.task-list')
         container.append(item)
-        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText]
+        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, itemActPomos.innerText]
         window.localStorage.setItem('tasks', JSON.stringify(dict))
     }
 })
