@@ -141,6 +141,14 @@ svg text {
   display: none;
 }
 
+#curr-task {
+  text-align: center;
+}
+
+#pomo-status {
+  text-align: center;
+}
+
 #timer {
   display: block;
 }
