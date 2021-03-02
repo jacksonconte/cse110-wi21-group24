@@ -45,11 +45,11 @@ class TaskItem extends HTMLElement {
         //setting ID based on biggest key in dict
         dv.setAttribute('id', setId())
         //creation of the custom componenets elements
-        var taskName = document.createElement('p')
+        var taskName = document.createElement('div')
         taskName.setAttribute('class', 'task-name')
-        var estPomos = document.createElement('p')
+        var estPomos = document.createElement('div')
         estPomos.setAttribute('class', 'task-est-pomos')
-        var actualPomos = document.createElement('p')
+        var actualPomos = document.createElement('div')
         actualPomos.setAttribute('class', 'task-act-pomos')
         actualPomos.textContent = 'TBD'
         var startButton = document.createElement('button')
@@ -77,15 +77,20 @@ class TaskItem extends HTMLElement {
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
-                    background-color: white;
+                    background-color: rgba(255,255,255,0.3);
                     filter: drop-shadow(0px 2px 5px rgb(0,0,0,0.4));
                     margin: 10px;
                     height: 50px;
-                    border: solid 1px;   
-                    border-color: gray;
+                    border: solid 1px white;   
+                    border-radius: 5px;
+                    padding: 5px;
+                    color: white;
+                    font-size: 1.1em;
+                    flex-wrap: nowrap;
                 }
                 .task-name, .task-est-pomos, .task-act-pomos, removeButton {
                     margin: 0px 50px 0px 50px; 
+                    word-wrap: break-word;
                 }
 
             </style>

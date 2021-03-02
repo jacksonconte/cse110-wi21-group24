@@ -9,6 +9,7 @@ body {
   animation: gradient 120s ease infinite;
 }
 
+
 @keyframes gradient {
   0% {
       background-position: 0% 50%;
@@ -143,6 +144,8 @@ svg text {
 #timer {
   display: block;
 }
+
+
 /* task list section */
 .task-input-field {
   margin: 10px;
@@ -194,7 +197,7 @@ button {
 }
 
 button:hover {
-  background-color: #8eccff;
+  background-color: rgba(0,0,0,0.3);
   transition: 0.3s ease-in;
   cursor: pointer;
 }
