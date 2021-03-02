@@ -94,7 +94,7 @@ class TaskItem extends HTMLElement {
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
-                    background-color: rgba(255,255,255,0.3);
+                    background-color: none;
                     filter: drop-shadow(0px 2px 5px rgb(0,0,0,0.4));
                     margin: 10px;
                     height: 50px;
