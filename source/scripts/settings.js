@@ -1,6 +1,7 @@
 /**
  * @description Checks if settings exist in local storage. If not, creates defaults.
  */
+
 function checkSettings() {
   if (window.localStorage.getItem("workPomoTime") === null) {
     window.localStorage.setItem("workPomoTime", 25);
@@ -28,14 +29,10 @@ function submitSettings() {
   let workPomoTime = document.getElementById("work-pomo-time").value;
   let shortBreakTime = document.getElementById("short-break-time").value;
   let longBreakTime = document.getElementById("long-break-time").value;
-  let analyticsToggle = Number(document.getElementById("analytics").checked);
-  let darkModeToggle = Number(document.getElementById("dark-mode").checked);
 
   window.localStorage.setItem("workPomoTime", workPomoTime);
   window.localStorage.setItem("shortBreakTime", shortBreakTime);
   window.localStorage.setItem("longBreakTime", longBreakTime);
-  window.localStorage.setItem("analyticsToggle", analyticsToggle);
-  window.localStorage.setItem("darkModeToggle", darkModeToggle);
 
   alert("Settings updated");
   setSettings();
@@ -57,6 +54,7 @@ function resetSettings() {
 /**
  * @description Sets values on settings page based on local storage values
  */
+
 function setSettings() {
   let workPomoTime = window.localStorage.getItem("workPomoTime");
   let shortBreakTime = window.localStorage.getItem("shortBreakTime");
@@ -70,19 +68,54 @@ function setSettings() {
   document.getElementById("short-break-time").value = shortBreakTime;
   document.getElementById("long-break-time").innerHTML = longBreakTime;
   document.getElementById("long-break-time").value = longBreakTime;
-  if (Number(analyticsToggle)) {
-    document.getElementById("analytics").checked = true;
-    document.getElementById("analyticsbtn").style.display = "inherit";
-  } else {
-    document.getElementById("analytics").checked = false;
-    document.getElementById("analyticsbtn").style.display = "none";
-  }
-  if (Number(darkModeToggle)) {
+
+  setDarkMode(darkModeToggle);
+  setAnalytics(analyticsToggle);
+  
+}
+
+function setDarkMode(enabled) {
+  if (Number(enabled)) {
     document.getElementById("dark-mode").checked = true;
-    document.getElementsByTagName("body")[0].style = "background: linear-gradient(0deg, #222, #333, #444, #888); background-size: 150% 150%;";
-  } else {
+    document.getElementsByTagName("body")[0].style = "background: linear-gradient(90deg, #333, #444, #555, #888); background-size: 150% 800%;";
+    document.getElementById("openButton").style = "color: white";
+    document.getElementById("timerbtn").style = "border: 3px solid white; color: white;";
+    document.getElementById("tasksbtn").style = "border: 3px solid white; color: white;";
+
+    document.getElementById("analyticsbtn").style.border = "3px solid white";
+    document.getElementById("analyticsbtn").style.color = "white";
+
+    document.getElementById("settingsbtn").style = "border: 3px solid white; color: white;";
+    document.getElementById("mySidebar").style = "background-color: rgba(0,0,0,0.1);";
+  }
+  else {
     document.getElementById("dark-mode").checked = false;
     document.getElementsByTagName("body")[0].style = "";
+    document.getElementById("openButton").style = "";
 
+    document.getElementById("timerbtn").style = "";
+    document.getElementById("tasksbtn").style = "";
+
+    document.getElementById("analyticsbtn").style.borderColor = "black";
+    document.getElementById("analyticsbtn").style.color = "black";
+
+    document.getElementById("settingsbtn").style = "";
+    document.getElementById("mySidebar").style = "";
   }
+  window.localStorage.setItem("darkModeToggle", enabled);
+}
+
+function setAnalytics(enabled) {
+  if (Number(enabled)) {
+    console.log("re");
+    document.getElementById("analytics").checked = true;
+    document.getElementById("analyticsbtn").style.display = "inherit";
+
+  } else {
+    console.log("mo");
+    document.getElementById("analytics").checked = false;
+    document.getElementById("analyticsbtn").style.display = "none";
+  
+  }
+  window.localStorage.setItem("analyticsToggle", enabled);
 }
