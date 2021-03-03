@@ -79,13 +79,15 @@ class TaskItem extends HTMLElement {
          */
         function removeTask() {
             delete dict[dv.id]
-            localStorage.setItem('tasks', JSON.stringify(dict))
+            localStorage.setItem('tasks', JSON.stringify(dict));
+            this.parentElement.parentElement.remove();
+        }
+
+        function clear() {
             this.parentElement.remove()
         }
-        function clear() {
-            this.parentElement.remove()            
-        }
-        function startTask(){
+
+        function startTask() {
             resumeTimer();
             /* display appropriate content */
             document.getElementById("tasks").style.display = "none";
@@ -109,19 +111,16 @@ class TaskItem extends HTMLElement {
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
-                    background-color: none;
                     filter: drop-shadow(0px 2px 5px rgb(0,0,0,0.4));
                     margin: 10px;
-                    height: 50px;
+                    height: auto;
                     border: solid 1px white;   
                     border-radius: 5px;
-                    padding: 5px;
+                    padding: 20px;
                     color: white;
                     font-size: 1.1em;
-                    flex-wrap: no-wrap;
                 }
-                .task > * {
-                }
+
                 .task-name {
                     word-break: break-word;
                     flex-basis: 50%;
@@ -131,6 +130,23 @@ class TaskItem extends HTMLElement {
                 }
                 .buttonBox {
                     flex-basis: 40%;
+                }
+                button {
+                    background-color: transparent; 
+                    border: 1px solid white;
+                    color: white;
+                    font-family: inherit;
+                    padding: 10px 20px;
+                    height: 100%;
+                    text-align: center;
+                    font-size: 18px;
+                    border-radius: 10px;
+                }
+                
+                button:hover {
+                    background-color: rgba(0,0,0,0.3);
+                    transition: 0.3s ease-in;
+                    cursor: pointer;
                 }
 
             </style>
@@ -148,9 +164,9 @@ class TaskItem extends HTMLElement {
 
 customElements.define('task-item', TaskItem)
 
-function loadTasks(){
+function loadTasks() {
     taskListDiv = document.getElementById('task-list-id');
-    while(taskListDiv.firstChild){
+    while (taskListDiv.firstChild) {
         taskListDiv.removeChild(taskListDiv.firstChild);
     }
     tempDict = JSON.parse(localStorage.getItem('tasks'))
@@ -166,7 +182,6 @@ function loadTasks(){
         itemActPomos.innerText = dict[key][2]
         var container = document.querySelector('.task-list')
         container.append(item)
-        
     }
 }
 
@@ -175,6 +190,17 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!(window.localStorage.getItem('tasks') === null)) {
         loadTasks()
     }
+
+    document.getElementById("analytics").addEventListener('change', (event) => {
+        let analyticsToggle = Number(document.getElementById("analytics").checked);
+        setAnalytics(analyticsToggle);
+    });
+
+    document.getElementById("dark-mode").addEventListener('change', (event) => {
+        let darkModeToggle = Number(document.getElementById("dark-mode").checked);
+        setDarkMode(darkModeToggle);
+    });
+
     var submitButton = document.getElementById('add-task-button')
     submitButton.addEventListener('click', submitTask)
     /**
