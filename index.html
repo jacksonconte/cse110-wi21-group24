@@ -22,7 +22,7 @@
     </div>
 
     <span id="openButton" onclick="openNav()"> &#9776; </span>
-
+    <!--Timer Screen-->
     <div id="display">
       <div id="timer" class="content">
         <div id='curr-task'></div>
@@ -48,7 +48,7 @@
           <button id="end-task" style="display:none;" onclick="endTask()">TASK FINISHED</button>
         </div>
       </div>
-
+      <!--Tasks Screen-->
       <div id="tasks" class="content">
         <div class="task-inputs">
           <label class="task-input-field" for="input-task-name"
@@ -76,9 +76,10 @@
             Add Task
           </button>
         </div>
-        <div id='task-list-id' class="task-list"></div>
+        <div id="task-list-id" class="task-list"></div>
+        <div id="completed-tasks" class="task-list"></div>
       </div>
-
+      <!--Settings Screen-->
       <div id="settings" class="content">
         <table id="settings-table">
           <tr>
@@ -135,6 +136,7 @@
 
         </form>
       </div>
+      <!--Settings Screen-->
       <div id="analytics" class="content">
         <p>Analytics or smthg</p>
       </div>

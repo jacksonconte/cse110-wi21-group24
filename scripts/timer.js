@@ -9,6 +9,10 @@ function setCurrTask(taskID){
   currTaskPomos = 0;
 }
 
+/**
+ * @function endTask
+ * @description Finishes a task and removes it from the task list.
+ */
 function endTask(){
   let tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks[currTaskID][2] = currTaskPomos;
@@ -17,6 +21,7 @@ function endTask(){
   var currentDiv = document.getElementById('curr-task')
   currentDiv.innerHTML = '';
   document.getElementById('end-task').style.display = 'none';
+  //finishedDict[]
   loadTasks();
 }
 
@@ -211,5 +216,4 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     timerSeconds = duration;
   };
-
 });

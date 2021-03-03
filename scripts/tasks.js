@@ -1,29 +1,34 @@
 var dict = {}
+var finishedDict = {}
+var ID = 0
 /**
  * @description gets the max key value in the dictionary
  * @param {dict} dict
  * @returns {Number} The largest key in the dictionary
  */
-function getMax(dict) {
-    var currentMax = -1
-    for (var key in dict) {
-        if (Number(key) > currentMax) {
-            currentMax = key
-        }
-    }
-    return Number(currentMax)
-}
+//function getMax(dict) {
+//    var currentMax = -1
+//    for (var key in dict) {
+//        if (Number(key) > currentMax) {
+//            currentMax = key
+//        }
+//    }
+//    return Number(currentMax)
+//}
 /**
  * @description Sets the ID for the element to be added to the dict
  * @returns {String} Returns the ID in string form
  */
 function setId() {
-    let nextId = 0
+    let nextId = ID
+    ID++
+    /*
     if (Object.keys(dict).length > 0) {
         nextId = getMax(dict) + 1
       } else {
       nextId = 1
     }
+    */
     return nextId.toString()
 }
 /**
