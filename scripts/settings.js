@@ -28,8 +28,8 @@ function submitSettings() {
   let workPomoTime = document.getElementById("work-pomo-time").value;
   let shortBreakTime = document.getElementById("short-break-time").value;
   let longBreakTime = document.getElementById("long-break-time").value;
-  let analyticsToggle = Number(document.getElementById("analytics-on").checked);
-  let darkModeToggle = Number(document.getElementById("dark-mode-on").checked);
+  let analyticsToggle = Number(document.getElementById("analytics").checked);
+  let darkModeToggle = Number(document.getElementById("dark-mode").checked);
 
   window.localStorage.setItem("workPomoTime", workPomoTime);
   window.localStorage.setItem("shortBreakTime", shortBreakTime);
@@ -71,13 +71,18 @@ function setSettings() {
   document.getElementById("long-break-time").innerHTML = longBreakTime;
   document.getElementById("long-break-time").value = longBreakTime;
   if (Number(analyticsToggle)) {
-    document.getElementById("analytics-on").checked = true;
+    document.getElementById("analytics").checked = true;
+    document.getElementById("analyticsbtn").style.display = "inherit";
   } else {
-    document.getElementById("analytics-off").checked = true;
+    document.getElementById("analytics").checked = false;
+    document.getElementById("analyticsbtn").style.display = "none";
   }
   if (Number(darkModeToggle)) {
-    document.getElementById("dark-mode-on").checked = true;
+    document.getElementById("dark-mode").checked = true;
+    document.getElementsByTagName("body")[0].style = "background: linear-gradient(0deg, #222, #333, #444, #888); background-size: 150% 150%;";
   } else {
-    document.getElementById("dark-mode-off").checked = true;
+    document.getElementById("dark-mode").checked = false;
+    document.getElementsByTagName("body")[0].style = "";
+
   }
 }

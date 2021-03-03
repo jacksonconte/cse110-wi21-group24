@@ -52,17 +52,27 @@ class TaskItem extends HTMLElement {
         //creation of the custom componenets elements
         var taskName = document.createElement('div')
         taskName.setAttribute('class', 'task-name')
+
         var estPomos = document.createElement('div')
         estPomos.setAttribute('class', 'task-est-pomos')
+
         var actualPomos = document.createElement('div')
         actualPomos.setAttribute('class', 'task-act-pomos')
         actualPomos.textContent = '--'
+
+        var buttonBox = document.createElement('div')
+
         var startButton = document.createElement('button')
-        startButton.textContent = 'Start Task'
+        startButton.textContent = 'Start'
         startButton.addEventListener('click', startTask)
+
         var removeButton = document.createElement('button')
-        removeButton.textContent = 'Remove Task'
+        removeButton.textContent = 'Remove'
         removeButton.addEventListener('click', removeTask)
+
+        buttonBox.setAttribute('class', 'button-box');
+        buttonBox.appendChild(startButton);
+        buttonBox.appendChild(removeButton);
         /**
          * @method removeTask
          * @description removes task from dictionary and window
@@ -108,11 +118,19 @@ class TaskItem extends HTMLElement {
                     padding: 5px;
                     color: white;
                     font-size: 1.1em;
-                    flex-wrap: nowrap;
+                    flex-wrap: no-wrap;
                 }
-                .task-name, .task-est-pomos, .task-act-pomos, removeButton {
-                    margin: 0px 50px 0px 50px; 
-                    word-wrap: break-word;
+                .task > * {
+                }
+                .task-name {
+                    word-break: break-word;
+                    flex-basis: 50%;
+                }
+                .task-est-pomos, .task-act-pomos {
+                    flex-basis: 5%;
+                }
+                .buttonBox {
+                    flex-basis: 40%;
                 }
 
             </style>
@@ -121,8 +139,9 @@ class TaskItem extends HTMLElement {
         dv.appendChild(taskName)
         dv.appendChild(estPomos)
         dv.appendChild(actualPomos)
-        dv.appendChild(startButton)
-        dv.appendChild(removeButton)
+        dv.appendChild(buttonBox);
+        //dv.appendChild(startButton)
+        //dv.appendChild(removeButton)
         this.shadowRoot.append(dv)
     }
 }
@@ -156,9 +175,6 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!(window.localStorage.getItem('tasks') === null)) {
         loadTasks()
     }
-
-
-
     var submitButton = document.getElementById('add-task-button')
     submitButton.addEventListener('click', submitTask)
     /**
