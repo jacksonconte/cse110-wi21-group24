@@ -41,6 +41,9 @@ function startTimer() {
     //document.getElementById('openButton').style.cursor = 'default';
     document.getElementById('openButton').style.visibility = "hidden";
   }
+
+  // Play the chirp sound, since the timer just started
+  document.getElementById('chirp-sound').play()
 }
 
 function resumeTimer() {
@@ -132,6 +135,9 @@ function tick() {
   if (timerSeconds == 0){
     incrementPomo();
     stopTimer();
+
+    // Play alert sound because the timer just ended
+    document.getElementById('alert-sound').play()
   }
 }
 
