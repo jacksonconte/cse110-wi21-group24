@@ -1,6 +1,7 @@
 var dict = {}
 var finishDict = {}
 var ID = 0
+let first = true;
 /**
  * @description gets the max key value in the dictionary
  * @param {dict} dict
@@ -73,6 +74,8 @@ class TaskItem extends HTMLElement {
         buttonBox.setAttribute('class', 'button-box');
         buttonBox.appendChild(startButton);
         buttonBox.appendChild(removeButton);
+        
+        
         /**
         * @method removeTask
         * @description removes task from dictionary and window
@@ -87,7 +90,8 @@ class TaskItem extends HTMLElement {
                delete finishDict[dv.id]
                window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
            }
-           this.parentElement.remove()
+           //parentElement is buttonBox; parentElement.parentElement is the actual entry itself
+           this.parentElement.parentElement.remove()
         }
         /**
         * @method clear
@@ -134,12 +138,15 @@ class TaskItem extends HTMLElement {
                 .task-name {
                     word-break: break-word;
                     flex-basis: 50%;
+                    text-align: justify;
                 }
                 .task-est-pomos, .task-act-pomos {
-                    flex-basis: 5%;
+                    flex-basis: 10%;
+                    text-align: center;
                 }
-                .buttonBox {
-                    flex-basis: 40%;
+                .button-box {
+                    flex-basis: 30%;
+                    text-align: center;
                 }
                 button {
                     background-color: transparent; 
@@ -166,8 +173,6 @@ class TaskItem extends HTMLElement {
         dv.appendChild(estPomos)
         dv.appendChild(actualPomos)
         dv.appendChild(buttonBox);
-        dv.appendChild(startButton)
-        dv.appendChild(removeButton)
         this.shadowRoot.append(dv)
     }
 }
@@ -214,6 +219,9 @@ function loadTasks(){
         let itemName = item.shadowRoot.querySelector('.task-name')
         let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
         let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        let buttonBox = item.shadowRoot.querySelector('.button-box');
+        buttonBox.style.display = "none";
+        
         item.shadowRoot.querySelector('.task').id = key
         itemName.innerText = finishDict[key][0]
         itemEstPomos.innerText = finishDict[key][1]

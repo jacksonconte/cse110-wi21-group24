@@ -57,12 +57,23 @@
           Add Task
         </button>
       </div>
-      <p>Your Tasks</p> 
-      <p>Name Est. Pomos Act. Pomos</p>
-      <div id="task-list-id" class="task-list"></div>
-      <p>Completed Tasks</p> 
+
+
+
+      <div style="display: flex; justify-content: space-evenly; align-items: center; width: 960px; margin: auto; text-align: center; padding:20px; margin-bottom: -30px;">
+        <div style="flex-basis: 50%; display: block;">Your Tasks</div> 
+        <div style="flex-basis: 10%;">Estimated Pomos</div>
+        <div style="flex-basis: 10%;">Actual Pomos</div>
+        <div style="flex-basis: 30%;">Control</div>
+      </div>
+
+      
+    <div id="task-list-id" class="task-list"></div>
+      <h2 style="text-align: center;">Completed Tasks</h2> 
       <div id="completed-tasks" class="task-list"></div>
     </div>
+  
+
     <!--Settings Screen-->
     <div id="settings" class="content">
       <table id="settings-table">
