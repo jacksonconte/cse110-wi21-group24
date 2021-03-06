@@ -17,16 +17,26 @@ function endTask(){
   let tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks[currTaskID][2] = currTaskPomos;
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  finishDict[currTaskID] = tasks[currTaskID] 
+  delete dict[currTaskID]
+  window.localStorage.setItem('tasks', JSON.stringify(dict))
+  window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))
   currTaskID = -1;
+  var taskDiv = document.getElementById('task-list-id')
+  taskDiv.innerHTML = '';
+  var finishedTaskDiv = document.getElementById('completed-tasks')
+  finishedTaskDiv.innerHTML = '';
   var currentDiv = document.getElementById('curr-task')
   currentDiv.innerHTML = '';
   document.getElementById('end-task').style.display = 'none';
-  //finishedDict[]
+  console.log(finishDict)
   loadTasks();
 }
-
+/**
+ * @function startTimer
+ * @description starts timer and animation
+ */
 function startTimer() {
-  
   document.getElementById('end-task').style.display = 'none';
   intervalID = setInterval(tick, 1000);
   let circle = document.getElementsByTagName("circle")[0];
@@ -46,6 +56,10 @@ function startTimer() {
   document.getElementById('chirp-sound').play()
 }
 
+/**
+ * @function resumeTimer
+ * @description resumes timer and animation
+ */
 function resumeTimer() {
   if(!timerStarted){
     switch(pomoIndex) {
