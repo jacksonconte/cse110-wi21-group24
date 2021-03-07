@@ -54,13 +54,11 @@
         <label for="input-pomos" class="task-input-field">Enter number of pomos:</label>
         <input type="number" class="task-input-field" value="10" id="input-pomos" min="1" step="1"
           oninput="validity.valid||(value='');" />
-
         <button class="task-input-field" id="add-task-button">
           Add Task
         </button>
       </div>
-
-
+    <br><br>
 
       <div style="display: flex; justify-content: space-evenly; align-items: center; width: 960px; margin: auto; text-align: center; padding:20px; margin-bottom: -30px;">
         <div style="flex-basis: 50%; display: block;">Your Tasks</div> 
@@ -68,9 +66,9 @@
         <div style="flex-basis: 10%;">Actual Pomos</div>
         <div style="flex-basis: 30%;">Control</div>
       </div>
-
       
     <div id="task-list-id" class="task-list"></div>
+    <br><br>
       <h2 style="text-align: center;">Completed Tasks</h2> 
       <div id="completed-tasks" class="task-list"></div>
     </div>
@@ -147,15 +145,15 @@
     <!--Analytics Screen-->
     <div id="analytics" class="content">
       <div id="task-select">
-        <div>Select a Task to View Analytics: </div>
+        <h2>Select Analytics For: </h2>
+        <br>
         <select name="comp-tasks-dropdown" id="comp-tasks-dropdown">
-
         </select>
-        <button id="task-select-button" onclick="displayAnalytics()">Select</button>
+        <br><br>
         <div id="stat-display"></div>
       </div>
 
-      <div id="no-tasks">Complete A Task To View Analytics!</div>
+      <h1 id="no-tasks" style="text-align: center;">Complete A Task To View Analytics!</h1>
     </div>
 
     <!--Audio Sounds for Timer-->
