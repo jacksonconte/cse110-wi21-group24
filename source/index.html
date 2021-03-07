@@ -9,6 +9,7 @@
   <script src="scripts/timer.js"></script>
   <script src="scripts/tasks.js"></script>
   <script src="scripts/settings.js"></script>
+  <script src="scripts/analytics.js"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,6 +43,7 @@
       <div id="toggle-div">
         <button id="toggle">START</button>
         <button id="end-task" style="display:none;" onclick="endTask()">TASK FINISHED</button>
+        <button id="log-distraction" style="display:none;" onclick="logDistraction()">LOG DISTRACTION</button>
       </div>
     </div>
     <!--Tasks Screen-->
@@ -107,7 +109,7 @@
           </td>
           <td>
             <label class="switch">
-              <input type="checkbox" id="analytics" checked>
+              <input type="checkbox" id="analytics-checkbox" checked>
               <span class="slider round"></span>
             </label>
 
@@ -141,14 +143,19 @@
       <button id="submit-button" onclick="submitSettings()">Submit</button>
       <button id="reset-button" onclick="resetSettings()">Reset to Defaults</button>
       <br><br><br>
-      <form>
-
-
-      </form>
     </div>
-    <!--Settings Screen-->
+    <!--Analytics Screen-->
     <div id="analytics" class="content">
-      <p>Analytics or smthg</p>
+      <div id="task-select">
+        <div>Select a Task to View Analytics: </div>
+        <select name="comp-tasks-dropdown" id="comp-tasks-dropdown">
+
+        </select>
+        <button id="task-select-button" onclick="displayAnalytics()">Select</button>
+        <div id="stat-display"></div>
+      </div>
+
+      <div id="no-tasks">Complete A Task To View Analytics!</div>
     </div>
 
     <!--Audio Sounds for Timer-->

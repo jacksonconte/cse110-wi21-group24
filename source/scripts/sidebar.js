@@ -58,6 +58,8 @@ function openTasks() {
  * @description Displays analytics content, updates menu buttons
  */
 function openAnalytics() {
+  loadAnalytics();
+
   document.getElementById("timer").style.display = "none";
   document.getElementById("tasks").style.display = "none";
   document.getElementById("settings").style.display = "none";

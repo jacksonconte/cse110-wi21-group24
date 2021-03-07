@@ -2,11 +2,22 @@ let timerStarted = false;
 let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
 let currTaskPomos = 0;
+let currTaskDistractions;
+let currTaskProgress;
+let currTaskTime;
 let currTaskID = -1;
 
+/**
+ * @description Loads task into timer based on taskID
+ * @param {Number} taskID 
+ */
 function setCurrTask(taskID){
   currTaskID = taskID;
-  currTaskPomos = 0;
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+  currTaskPomos = tasks[currTaskID][2];
+  currTaskDistractions = tasks[currTaskID][3];
+  currTaskProgress = tasks[currTaskID][4];
+  currTaskTime = tasks[currTaskID][5];
 }
 
 /**
@@ -16,6 +27,9 @@ function setCurrTask(taskID){
 function endTask(){
   let tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks[currTaskID][2] = currTaskPomos;
+  tasks[currTaskID][3] = currTaskDistractions;
+  tasks[currTaskID][4] = currTaskProgress;
+  tasks[currTaskID][5] = currTaskTime;
   localStorage.setItem('tasks', JSON.stringify(tasks));
   finishDict[currTaskID] = tasks[currTaskID] 
   delete dict[currTaskID]
@@ -38,6 +52,15 @@ function endTask(){
  */
 function startTimer() {
   document.getElementById('end-task').style.display = 'none';
+  if(currTaskID != -1){
+    switch(pomoIndex){
+      case 0:
+      case 2:
+      case 4:
+      case 6:
+        document.getElementById("log-distraction").style.display = "initial";
+    }
+  }
   intervalID = setInterval(tick, 1000);
   let circle = document.getElementsByTagName("circle")[0];
   circle.style["animation-duration"] = duration + "s";
@@ -104,7 +127,33 @@ function resumeTimer() {
  * @function stopTimer
  * @description stops timer and resets animation
  */
-function stopTimer() {
+function stopTimer(forced) {
+  document.getElementById("log-distraction").style.display = "none";
+  if(forced && currTaskID != -1){
+    switch(pomoIndex) {
+      case 0:
+      case 2:
+      case 4:
+      case 6:
+        currTaskProgress.push(["wc", duration - timerSeconds]);
+        break;
+      case 1:
+      case 3:
+      case 5:
+        currTaskProgress.push(["sbc", duration - timerSeconds]);
+        break;
+      case 7:
+        currTaskProgress.push(["lbc", duration - timerSeconds]);
+    }
+  }
+  if(currTaskID != -1){
+    switch(pomoIndex) {
+      case 1:
+      case 3:
+      case 5:
+        document.getElementById('end-task').style.display = 'initial';
+    }
+  }
   timerStarted = false;
   clearInterval(intervalID);
   resetAnimation();
@@ -145,10 +194,13 @@ function resetAnimation() {
  */
 function tick() {
   timerSeconds--;
+  if (currTaskID != -1) {
+    currTaskTime++;
+  }
   readout.innerHTML = convertToPrettyTime(timerSeconds);
   if (timerSeconds == 0){
     incrementPomo();
-    stopTimer();
+    stopTimer(false);
 
     // Play alert sound because the timer just ended
     document.getElementById('alert-sound').play()
@@ -170,25 +222,36 @@ function incrementPomo(){
   }
   switch(pomoIndex) {
     case 0:
+      if(currTaskID != -1){
+        currTaskProgress.push(["lb", duration]);
+      }
+      setTime(localStorage.getItem('workPomoTime'));
+      document.getElementById('pomo-status').innerHTML = 'Work Pomo';
+      break;
     case 2:
     case 4:
     case 6:
+      if(currTaskID != -1){
+        currTaskProgress.push(["sb", duration]);
+      }
       setTime(localStorage.getItem('workPomoTime'));
       document.getElementById('pomo-status').innerHTML = 'Work Pomo';
       break;
     case 1:
     case 3:
     case 5:
+      if(currTaskID != -1){
+        currTaskProgress.push(["w", duration]);
+      }   
       setTime(localStorage.getItem('shortBreakTime'));
       document.getElementById('pomo-status').innerHTML = 'Short Break';
-      if(currTaskID != -1)
-        document.getElementById('end-task').style.display = 'initial';
       break;
     case 7:
+      if(currTaskID != -1){
+        currTaskProgress.push(["w", duration]);
+      } 
       setTime(localStorage.getItem('longBreakTime'));
       document.getElementById('pomo-status').innerHTML = 'Long Break';
-      if(currTaskID != -1)
-        document.getElementById('end-task').style.display = 'initial';
       
   }
 }
@@ -220,6 +283,10 @@ function setTime(minutes) {
   readout.innerHTML = convertToPrettyTime(duration);
 }
 
+function logDistraction() {
+  currTaskDistractions.push(currTaskTime);
+}
+
 // sets element vars and defines button onclick
 window.addEventListener("DOMContentLoaded", () => {
   button = document.getElementById("toggle");
@@ -230,7 +297,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   button.onclick = () => {
     if (timerStarted) {
-      stopTimer();
+      stopTimer(true);
     } else {
       startTimer();
     }
