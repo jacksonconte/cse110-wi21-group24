@@ -7,6 +7,10 @@ let currTaskProgress;
 let currTaskTime;
 let currTaskID = -1;
 
+/**
+ * @description Loads task into timer based on taskID
+ * @param {Number} taskID 
+ */
 function setCurrTask(taskID){
   currTaskID = taskID;
   let tasks = JSON.parse(localStorage.getItem('tasks'));

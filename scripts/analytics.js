@@ -1,3 +1,6 @@
+/**
+ * @description Loads analytics page depending on whether any tasks have been completed
+ */
 function loadAnalytics() {
     document.getElementById("comp-tasks-dropdown").innerHTML = "";
     document.getElementById("stat-display").innerHTML = "";
@@ -16,6 +19,9 @@ function loadAnalytics() {
     }
 }
 
+/**
+ * @description Displays analytics for selected task
+ */
 function displayAnalytics(){
     document.getElementById("stat-display").innerHTML = "";
     let taskID = document.getElementById("comp-tasks-dropdown").value;
@@ -112,6 +118,10 @@ function displayAnalytics(){
     document.getElementById("stat-display").appendChild(stats);
 }
 
+/**
+ * @description Sets text inside hover label
+ * @param {String} text 
+ */
 function setLabel(text){
     document.getElementById("svg-label").innerHTML = text;
 }
