@@ -1,0 +1,23 @@
+# Start tasks off the task list by selecting them manually
+- Status: accepted
+
+## Context and Problem Statement
+
+How do we take tasks off the task list?
+
+## Considered Options
+
+- auto-queueing tasks in order of addition to list
+- having "start task" buttons on each task
+
+## Decision Outcome
+
+Chose second option because it offers more user flexibility (no good way to change order of tasks in task list, sadly)
+
+### Positive Consequences <!-- optional -->
+
+- allows tasks to be completed in any order
+
+### Negative Consequences <!-- optional -->
+
+- requires more user input
