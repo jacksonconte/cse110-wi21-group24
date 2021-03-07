@@ -239,8 +239,8 @@ window.addEventListener('DOMContentLoaded', () => {
         loadTasks()
     }
 
-    document.getElementById("analytics").addEventListener('change', (event) => {
-        let analyticsToggle = Number(document.getElementById("analytics").checked);
+    document.getElementById("analytics-checkbox").addEventListener('change', (event) => {
+        let analyticsToggle = Number(document.getElementById("analytics-checkbox").checked);
         setAnalytics(analyticsToggle);
     });
 
@@ -268,7 +268,8 @@ window.addEventListener('DOMContentLoaded', () => {
         itemActPomos.innerText = "--"
         var container = document.querySelector('.task-list')
         container.append(item)
-        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, itemActPomos.innerText]
+        //[name, estPomo, actPomo, distractions, progress, time]
+        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, 0, [], [], 0]
         dict['ID-count'] = ID
         window.localStorage.setItem('tasks', JSON.stringify(dict))
     }

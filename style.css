@@ -54,6 +54,43 @@ svg text {
   font: bold 30px sans-serif;
 }
 
+#analytics-svg {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 1500px;
+  height: 200px;
+  transform: none;
+}
+
+rect:hover {
+  stroke: black;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+#task-select {
+  display: none;
+}
+
+#stat-display {
+  text-align: center;
+}
+
+#task-select {
+  text-align: center;
+}
+
+#comp-tasks-dropdown {
+  display: block;
+  margin: 0 auto;
+}
+
+#task-select-button {
+  display: block;
+  margin: 0 auto;
+}
+
 .animate {
   stroke-dasharray: var(--strokeDashOffset); 
   /* stroke-dashoffset: 0px; */
