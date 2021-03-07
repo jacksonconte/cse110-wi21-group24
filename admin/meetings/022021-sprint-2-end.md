@@ -1,11 +1,12 @@
 # Meeting Minutes for 20 Feburary, 2021
 
-## End of Sprint 2 - Final MVP push
+## End of Sprint 2 - Final MVP push & Sprint Review
 
 Members absent: Adam Yoshinaga
 
-**Code review & integration (19:10-20:40)**
+**Review & integration (19:10-20:40)**
 
+- Timer, sidebar, and task list completed on separate branches.
 - Merge performed for timer, sidebar, and task list.
 - Functionality preserved but CSS alignment broken
 
