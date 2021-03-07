@@ -2,6 +2,7 @@
 body {
   height: 90vh !important;
   width: 100%;
+  overflow-x: hidden; 
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   background: linear-gradient(-45deg, #d8846a, #f2a5c3, #23a6d5, #23d5ab);
@@ -139,6 +140,7 @@ svg text {
 
 .content {
   display: none;
+  font-size: 1.1em;
 }
 
 #curr-task {
@@ -155,6 +157,7 @@ svg text {
 
 
 /* task list section */
+
 .task-input-field {
   margin: 10px;
 }

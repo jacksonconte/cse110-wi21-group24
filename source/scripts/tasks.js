@@ -1,6 +1,7 @@
 var dict = {}
-var finishedDict = {}
+var finishDict = {}
 var ID = 0
+let first = true;
 /**
  * @description gets the max key value in the dictionary
  * @param {dict} dict
@@ -73,16 +74,29 @@ class TaskItem extends HTMLElement {
         buttonBox.setAttribute('class', 'button-box');
         buttonBox.appendChild(startButton);
         buttonBox.appendChild(removeButton);
+        
+        
         /**
-         * @method removeTask
-         * @description removes task from dictionary and window
-         */
-        function removeTask() {
-            delete dict[dv.id]
-            localStorage.setItem('tasks', JSON.stringify(dict));
-            this.parentElement.parentElement.remove();
+        * @method removeTask
+        * @description removes task from dictionary and window
+        */
+       function removeTask() {
+           if(dict[dv.id] != null){
+               console.log("no hi")
+               delete dict[dv.id]
+               localStorage.setItem('tasks', JSON.stringify(dict))
+           } else {
+               console.log("hi")
+               delete finishDict[dv.id]
+               window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
+           }
+           //parentElement is buttonBox; parentElement.parentElement is the actual entry itself
+           this.parentElement.parentElement.remove()
         }
-
+        /**
+        * @method clear
+        * @description clears current task from list
+        */
         function clear() {
             this.parentElement.remove()
         }
@@ -124,12 +138,15 @@ class TaskItem extends HTMLElement {
                 .task-name {
                     word-break: break-word;
                     flex-basis: 50%;
+                    text-align: justify;
                 }
                 .task-est-pomos, .task-act-pomos {
-                    flex-basis: 5%;
+                    flex-basis: 10%;
+                    text-align: center;
                 }
-                .buttonBox {
-                    flex-basis: 40%;
+                .button-box {
+                    flex-basis: 30%;
+                    text-align: center;
                 }
                 button {
                     background-color: transparent; 
@@ -156,22 +173,29 @@ class TaskItem extends HTMLElement {
         dv.appendChild(estPomos)
         dv.appendChild(actualPomos)
         dv.appendChild(buttonBox);
-        //dv.appendChild(startButton)
-        //dv.appendChild(removeButton)
         this.shadowRoot.append(dv)
     }
 }
 
 customElements.define('task-item', TaskItem)
 
-function loadTasks() {
+/**
+* @method loadTasks
+* @description loads in tasks from local storage into the task lists on the website
+*/
+function loadTasks(){
     taskListDiv = document.getElementById('task-list-id');
-    while (taskListDiv.firstChild) {
+    while(taskListDiv.firstChild){
         taskListDiv.removeChild(taskListDiv.firstChild);
     }
+    //repopulating task dict
     tempDict = JSON.parse(localStorage.getItem('tasks'))
     for (var key in tempDict) {
         dict[key] = tempDict[key]
+        if(key == 'ID-count'){
+            ID = Number(dict[key])
+            continue
+        }
         let item = document.createElement('task-item')
         let itemName = item.shadowRoot.querySelector('.task-name')
         let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
@@ -180,8 +204,32 @@ function loadTasks() {
         itemName.innerText = dict[key][0]
         itemEstPomos.innerText = dict[key][1]
         itemActPomos.innerText = dict[key][2]
-        var container = document.querySelector('.task-list')
-        container.append(item)
+        var container = document.querySelector('#task-list-id')
+        container.append(item)       
+    }
+    //repopulating finished task list dict
+    tempDict = JSON.parse(localStorage.getItem('finished-tasks'))
+    for (var key in tempDict) {
+        finishDict[key] = tempDict[key]
+        if(key == 'ID-count'){
+            ID = Number(dict[key])
+            continue
+        }
+        let item = document.createElement('task-item')
+        let itemName = item.shadowRoot.querySelector('.task-name')
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        let buttonBox = item.shadowRoot.querySelector('.button-box');
+        buttonBox.style.display = "none";
+        
+        item.shadowRoot.querySelector('.task').id = key
+        itemName.innerText = finishDict[key][0]
+        itemEstPomos.innerText = finishDict[key][1]
+        itemActPomos.innerText = finishDict[key][2]
+        var container = document.querySelector('#completed-tasks')
+        //item.shadowRoot.startButton.disabled = true;
+        //item.shadowRoot.removeButton.disabled = true;
+        container.append(item) 
     }
 }
 
@@ -221,6 +269,7 @@ window.addEventListener('DOMContentLoaded', () => {
         var container = document.querySelector('.task-list')
         container.append(item)
         dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, itemActPomos.innerText]
+        dict['ID-count'] = ID
         window.localStorage.setItem('tasks', JSON.stringify(dict))
     }
 })
