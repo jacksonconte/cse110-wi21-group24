@@ -73,6 +73,7 @@ function startTimer() {
     //document.getElementById('openButton').onclick = '';
     //document.getElementById('openButton').style.cursor = 'default';
     document.getElementById('openButton').style.visibility = "hidden";
+    closeNav()
   }
 
   // Play the chirp sound, since the timer just started
