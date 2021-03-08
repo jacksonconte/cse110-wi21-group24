@@ -294,6 +294,7 @@ window.addEventListener("DOMContentLoaded", () => {
   readout = document.getElementById("countdown-number");
   circle = document.querySelector("circle");
 
+  checkSettings()
   setTime(localStorage.getItem('workPomoTime'));
 
   button.onclick = () => {
