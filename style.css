@@ -54,6 +54,49 @@ svg text {
   font: bold 30px sans-serif;
 }
 
+#analytics-svg {
+  display: block;
+  width: 1000px;
+  height: 150px;
+  transform: none;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+rect:hover {
+  stroke: black;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  transition: 0.1s ease-in;
+}
+
+#task-select {
+  display: none;
+}
+
+#stat-display {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+
+#task-select {
+  text-align: center;
+}
+
+#comp-tasks-dropdown {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+#task-select-button {
+  display: block;
+  margin: 0 auto;
+}
+
 .animate {
   stroke-dasharray: var(--strokeDashOffset); 
   /* stroke-dashoffset: 0px; */
@@ -232,6 +275,13 @@ input {
   background-color: rgba(255,255,255,0.9);
 }
 
+select {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.9);
+}
 
 /* this is for the toggle buttons in settings */
 .switch {
