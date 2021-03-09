@@ -108,12 +108,12 @@ function setDarkMode(enabled) {
 function setAnalytics(enabled) {
   if (Number(enabled)) {
     console.log("re");
-    document.getElementById("analytics").checked = true;
+    document.getElementById("analytics-checkbox").checked = true;
     document.getElementById("analyticsbtn").style.display = "inherit";
 
   } else {
     console.log("mo");
-    document.getElementById("analytics").checked = false;
+    document.getElementById("analytics-checkbox").checked = false;
     document.getElementById("analyticsbtn").style.display = "none";
   
   }
