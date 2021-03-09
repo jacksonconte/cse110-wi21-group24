@@ -55,18 +55,20 @@ svg text {
 }
 
 #analytics-svg {
-  position: relative;
-  margin: auto;
   display: block;
-  width: 1500px;
-  height: 200px;
+  width: 1000px;
+  height: 150px;
   transform: none;
+  text-align: center;
+  border-radius: 10px;
 }
+
 
 rect:hover {
   stroke: black;
   stroke-width: 3;
   stroke-linejoin: round;
+  transition: 0.1s ease-in;
 }
 
 #task-select {
@@ -75,7 +77,10 @@ rect:hover {
 
 #stat-display {
   text-align: center;
+  width: 1000px;
+  margin: 0 auto;
 }
+
 
 #task-select {
   text-align: center;
@@ -84,6 +89,7 @@ rect:hover {
 #comp-tasks-dropdown {
   display: block;
   margin: 0 auto;
+  max-width: 1000px;
 }
 
 #task-select-button {
@@ -269,6 +275,13 @@ input {
   background-color: rgba(255,255,255,0.9);
 }
 
+select {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.9);
+}
 
 /* this is for the toggle buttons in settings */
 .switch {
