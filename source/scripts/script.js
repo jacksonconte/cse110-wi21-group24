@@ -952,3 +952,4 @@ function setLabel(text){
     window.localStorage.setItem("analyticsToggle", enabled);
   }
   
+module.exports = { openNav, closeNav, openTimer, openTasks, openAnalytics, openSettings, setCurrTask, endTask, startTimer, resumeTimer, stopTimer, resetAnimation, tick, incrementPomo, convertToPrettyTime, setTime, logDistraction, setId, loadTasks, loadAnalytics, displayAnalytics, setLabel, checkSettings, submitSettings, resetSettings, setSettings, setDarkMode, setAnalytics }
