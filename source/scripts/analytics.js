@@ -1,11 +1,27 @@
 /**
  * @description Loads analytics page depending on whether any tasks have been completed
  */
+
+
+ window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("comp-tasks-dropdown").selectedIndex = -1;
+    document.getElementById("comp-tasks-dropdown").addEventListener("change", (event) => {
+        displayAnalytics();
+     });
+ });
+
 function loadAnalytics() {
     document.getElementById("comp-tasks-dropdown").innerHTML = "";
     document.getElementById("stat-display").innerHTML = "";
+
+    let emptySelection = document.createElement("option");
+    emptySelection.selected = true;
+    emptySelection.disabled = true;
+    emptySelection.innerText = "-- select an option --";
+
+    document.getElementById("comp-tasks-dropdown").appendChild(emptySelection);
     let tasks = JSON.parse(localStorage.getItem('finished-tasks'));
-    if(Object.keys(tasks).length != 0){
+    if(tasks && Object.keys(tasks) && Object.keys(tasks).length != 0){
         let dropdown = document.getElementById("comp-tasks-dropdown");
         for(let i = 0; i < Object.keys(tasks).length; i++) {
             let selection = document.createElement("option");
@@ -31,10 +47,10 @@ function displayAnalytics(){
     let totalTime = tasks[taskID][5];
     let cancelledWorkPomos = 0;
     let board = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    board.setAttribute("width","1500");
+    board.setAttribute("width","1000");
     board.setAttribute("height","200");
     board.setAttribute("id","analytics-svg");
-    let xtrack = 20
+    let xtrack = 0
     document.getElementById("stat-display").appendChild(board);
     for(let i = 0; i < taskProgress.length; i++){
         let rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
@@ -49,24 +65,24 @@ function displayAnalytics(){
         switch(taskProgress[i][0]){
             case "w":
                 pomoType="Work Pomo";
-                rect.setAttribute("fill","navy");
+                rect.setAttribute("fill","rgba(0,0,127,0.6");
                 break;
             case "sb":
                 pomoType="Short Break";
-                rect.setAttribute("fill","green");
+                rect.setAttribute("fill","rgba(0,255,0,0.6)");
                 break;
             case "lb":
                 pomoType="Long Break";
-                rect.setAttribute("fill","green");
+                rect.setAttribute("fill","rgba(0,255,0,0.8)");
                 break;
             case "wc":
                 pomoType="Cancelled Work Pomo";
-                rect.setAttribute("fill","grey");
+                rect.setAttribute("fill","rgba(0,0,0,0.5)");
                 cancelledWorkPomos++;
                 break;
             case "sbc":
                 pomoType="Cancelled Short Break";
-                rect.setAttribute("fill","grey");
+                rect.setAttribute("fill","rgba(0,0,0,0.5)");
                 break;
             case "lbc":
                 pomoType="Cancelled Long Break";
@@ -74,7 +90,7 @@ function displayAnalytics(){
                 break;         
         }
 
-        let labelText = "This was a " + pomoType + " that lasted " + taskProgress[i][1];
+        let labelText = "This was a " + pomoType + " that lasted " + Math.floor(taskProgress[i][1] / 60) + " minutes and " + (taskProgress[i][1] % 60) + " seconds.";
         rect.setAttribute("onmouseover","setLabel(\""+labelText+"\")");
         rect.setAttribute("onmouseout","setLabel(\"Hover to Display Info\")");
 
@@ -85,36 +101,41 @@ function displayAnalytics(){
         let rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
         rect.setAttribute("width", 5);
         rect.setAttribute("height","110");
-        rect.setAttribute("x", String(Math.round(1000*distractions[i]/totalTime + 20)));
+        rect.setAttribute("x", String(Math.round(1000*distractions[i]/totalTime)));
         rect.setAttribute("y", "15");
-        rect.setAttribute("fill","red");
+        rect.setAttribute("fill","rgba(255,0,0,0.8)");
 
-        let labelText = "This was a distraction logged at " + distractions[i];
+        let labelText = "This was a distraction logged at " + Math.floor(distractions[i] / 60) + " minutes and " + (distractions[i] % 60) + " seconds in.";
 
         rect.setAttribute("onmouseover","setLabel(\""+labelText+"\")");
         rect.setAttribute("onmouseout","setLabel(\"Hover to Display Info\")");
         board.appendChild(rect);
     }
 
-    let label = document.createElement("div");
+    let label = document.createElement("h2");
     label.setAttribute("id", "svg-label");
     label.innerHTML="Hover to Display Info";
     document.getElementById("stat-display").appendChild(label);
 
     let stats = document.createElement("div");
     stats.setAttribute("id", "stats");
+
     let statEstPomo = document.createElement("p");
-    statEstPomo.innerHTML = "Estimated Pomos: " + tasks[taskID][1];
+    statEstPomo.innerHTML = "Estimated Pomos: " + tasks[taskID][1] + "<br>";
     stats.appendChild(statEstPomo);
+
     let statActPomo = document.createElement("p");
-    statActPomo.innerHTML = "Actual (Completed) Pomos: " + tasks[taskID][2];
+    statActPomo.innerHTML = "Completed Pomos: " + tasks[taskID][2];
     stats.appendChild(statActPomo);
+
     let statCancelledPomo = document.createElement("p");
     statCancelledPomo.innerHTML = "Cancelled Pomos: " + cancelledWorkPomos;
     stats.appendChild(statCancelledPomo);
-    let statTotalTime = document.createElement("p");
-    statTotalTime.innerHTML = "Total Time: " + totalTime;
+
+    let statTotalTime = document.createElement("h3");
+    statTotalTime.innerHTML = "Total Time: " + Math.floor(totalTime / 60) + " minutes and " + totalTime % 60 + " seconds.";
     stats.appendChild(statTotalTime);
+    
     document.getElementById("stat-display").appendChild(stats);
 }
 
