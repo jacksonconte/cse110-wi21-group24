@@ -114,7 +114,7 @@ function setCurrTask(taskID){
 
   currTaskPomos = tasks[currTaskID][2];
   currTaskDistractions = tasks[currTaskID][3];
-  currTaskProgress = tasks[currTaskID][4];
+  currTaskProgress  = tasks[currTaskID][4];
   currTaskTime = tasks[currTaskID][5];
 }
 
@@ -663,7 +663,7 @@ function loadTasks(){
         item.shadowRoot.querySelector('.task').id = key
         itemName.innerText = dict[key][0]
         itemEstPomos.innerText = dict[key][1]
-        itemActPomos.innerText =  "WIP" //dict[key][2]
+        itemActPomos.innerText = dict[key][2]
         var container = document.querySelector('#task-list-id')
         container.append(item)       
     }
@@ -685,7 +685,7 @@ function loadTasks(){
         item.shadowRoot.querySelector('.task').id = key
         itemName.innerText = finishDict[key][0]
         itemEstPomos.innerText = finishDict[key][1]
-        itemActPomos.innerText = "WIP" //finishDict[key][2]
+        itemActPomos.innerText = finishDict[key][2]
         var container = document.querySelector('#completed-tasks')
         //item.shadowRoot.startButton.disabled = true;
         //item.shadowRoot.removeButton.disabled = true;
