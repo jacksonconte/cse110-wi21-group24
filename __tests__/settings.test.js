@@ -31,7 +31,7 @@ describe("resetSettings tests", () => {
     });
 });
 
-document.body.innerHTML = `
+/* document.body.innerHTML = `
 <div id="mySidebar" class="sidebar">
 <button id="timerbtn" onclick="closeNav()">Timer</button>
 <button id="tasksbtn" onclick="openTasks()">Task List</button>
@@ -175,4 +175,4 @@ document.body.innerHTML = `
 <audio id="chirp-sound" src="../media/audio/chirp.WAV"></audio>
 <audio id="alert-sound" src="../media/audio/alert.WAV"></audio>
 </div>
-`;
+`; */
