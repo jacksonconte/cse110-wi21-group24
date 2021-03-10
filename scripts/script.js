@@ -894,11 +894,8 @@ function setLabel(text){
     let analyticsToggle = window.localStorage.getItem("analyticsToggle");
     let darkModeToggle = window.localStorage.getItem("darkModeToggle");
   
-    document.getElementById("work-pomo-time").innerHTML = workPomoTime;
     document.getElementById("work-pomo-time").value = workPomoTime;
-    document.getElementById("short-break-time").innerHTML = shortBreakTime;
     document.getElementById("short-break-time").value = shortBreakTime;
-    document.getElementById("long-break-time").innerHTML = longBreakTime;
     document.getElementById("long-break-time").value = longBreakTime;
   
     setDarkMode(darkModeToggle);
