@@ -830,10 +830,10 @@ function setLabel(text){
 }
 
 //SETTINGS
+
 /**
  * @description Checks if settings exist in local storage. If not, creates defaults.
  */
-
  function checkSettings() {
     if (window.localStorage.getItem("workPomoTime") === null) {
       window.localStorage.setItem("workPomoTime", 25);
@@ -886,7 +886,6 @@ function setLabel(text){
   /**
    * @description Sets values on settings page based on local storage values
    */
-  
   function setSettings() {
     let workPomoTime = window.localStorage.getItem("workPomoTime");
     let shortBreakTime = window.localStorage.getItem("shortBreakTime");
