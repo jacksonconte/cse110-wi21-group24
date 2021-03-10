@@ -4,3 +4,4 @@ Present: Jackson, David, Anurag, Nimish, Adam, Roger, Noah
 
 Agenda:
 - Testing
+- Decision made to switch to Cypress
