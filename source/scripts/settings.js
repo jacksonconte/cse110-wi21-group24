@@ -54,7 +54,6 @@ function resetSettings() {
 /**
  * @description Sets values on settings page based on local storage values
  */
-
 function setSettings() {
   let workPomoTime = window.localStorage.getItem("workPomoTime");
   let shortBreakTime = window.localStorage.getItem("shortBreakTime");
