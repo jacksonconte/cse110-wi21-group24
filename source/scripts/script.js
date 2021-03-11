@@ -148,7 +148,7 @@ function endTask(){
 
   //resetAnimation();
   setTime(localStorage.getItem('workPomoTime'));
-  stopTimer();
+  stopTimer(true);
 
   document.getElementById("toggle").disabled = true;
   document.getElementById("curr-task").innerHTML = "<h3> Start a new task! </h3>";
@@ -528,6 +528,18 @@ class TaskItem extends HTMLElement {
         * @description removes task from dictionary and window
         */
        function removeTask() {
+          if (localStorage.getItem("curr-task-id") == dv.id) {
+            delete localStorage['curr-task'];
+
+            setTime(localStorage.getItem('workPomoTime'));
+            stopTimer(true);
+
+            document.getElementById("toggle").disabled = true;
+            document.getElementById("end-task").hidden = true;
+            document.getElementById("curr-task").innerHTML = "<h3> Start a new task! </h3>";
+            pomoIndex = 0;
+          }
+
            if(dict[dv.id] != null){
                //console.log("no hi")
                delete dict[dv.id]
@@ -537,15 +549,6 @@ class TaskItem extends HTMLElement {
                delete finishDict[dv.id]
                window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
            }
-
-          delete localStorage['curr-task'];
-          setTime(localStorage.getItem('workPomoTime'));
-          stopTimer();
-          //pomoIndex = 0;
-
-          document.getElementById("toggle").disabled = true;
-          document.getElementById("curr-task").innerHTML = "<h3> Start a new task! </h3>";
-
            //parentElement is buttonBox; parentElement.parentElement is the actual entry itself
            this.parentElement.parentElement.remove()
         }
@@ -571,12 +574,19 @@ class TaskItem extends HTMLElement {
             document.getElementById("analyticsbtn").onclick = openAnalytics;
             document.getElementById("settingsbtn").onclick = openSettings;
 
+            setTime(localStorage.getItem('workPomoTime'));
+            stopTimer(true);
+            setCurrTask(dv.id);
+            
+            pomoIndex = 0;
+            document.getElementById("pomo-status").innerText = "Work Pomo";
+            document.getElementById("end-task").hidden = true;
+            document.getElementById("end-task").style.display = "none";
             document.getElementById('curr-task').innerHTML = "<h3>" + dict[dv.id][0] + " </h3>";
             document.getElementById('toggle').disabled = false;
+            document.getElementById('toggle').innerText = "START WORK POMO";
             //rememmber current task so we can resume it when we refresh
-            localStorage.setItem('curr-task', taskName.innerText);
-
-            setCurrTask(dv.id);
+            localStorage.setItem('curr-task', taskName.innerText);       
             closeNav();
         }
         this.shadowRoot.innerHTML = `
@@ -593,6 +603,11 @@ class TaskItem extends HTMLElement {
                     padding: 20px;
                     color: white;
                     font-size: 1.1em;
+                }
+
+                .task:hover {
+                    background-color: rgba(0,0,0,0.2);
+                    transition: 0.3s ease-in;
                 }
 
                 .task-name {
@@ -679,6 +694,9 @@ function loadTasks(){
         let itemName = item.shadowRoot.querySelector('.task-name')
         let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
         let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        itemName.style.flexBasis = "60%";
+        itemEstPomos.style.flexBasis = "20%";
+        itemActPomos.style.flexBasis = "20%";
         let buttonBox = item.shadowRoot.querySelector('.button-box');
         buttonBox.style.display = "none";
         
