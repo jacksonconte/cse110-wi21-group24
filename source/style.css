@@ -107,7 +107,7 @@ rect:hover {
 
   /* animation: countdown 10s linear infinite forwards; /* time needs to be user input */
   animation-name: countdown;
-  /*animation-iteration-count: infinite;*/
+  /* animation-iteration-count: infinite; */
   animation-timing-function: linear;
   /* animation-duration: 20s;*/
   animation-play-state: paused;
