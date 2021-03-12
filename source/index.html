@@ -24,8 +24,10 @@
   <!--Timer Screen-->
   <div id="display">
     <div id="timer" class="content">
-      <div id="curr-task"></div>
-      <div id="pomo-status">Work Pomo</div>
+      <div id='curr-task'>
+        <h3>Start a new task!</h3>
+      </div>
+      <div id='pomo-status' hidden>Work Pomo</div>
       <div id="countdown">
         <div class="title"> Pomodoro Timer </div>
         <svg id="circle_svg">
@@ -56,7 +58,7 @@
       </div>
     <br><br>
 
-      <div style="display: flex; justify-content: space-evenly; align-items: center; width: 960px; margin: auto; text-align: center; padding:20px; margin-bottom: -30px;">
+      <div style="display: flex; justify-content: space-evenly; align-items: center; width: 940px; margin: auto; text-align: center; padding:20px; margin-bottom: -20px; background-color:rgba(0,0,0,0.3); border-radius:5px;">
         <div style="flex-basis: 50%; display: block;">Your Tasks</div> 
         <div style="flex-basis: 10%;">Estimated Pomos</div>
         <div style="flex-basis: 10%;">Actual Pomos</div>
@@ -64,10 +66,17 @@
       </div>
       
     <div id="task-list-id" class="task-list"></div>
-    <br><br>
+    <br><hr style="max-width: 980px;"><br>
       <h2 style="text-align: center;">Completed Tasks</h2> 
+      <br>
+      <div style="display: flex; justify-content: space-evenly; align-items: center; width: 940px; margin: auto; text-align: center; padding:20px; margin-bottom: -20px; background-color:rgba(0,0,0,0.3); border-radius:5px;">
+        <div style="flex-basis: 60%; display: block;">Your Tasks</div> 
+        <div style="flex-basis: 20%;">Estimated Pomos</div>
+        <div style="flex-basis: 20%;">Actual Pomos</div>
+      </div>
       <div id="completed-tasks" class="task-list"></div>
     </div>
+    <br><br>
   
 
     <!--Settings Screen-->

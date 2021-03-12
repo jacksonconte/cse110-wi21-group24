@@ -13,7 +13,7 @@ jobs:
         run: yarn run jsdoc2md -f 'source/**' > ./docs/Documentation.md
       - name: Commit Documentation
         run: |
-          git config --local user.name "Documentation Generator"
+          git config --global user.name "Documentation Generator"
           rm -rf node_modules
           rm yarn.lock
           git add .
