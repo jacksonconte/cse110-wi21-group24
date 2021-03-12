@@ -1,4 +1,4 @@
-//SIDEBAR
+// SIDEBAR
 /**
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
@@ -92,7 +92,7 @@ function openSettings() {
 }
 
 
-//TIMER
+// TIMER
 let timerStarted = false;
 let timerSeconds, intervalID, button, readout, circle, duration;
 let pomoIndex = 0;
@@ -126,19 +126,19 @@ function endTask(){
   tasks[currTaskID][4] = currTaskProgress;
   tasks[currTaskID][5] = currTaskTime;
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  finishDict[currTaskID] = tasks[currTaskID] 
-  delete dict[currTaskID]
-  window.localStorage.setItem('tasks', JSON.stringify(dict))
-  window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))
+  finishDict[currTaskID] = tasks[currTaskID]; 
+  delete dict[currTaskID];
+  window.localStorage.setItem('tasks', JSON.stringify(dict));
+  window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict));
   currTaskID = -1;
-  var taskDiv = document.getElementById('task-list-id')
+  let taskDiv = document.getElementById('task-list-id');
   taskDiv.innerHTML = '';
-  var finishedTaskDiv = document.getElementById('completed-tasks')
+  let finishedTaskDiv = document.getElementById('completed-tasks');
   finishedTaskDiv.innerHTML = '';
-  var currentDiv = document.getElementById('curr-task')
+  let currentDiv = document.getElementById('curr-task');
   currentDiv.innerHTML = '';
   document.getElementById('end-task').style.display = 'none';
-  console.log(finishDict)
+  console.log(finishDict);
   loadTasks();
 }
 /**
@@ -147,7 +147,7 @@ function endTask(){
  */
 function startTimer() {
   document.getElementById('end-task').style.display = 'none';
-  if(currTaskID != -1){
+  if(currTaskID !== -1){
     switch(pomoIndex){
       case 0:
       case 2:
@@ -163,15 +163,15 @@ function startTimer() {
 
   button.innerHTML = "STOP";
   timerStarted = true;
-  if(pomoIndex % 2 == 0){
-    //document.getElementById('openButton').style.color = document.body.style.backgroundColor;
-    //document.getElementById('openButton').onclick = '';
-    //document.getElementById('openButton').style.cursor = 'default';
+  if(pomoIndex % 2 === 0){
+    // document.getElementById('openButton').style.color = document.body.style.backgroundColor;
+    // document.getElementById('openButton').onclick = '';
+    // document.getElementById('openButton').style.cursor = 'default';
     document.getElementById('openButton').style.visibility = "hidden";
   }
 
   // Play the chirp sound, since the timer just started
-  document.getElementById('chirp-sound').play()
+  document.getElementById('chirp-sound').play();
 }
 
 /**
@@ -200,20 +200,20 @@ function resumeTimer() {
   
   if (timerSeconds < duration) {
     let newCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-    document.getElementsByClassName("animate")[0].remove(); //removes old circle
+    document.getElementsByClassName("animate")[0].remove(); // removes old circle
 
-    //draws the new circle
+    // draws the new circle
     newCircle.setAttribute('class', 'animate');
     newCircle.setAttribute('cx', '50%');
     newCircle.setAttribute('cy', '50%');
     newCircle.setAttribute('r', '100');
 
-    //below sets the css variable circleBarOffset to the correct values
+    // below sets the css variable circleBarOffset to the correct values
     newCircle.style.animationDuration = (timerSeconds) + "s";
     newCircle.style.animationPlayState = "running";
     newCircle.style.setProperty("--circleBarOffset", (628/duration) * (duration - timerSeconds) + "px");
     
-    //sets the new circle to be running and the circle bar at correct position
+    // sets the new circle to be running and the circle bar at correct position
     document.getElementById("circle_svg").appendChild(newCircle);
   }
 }
@@ -224,7 +224,7 @@ function resumeTimer() {
  */
 function stopTimer(forced) {
   document.getElementById("log-distraction").style.display = "none";
-  if(forced && currTaskID != -1){
+  if(forced && currTaskID !== -1){
     switch(pomoIndex) {
       case 0:
       case 2:
@@ -241,7 +241,7 @@ function stopTimer(forced) {
         currTaskProgress.push(["lbc", duration - timerSeconds]);
     }
   }
-  if(currTaskID != -1){
+  if(currTaskID !== -1){
     switch(pomoIndex) {
       case 1:
       case 3:
@@ -257,18 +257,18 @@ function stopTimer(forced) {
   timerSeconds = duration;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
 
-  //forces a rerender of the svg 
+  // forces a rerender of the svg 
   let temp = document.getElementById("circle_svg");
   document.getElementById("circle_svg").remove();
   document.getElementById("countdown").appendChild(temp);
 
-  //removes circle bar offsets so we dont have any half circles rendering
+  // removes circle bar offsets so we dont have any half circles rendering
   let circle = document.getElementsByTagName("circle")[0];
   circle.style.setProperty("--circleBarOffset", "0px");
 
-  //document.getElementById('openButton').style.color = 'black';
-  //document.getElementById('openButton').onclick = openNav;
-  //document.getElementById('openButton').style.cursor = 'pointer';
+  // document.getElementById('openButton').style.color = 'black';
+  // document.getElementById('openButton').onclick = openNav;
+  // document.getElementById('openButton').style.cursor = 'pointer';
   document.getElementById('openButton').style.visibility = "";
   circle.style.animationPlayState = "paused";
 }
@@ -289,16 +289,16 @@ function resetAnimation() {
  */
 function tick() {
   timerSeconds--;
-  if (currTaskID != -1) {
+  if (currTaskID !== -1) {
     currTaskTime++;
   }
   readout.innerHTML = convertToPrettyTime(timerSeconds);
-  if (timerSeconds == 0){
+  if (timerSeconds === 0){
     incrementPomo();
     stopTimer(false);
 
     // Play alert sound because the timer just ended
-    document.getElementById('alert-sound').play()
+    document.getElementById('alert-sound').play();
   }
 }
 
@@ -307,17 +307,17 @@ function tick() {
  * @description updates number of pomos at end of pomo
  */
 function incrementPomo(){
-  if(pomoIndex == 7){
+  if(pomoIndex === 7){
     pomoIndex = 0;
   } else{
     pomoIndex++;
   }
-  if(pomoIndex % 2 == 1){
+  if(pomoIndex % 2 === 1){
     currTaskPomos++;
   }
   switch(pomoIndex) {
     case 0:
-      if(currTaskID != -1){
+      if(currTaskID !== -1){
         currTaskProgress.push(["lb", duration]);
       }
       setTime(localStorage.getItem('workPomoTime'));
@@ -326,7 +326,7 @@ function incrementPomo(){
     case 2:
     case 4:
     case 6:
-      if(currTaskID != -1){
+      if(currTaskID !== -1){
         currTaskProgress.push(["sb", duration]);
       }
       setTime(localStorage.getItem('workPomoTime'));
@@ -335,14 +335,14 @@ function incrementPomo(){
     case 1:
     case 3:
     case 5:
-      if(currTaskID != -1){
+      if(currTaskID !== -1){
         currTaskProgress.push(["w", duration]);
       }   
       setTime(localStorage.getItem('shortBreakTime'));
       document.getElementById('pomo-status').innerHTML = 'Short Break';
       break;
     case 7:
-      if(currTaskID != -1){
+      if(currTaskID !== -1){
         currTaskProgress.push(["w", duration]);
       } 
       setTime(localStorage.getItem('longBreakTime'));
@@ -400,17 +400,17 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-//TASKS
-var dict = {}
-var finishDict = {}
-var ID = 0
+// TASKS
+let dict = {};
+let finishDict = {};
+let ID = 0;
 let first = true;
 /**
  * @description gets the max key value in the dictionary
  * @param {dict} dict
  * @returns {Number} The largest key in the dictionary
  */
-//function getMax(dict) {
+// function getMax(dict) {
 //    var currentMax = -1
 //    for (var key in dict) {
 //        if (Number(key) > currentMax) {
@@ -424,8 +424,8 @@ let first = true;
  * @returns {String} Returns the ID in string form
  */
 function setId() {
-    let nextId = ID
-    ID++
+    let nextId = ID;
+    ID++;
     /*
     if (Object.keys(dict).length > 0) {
         nextId = getMax(dict) + 1
@@ -433,7 +433,7 @@ function setId() {
       nextId = 1
     }
     */
-    return nextId.toString()
+    return nextId.toString();
 }
 /**
  * @class TaskItem
@@ -445,34 +445,34 @@ class TaskItem extends HTMLElement {
      * @description Constructor of the TaskItem class
      */
     constructor() {
-        super()
+        super();
         this.attachShadow({
             mode: 'open',
-        })
-        var dv = document.createElement('div')
-        dv.setAttribute('class', 'task')
-        //setting ID based on biggest key in dict
-        dv.setAttribute('id', setId())
-        //creation of the custom componenets elements
-        var taskName = document.createElement('div')
-        taskName.setAttribute('class', 'task-name')
+        });
+        let dv = document.createElement('div');
+        dv.setAttribute('class', 'task');
+        // setting ID based on biggest key in dict
+        dv.setAttribute('id', setId());
+        // creation of the custom componenets elements
+        let taskName = document.createElement('div');
+        taskName.setAttribute('class', 'task-name');
 
-        var estPomos = document.createElement('div')
-        estPomos.setAttribute('class', 'task-est-pomos')
+        let estPomos = document.createElement('div');
+        estPomos.setAttribute('class', 'task-est-pomos');
 
-        var actualPomos = document.createElement('div')
-        actualPomos.setAttribute('class', 'task-act-pomos')
-        actualPomos.textContent = '--'
+        let actualPomos = document.createElement('div');
+        actualPomos.setAttribute('class', 'task-act-pomos');
+        actualPomos.textContent = '--';
 
-        var buttonBox = document.createElement('div')
+        let buttonBox = document.createElement('div');
 
-        var startButton = document.createElement('button')
-        startButton.textContent = 'Start'
-        startButton.addEventListener('click', startTask)
+        let startButton = document.createElement('button');
+        startButton.textContent = 'Start';
+        startButton.addEventListener('click', startTask);
 
-        var removeButton = document.createElement('button')
-        removeButton.textContent = 'Remove'
-        removeButton.addEventListener('click', removeTask)
+        let removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', removeTask);
 
         buttonBox.setAttribute('class', 'button-box');
         buttonBox.appendChild(startButton);
@@ -485,23 +485,23 @@ class TaskItem extends HTMLElement {
         */
        function removeTask() {
            if(dict[dv.id] != null){
-               console.log("no hi")
-               delete dict[dv.id]
-               localStorage.setItem('tasks', JSON.stringify(dict))
+               console.log("no hi");
+               delete dict[dv.id];
+               localStorage.setItem('tasks', JSON.stringify(dict));
            } else {
-               console.log("hi")
-               delete finishDict[dv.id]
-               window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
+               console.log("hi");
+               delete finishDict[dv.id];
+               window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict));             
            }
-           //parentElement is buttonBox; parentElement.parentElement is the actual entry itself
-           this.parentElement.parentElement.remove()
+           // parentElement is buttonBox; parentElement.parentElement is the actual entry itself
+           this.parentElement.parentElement.remove();
         }
         /**
         * @method clear
         * @description clears current task from list
         */
         function clear() {
-            this.parentElement.remove()
+            this.parentElement.remove();
         }
 
         function startTask() {
@@ -570,17 +570,17 @@ class TaskItem extends HTMLElement {
                 }
 
             </style>
-        `
+        `;
 
-        dv.appendChild(taskName)
-        dv.appendChild(estPomos)
-        dv.appendChild(actualPomos)
+        dv.appendChild(taskName);
+        dv.appendChild(estPomos);
+        dv.appendChild(actualPomos);
         dv.appendChild(buttonBox);
-        this.shadowRoot.append(dv)
+        this.shadowRoot.append(dv);
     }
 }
 
-customElements.define('task-item', TaskItem)
+customElements.define('task-item', TaskItem);
 
 /**
 * @method loadTasks
@@ -591,55 +591,55 @@ function loadTasks(){
     while(taskListDiv.firstChild){
         taskListDiv.removeChild(taskListDiv.firstChild);
     }
-    //repopulating task dict
-    tempDict = JSON.parse(localStorage.getItem('tasks'))
-    for (var key in tempDict) {
-        dict[key] = tempDict[key]
-        if(key == 'ID-count'){
-            ID = Number(dict[key])
-            continue
+    // repopulating task dict
+    tempDict = JSON.parse(localStorage.getItem('tasks'));
+    for (let key in tempDict) {
+        dict[key] = tempDict[key];
+        if(key === 'ID-count'){
+            ID = Number(dict[key]);
+            continue;
         }
-        let item = document.createElement('task-item')
-        let itemName = item.shadowRoot.querySelector('.task-name')
-        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
-        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
-        item.shadowRoot.querySelector('.task').id = key
-        itemName.innerText = dict[key][0]
-        itemEstPomos.innerText = dict[key][1]
-        itemActPomos.innerText = dict[key][2]
-        var container = document.querySelector('#task-list-id')
-        container.append(item)       
+        let item = document.createElement('task-item');
+        let itemName = item.shadowRoot.querySelector('.task-name');
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos');
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos');
+        item.shadowRoot.querySelector('.task').id = key;
+        itemName.innerText = dict[key][0];
+        itemEstPomos.innerText = dict[key][1];
+        itemActPomos.innerText = dict[key][2];
+        let container = document.querySelector('#task-list-id');
+        container.append(item);       
     }
-    //repopulating finished task list dict
-    tempDict = JSON.parse(localStorage.getItem('finished-tasks'))
+    // repopulating finished task list dict
+    tempDict = JSON.parse(localStorage.getItem('finished-tasks'));
     for (var key in tempDict) {
-        finishDict[key] = tempDict[key]
-        if(key == 'ID-count'){
-            ID = Number(dict[key])
-            continue
+        finishDict[key] = tempDict[key];
+        if(key === 'ID-count'){
+            ID = Number(dict[key]);
+            continue;
         }
-        let item = document.createElement('task-item')
-        let itemName = item.shadowRoot.querySelector('.task-name')
-        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
-        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        let item = document.createElement('task-item');
+        let itemName = item.shadowRoot.querySelector('.task-name');
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos');
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos');
         let buttonBox = item.shadowRoot.querySelector('.button-box');
         buttonBox.style.display = "none";
         
-        item.shadowRoot.querySelector('.task').id = key
-        itemName.innerText = finishDict[key][0]
-        itemEstPomos.innerText = finishDict[key][1]
-        itemActPomos.innerText = finishDict[key][2]
-        var container = document.querySelector('#completed-tasks')
-        //item.shadowRoot.startButton.disabled = true;
-        //item.shadowRoot.removeButton.disabled = true;
-        container.append(item) 
+        item.shadowRoot.querySelector('.task').id = key;
+        itemName.innerText = finishDict[key][0];
+        itemEstPomos.innerText = finishDict[key][1];
+        itemActPomos.innerText = finishDict[key][2];
+        let container = document.querySelector('#completed-tasks');
+        // item.shadowRoot.startButton.disabled = true;
+        // item.shadowRoot.removeButton.disabled = true;
+        container.append(item); 
     }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    //repopulating page if 'tasks' in local storage is not null
+    // repopulating page if 'tasks' in local storage is not null
     if (!(window.localStorage.getItem('tasks') === null)) {
-        loadTasks()
+        loadTasks();
     }
 
     document.getElementById("analytics-checkbox").addEventListener('change', (event) => {
@@ -652,34 +652,34 @@ window.addEventListener('DOMContentLoaded', () => {
         setDarkMode(darkModeToggle);
     });
 
-    var submitButton = document.getElementById('add-task-button')
-    submitButton.addEventListener('click', submitTask)
+    let submitButton = document.getElementById('add-task-button');
+    submitButton.addEventListener('click', submitTask);
     /**
      * @method submitTask
      * @description Adds task to dictionary and window
      */
     function submitTask() {
-        let item = document.createElement('task-item')
-        let itemName = item.shadowRoot.querySelector('.task-name')
-        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
-        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
-        let userTaskInput = document.getElementById('input-task-name')
-        let userPomosInput = document.getElementById('input-pomos')
-        let taskDiv = item.shadowRoot.querySelector('.task')
-        itemName.innerText = userTaskInput.value
-        itemEstPomos.innerText = userPomosInput.value
-        itemActPomos.innerText = "--"
-        var container = document.querySelector('.task-list')
-        container.append(item)
-        //[name, estPomo, actPomo, distractions, progress, time]
-        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, 0, [], [], 0]
-        dict['ID-count'] = ID
-        window.localStorage.setItem('tasks', JSON.stringify(dict))
+        let item = document.createElement('task-item');
+        let itemName = item.shadowRoot.querySelector('.task-name');
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos');
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos');
+        let userTaskInput = document.getElementById('input-task-name');
+        let userPomosInput = document.getElementById('input-pomos');
+        let taskDiv = item.shadowRoot.querySelector('.task');
+        itemName.innerText = userTaskInput.value;
+        itemEstPomos.innerText = userPomosInput.value;
+        itemActPomos.innerText = "--";
+        let container = document.querySelector('.task-list');
+        container.append(item);
+        // [name, estPomo, actPomo, distractions, progress, time]
+        dict[taskDiv.id] = [itemName.innerText, itemEstPomos.innerText, 0, [], [], 0];
+        dict['ID-count'] = ID;
+        window.localStorage.setItem('tasks', JSON.stringify(dict));
     }
 })
 
 
-//ANALYTICS
+// ANALYTICS
 /**
  * @description Loads analytics page depending on whether any tasks have been completed
  */
@@ -703,7 +703,7 @@ function loadAnalytics() {
 
     document.getElementById("comp-tasks-dropdown").appendChild(emptySelection);
     let tasks = JSON.parse(localStorage.getItem('finished-tasks'));
-    if(tasks && Object.keys(tasks) && Object.keys(tasks).length != 0){
+    if(tasks && Object.keys(tasks) && Object.keys(tasks).length !== 0){
         let dropdown = document.getElementById("comp-tasks-dropdown");
         for(let i = 0; i < Object.keys(tasks).length; i++) {
             let selection = document.createElement("option");
@@ -732,7 +732,7 @@ function displayAnalytics(){
     board.setAttribute("width","1000");
     board.setAttribute("height","200");
     board.setAttribute("id","analytics-svg");
-    let xtrack = 0
+    let xtrack = 0;
     document.getElementById("stat-display").appendChild(board);
     for(let i = 0; i < taskProgress.length; i++){
         let rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
@@ -829,7 +829,7 @@ function setLabel(text){
     document.getElementById("svg-label").innerHTML = text;
 }
 
-//SETTINGS
+// SETTINGS
 
 /**
  * @description Checks if settings exist in local storage. If not, creates defaults.
@@ -948,4 +948,4 @@ function setLabel(text){
     window.localStorage.setItem("analyticsToggle", enabled);
   }
   
-module.exports = { openNav, closeNav, openTimer, openTasks, openAnalytics, openSettings, setCurrTask, endTask, startTimer, resumeTimer, stopTimer, resetAnimation, tick, incrementPomo, convertToPrettyTime, setTime, logDistraction, setId, loadTasks, loadAnalytics, displayAnalytics, setLabel, checkSettings, submitSettings, resetSettings, setSettings, setDarkMode, setAnalytics }
+// module.exports = { openNav, closeNav, openTimer, openTasks, openAnalytics, openSettings, setCurrTask, endTask, startTimer, resumeTimer, stopTimer, resetAnimation, tick, incrementPomo, convertToPrettyTime, setTime, logDistraction, setId, loadTasks, loadAnalytics, displayAnalytics, setLabel, checkSettings, submitSettings, resetSettings, setSettings, setDarkMode, setAnalytics };
