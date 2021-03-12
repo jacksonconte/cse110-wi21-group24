@@ -685,7 +685,7 @@ function loadTasks(){
     }
     // repopulating finished task list dict
     tempDict = JSON.parse(localStorage.getItem('finished-tasks'));
-    for (var key in tempDict) {
+    for (let key in tempDict) {
         finishDict[key] = tempDict[key];
         if(key === 'ID-count'){
             ID = Number(dict[key]);
