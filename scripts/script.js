@@ -109,9 +109,12 @@ let currTaskID = -1;
 function setCurrTask(taskID){
   currTaskID = taskID;
   let tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  localStorage.setItem('curr-task-id', currTaskID);
+
   currTaskPomos = tasks[currTaskID][2];
   currTaskDistractions = tasks[currTaskID][3];
-  currTaskProgress = tasks[currTaskID][4];
+  currTaskProgress  = tasks[currTaskID][4];
   currTaskTime = tasks[currTaskID][5];
 }
 
@@ -139,8 +142,20 @@ function endTask(){
   currentDiv.innerHTML = '';
   document.getElementById('end-task').style.display = 'none';
   console.log(finishDict);
+
+  delete localStorage['curr-task'];
+  delete localStorage['curr-task-id']
+  pomoIndex = 0;
+
+  //resetAnimation();
+  setTime(localStorage.getItem('workPomoTime'));
+  stopTimer(true);
+
+  document.getElementById("toggle").disabled = true;
+  document.getElementById("curr-task").innerHTML = "<h3> Start a new task! </h3>";
   loadTasks();
 }
+
 /**
  * @function startTimer
  * @description starts timer and animation
@@ -161,7 +176,15 @@ function startTimer() {
   circle.style["animation-duration"] = duration + "s";
   circle.style["animation-play-state"] = "running";
 
-  button.innerHTML = "STOP";
+  let status = document.getElementById("pomo-status").innerText.toUpperCase();
+  button.innerHTML = "STOP " + status;
+
+  /*
+  if (status == "WORK POMO") {
+    document.getElementById("log-distraction").style.display = "initial";
+  }
+  */
+
   timerStarted = true;
   if(pomoIndex % 2 === 0){
     // document.getElementById('openButton').style.color = document.body.style.backgroundColor;
@@ -251,9 +274,18 @@ function stopTimer(forced) {
   }
   timerStarted = false;
   clearInterval(intervalID);
+
   resetAnimation();
 
-  button.innerHTML = "START";
+  let status = document.getElementById("pomo-status").innerText.toUpperCase();
+  button.innerHTML = "START " + status;
+
+  /*
+  if (status == "SHORT BREAK") {
+    document.getElementById('end-task').style.display = 'initial';
+  }
+  */
+
   timerSeconds = duration;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
 
@@ -314,6 +346,7 @@ function incrementPomo(){
   }
   if(pomoIndex % 2 === 1){
     currTaskPomos++;
+    document.getElement
   }
   switch(pomoIndex) {
     case 0:
@@ -347,7 +380,7 @@ function incrementPomo(){
       } 
       setTime(localStorage.getItem('longBreakTime'));
       document.getElementById('pomo-status').innerHTML = 'Long Break';
-      
+      break;
   }
 }
 
@@ -389,6 +422,19 @@ window.addEventListener("DOMContentLoaded", () => {
   circle = document.querySelector("circle");
 
   setTime(localStorage.getItem('workPomoTime'));
+  button.innerHTML = "START " + document.getElementById("pomo-status").innerText.toUpperCase();
+  
+  if (localStorage.getItem('curr-task')) {
+    document.getElementById("curr-task").innerHTML = "<h3> " + localStorage.getItem("curr-task") + " </h3>";
+  }
+  else {
+    document.getElementById("toggle").disabled = true;
+  }
+
+  if (localStorage.getItem('curr-task-id')) {
+    currTaskID = localStorage.getItem('curr-task-id');
+    setCurrTask(currTaskID);
+  }
 
   button.onclick = () => {
     if (timerStarted) {
@@ -478,20 +524,31 @@ class TaskItem extends HTMLElement {
         buttonBox.appendChild(startButton);
         buttonBox.appendChild(removeButton);
         
-        
         /**
         * @method removeTask
         * @description removes task from dictionary and window
         */
        function removeTask() {
+          if (localStorage.getItem("curr-task-id") == dv.id) {
+            delete localStorage['curr-task'];
+
+            setTime(localStorage.getItem('workPomoTime'));
+            stopTimer(true);
+
+            document.getElementById("toggle").disabled = true;
+            document.getElementById("end-task").hidden = true;
+            document.getElementById("curr-task").innerHTML = "<h3> Start a new task! </h3>";
+            pomoIndex = 0;
+          }
+
            if(dict[dv.id] != null){
-               console.log("no hi");
-               delete dict[dv.id];
-               localStorage.setItem('tasks', JSON.stringify(dict));
+               //console.log("no hi")
+               delete dict[dv.id]
+               localStorage.setItem('tasks', JSON.stringify(dict))
            } else {
-               console.log("hi");
-               delete finishDict[dv.id];
-               window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict));             
+               //console.log("hi")
+               delete finishDict[dv.id]
+               window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
            }
            // parentElement is buttonBox; parentElement.parentElement is the actual entry itself
            this.parentElement.parentElement.remove();
@@ -518,8 +575,19 @@ class TaskItem extends HTMLElement {
             document.getElementById("analyticsbtn").onclick = openAnalytics;
             document.getElementById("settingsbtn").onclick = openSettings;
 
-            document.getElementById('curr-task').innerHTML = dict[dv.id][0];
+            setTime(localStorage.getItem('workPomoTime'));
+            stopTimer(true);
             setCurrTask(dv.id);
+            
+            pomoIndex = 0;
+            document.getElementById("pomo-status").innerText = "Work Pomo";
+            document.getElementById("end-task").hidden = true;
+            document.getElementById("end-task").style.display = "none";
+            document.getElementById('curr-task').innerHTML = "<h3>" + dict[dv.id][0] + " </h3>";
+            document.getElementById('toggle').disabled = false;
+            document.getElementById('toggle').innerText = "START WORK POMO";
+            //rememmber current task so we can resume it when we refresh
+            localStorage.setItem('curr-task', taskName.innerText);       
             closeNav();
         }
         this.shadowRoot.innerHTML = `
@@ -536,6 +604,11 @@ class TaskItem extends HTMLElement {
                     padding: 20px;
                     color: white;
                     font-size: 1.1em;
+                }
+
+                .task:hover {
+                    background-color: rgba(0,0,0,0.2);
+                    transition: 0.3s ease-in;
                 }
 
                 .task-name {
@@ -618,10 +691,13 @@ function loadTasks(){
             ID = Number(dict[key]);
             continue;
         }
-        let item = document.createElement('task-item');
-        let itemName = item.shadowRoot.querySelector('.task-name');
-        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos');
-        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos');
+        let item = document.createElement('task-item')
+        let itemName = item.shadowRoot.querySelector('.task-name')
+        let itemEstPomos = item.shadowRoot.querySelector('.task-est-pomos')
+        let itemActPomos = item.shadowRoot.querySelector('.task-act-pomos')
+        itemName.style.flexBasis = "60%";
+        itemEstPomos.style.flexBasis = "20%";
+        itemActPomos.style.flexBasis = "20%";
         let buttonBox = item.shadowRoot.querySelector('.button-box');
         buttonBox.style.display = "none";
         
@@ -635,6 +711,10 @@ function loadTasks(){
         container.append(item); 
     }
 }
+
+window.onbeforeunload = function () {
+    return "";
+};
 
 window.addEventListener('DOMContentLoaded', () => {
     // repopulating page if 'tasks' in local storage is not null
