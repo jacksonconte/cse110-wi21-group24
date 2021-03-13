@@ -147,7 +147,7 @@ function endTask(){
   delete localStorage['curr-task-id']
   pomoIndex = 0;
 
-  //resetAnimation();
+  // resetAnimation();
   setTime(localStorage.getItem('workPomoTime'));
   stopTimer(true);
 
@@ -391,7 +391,7 @@ function incrementPomo(){
  * @return {String} formatted time
  */
 function convertToPrettyTime(seconds) {
-  minutes = Math.floor(seconds / 60);
+  let minutes = Math.floor(seconds / 60);
   return (
     (minutes < 10 ? "0" : "") +
     minutes.toString() +
@@ -464,7 +464,7 @@ let first = true;
 //        }
 //    }
 //    return Number(currentMax)
-//}
+// }
 /**
  * @description Sets the ID for the element to be added to the dict
  * @returns {String} Returns the ID in string form
@@ -542,11 +542,11 @@ class TaskItem extends HTMLElement {
           }
 
            if(dict[dv.id] != null){
-               //console.log("no hi")
+               // console.log("no hi")
                delete dict[dv.id]
                localStorage.setItem('tasks', JSON.stringify(dict))
            } else {
-               //console.log("hi")
+               // console.log("hi")
                delete finishDict[dv.id]
                window.localStorage.setItem('finished-tasks', JSON.stringify(finishDict))             
            }
@@ -586,7 +586,7 @@ class TaskItem extends HTMLElement {
             document.getElementById('curr-task').innerHTML = "<h3>" + dict[dv.id][0] + " </h3>";
             document.getElementById('toggle').disabled = false;
             document.getElementById('toggle').innerText = "START WORK POMO";
-            //rememmber current task so we can resume it when we refresh
+            // rememmber current task so we can resume it when we refresh
             localStorage.setItem('curr-task', taskName.innerText);       
             closeNav();
         }
@@ -756,7 +756,7 @@ window.addEventListener('DOMContentLoaded', () => {
         dict['ID-count'] = ID;
         window.localStorage.setItem('tasks', JSON.stringify(dict));
     }
-})
+});
 
 
 // ANALYTICS
@@ -933,6 +933,11 @@ function setLabel(text){
   
     setSettings();
   }
+
+  function isValidInput(str){
+    str = str.trim();
+    return str !== "";
+  }
   
   /**
    * @description Updates settings in local storage based on inputs on settings page
@@ -942,12 +947,16 @@ function setLabel(text){
     let shortBreakTime = document.getElementById("short-break-time").value;
     let longBreakTime = document.getElementById("long-break-time").value;
   
-    window.localStorage.setItem("workPomoTime", workPomoTime);
-    window.localStorage.setItem("shortBreakTime", shortBreakTime);
-    window.localStorage.setItem("longBreakTime", longBreakTime);
-  
-    alert("Settings updated");
-    setSettings();
+    if(isValidInput(workPomoTime) && isValidInput(shortBreakTime) && isValidInput(longBreakTime)){
+      window.localStorage.setItem("workPomoTime", workPomoTime);
+      window.localStorage.setItem("shortBreakTime", shortBreakTime);
+      window.localStorage.setItem("longBreakTime", longBreakTime);
+      alert("Settings updated");
+      setSettings();
+    } else{
+      alert("There are invalid time inputs. Please make sure that all time lengths are filled.");
+    }
+    
   }
   
   /**

@@ -27,7 +27,7 @@
       <div id='curr-task'>
         <h3>Start a new task!</h3>
       </div>
-      <div id='pomo-status' hidden>Work Pomo</div>
+      <div id="pomo-status" hidden>Work Pomo</div>
       <div id="countdown">
         <div class="title"> Pomodoro Timer </div>
         <svg id="circle_svg">
@@ -87,7 +87,7 @@
             <label for="work-pomo-time">Work Pomo Length (in minutes): &nbsp</label>
           </td>
           <td>
-            <input type="number" value="25" id="work-pomo-time">
+            <input type="number" value="25" id="work-pomo-time" min="1" step="1" oninput="validity.valid||(value='');">
           </td>
         </tr>
         <tr>
@@ -95,7 +95,7 @@
             <label for="short-break-time">Short Break Length (in minutes): &nbsp</label>
           </td>
           <td>
-            <input type="number" value="5" id="short-break-time">
+            <input type="number" value="5" id="short-break-time" min="1" step="1" oninput="validity.valid||(value='');">
           </td>
         </tr>
         <tr>
@@ -103,7 +103,7 @@
             <label for="long-break-time">Long Break Length (in minutes): &nbsp</label>
           </td>
           <td>
-            <input type="number" value="15" id="long-break-time">
+            <input type="number" value="15" id="long-break-time" min="1" step="1" oninput="validity.valid||(value='');">
           </td>
         </tr>
         <tr>
