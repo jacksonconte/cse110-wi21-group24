@@ -14,8 +14,6 @@ describe('Testing the Settings Page', () => {
             expect(localStorage.getItem('shortBreakTime')).to.equal('10');
             expect(localStorage.getItem('longBreakTime')).to.equal('45');
         });
-        
-        
     });
 
     it('Check for invalid inputs in Pomo times', () => {
@@ -45,7 +43,7 @@ describe('Testing the Settings Page', () => {
         });
     });
 
-    it('Check if analytics toggle makes analytics page appear', () => {
+    it('Check if analytics toggle makes analytics page appear/disappear', () => {
         cy.get('#analytics-checkbox').uncheck({force: true});
         cy.get('#openButton').click();
         cy.get('#analyticsbtn').should('have.css', 'display', 'none');

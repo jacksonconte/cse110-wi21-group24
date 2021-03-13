@@ -517,6 +517,7 @@ class TaskItem extends HTMLElement {
         startButton.setAttribute('id', 'start' + currentID)
         startButton.textContent = 'Start';
         startButton.addEventListener('click', startTask);
+        startButton.setAttribute('class', 'start-task-btn');
 
         let removeButton = document.createElement('button');
         removeButton.setAttribute('id', 'remove' + currentID)
