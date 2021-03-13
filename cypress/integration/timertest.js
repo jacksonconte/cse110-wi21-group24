@@ -13,9 +13,12 @@ describe("Testing the timer page", () => {
     cy.get("#input-pomos").clear().type("1");
     cy.get("#add-task-button").click();
     cy.get("task-item").shadow().find("#start0").click();
-    cy.get("#toggle").click();
-    setTimeout(3000, () => {
-        expect(localStorage.get("curr-task")).to.equal(null);
+    cy.get("#toggle").click().should(() => {
+        expect(localStorage.getItem('curr-task')).to.not.equal(null);
+    });
+    cy.wait(3000);
+    cy.get('#end-task').click().should(() => {
+        expect(localStorage.getItem("curr-task")).to.equal(null);
     });
   });
 });
