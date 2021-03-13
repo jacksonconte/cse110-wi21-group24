@@ -514,13 +514,13 @@ class TaskItem extends HTMLElement {
         let buttonBox = document.createElement('div');
 
         let startButton = document.createElement('button');
-        startButton.setAttribute('id', 'start' + currentID)
+        startButton.setAttribute('id', 'start' + currentID);
         startButton.textContent = 'Start';
         startButton.addEventListener('click', startTask);
-        startButton.setAttribute('class', 'start-task-btn');
+        // startButton.setAttribute('class', 'start-task-btn');
 
         let removeButton = document.createElement('button');
-        removeButton.setAttribute('id', 'remove' + currentID)
+        removeButton.setAttribute('id', 'remove' + currentID);
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', removeTask);
 
