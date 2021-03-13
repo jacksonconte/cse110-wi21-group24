@@ -49,7 +49,8 @@ class TaskItem extends HTMLElement {
         var dv = document.createElement('div')
         dv.setAttribute('class', 'task')
         //setting ID based on biggest key in dict
-        dv.setAttribute('id', setId())
+        let currentID = setId()
+        dv.setAttribute('id', currentID)
         //creation of the custom componenets elements
         var taskName = document.createElement('div')
         taskName.setAttribute('class', 'task-name')
@@ -64,10 +65,12 @@ class TaskItem extends HTMLElement {
         var buttonBox = document.createElement('div')
 
         var startButton = document.createElement('button')
+        startButton.setAttribute('id', 'start' + currentID)
         startButton.textContent = 'Start'
         startButton.addEventListener('click', startTask)
 
         var removeButton = document.createElement('button')
+        removeButton.setAttribute('id', 'remove' + currentID)
         removeButton.textContent = 'Remove'
         removeButton.addEventListener('click', removeTask)
 

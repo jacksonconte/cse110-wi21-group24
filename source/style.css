@@ -26,7 +26,7 @@ body {
 #countdown {
   position: relative;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -107,7 +107,7 @@ rect:hover {
 
   /* animation: countdown 10s linear infinite forwards; /* time needs to be user input */
   animation-name: countdown;
-  /*animation-iteration-count: infinite;*/
+  /* animation-iteration-count: infinite; */
   animation-timing-function: linear;
   /* animation-duration: 20s;*/
   animation-play-state: paused;
@@ -188,10 +188,17 @@ rect:hover {
 
 #curr-task {
   text-align: center;
+  padding: 15px;
+  max-width: 50%;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.25);
+  border-radius: 5px;
+  word-break: break-word;
 }
 
 #pomo-status {
   text-align: center;
+  font-family: inherit;
 }
 
 #timer {
@@ -252,11 +259,19 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
+button:hover:enabled {
   background-color: rgba(0,0,0,0.3);
   transition: 0.3s ease-in;
   cursor: pointer;
 }
+
+button[disabled] {
+  opacity: 0.5;
+}
+button[disabled]:hover {
+  background-color: transparent !important;
+}
+
 
 #toggle:hover {
   background-color: rgba(0,0,0,0.3);
