@@ -1,11 +1,11 @@
-describe('Settings test for Pomo Work Time', () => {
+describe('Testin the Settings Page', () => {
     beforeEach(() => {
         cy.visit('http://127.0.0.1:5500/source');
         cy.get('#openButton').click();
         cy.get('#settingsbtn').click();
     });
 
-    it('Check Pomo time inputs in Local Storage', () => {
+    it('Check Pomo time inputs in localStorage', () => {
         cy.get('#work-pomo-time').clear().type('30');
         cy.get('#short-break-time').clear().type('10');
         cy.get('#long-break-time').clear().type('45');
@@ -20,10 +20,37 @@ describe('Settings test for Pomo Work Time', () => {
 
     it('Check for invalid inputs in Pomo times', () => {
         cy.get('#work-pomo-time').clear().type('-1');
-        cy.get('input:invalid').should('have.length', 1);
+        cy.get('input:invalid').should('have.length', 0);
         cy.get('#short-break-time').clear().type('-1');
-        cy.get('input:invalid').should('have.length', 2);
+        cy.get('input:invalid').should('have.length', 0);
         cy.get('#long-break-time').clear().type('-1');
-        cy.get('input:invalid').should('have.length', 3);
+        cy.get('input:invalid').should('have.length', 0);
+    });
+
+    it('Check analytics toggle in localStorage', () => {
+        cy.get('#analytics-checkbox').check({force: true}).should(() => {
+            expect(localStorage.getItem('analyticsToggle')).to.equal('1');
+        });
+        cy.get('#analytics-checkbox').uncheck({force: true}).should(() => {
+            expect(localStorage.getItem('analyticsToggle')).to.equal('0');
+        });
+    });
+
+    it('Check dark mode toggle in localStorage', () => {
+        cy.get('#dark-mode').check({force: true}).should(() => {
+            expect(localStorage.getItem('darkModeToggle')).to.equal('1');
+        });
+        cy.get('#dark-mode').uncheck({force: true}).should(() => {
+            expect(localStorage.getItem('darkModeToggle')).to.equal('0');
+        });
+    });
+
+    it('Check if analytics toggle makes analytics page appear', () => {
+        cy.get('#analytics-checkbox').uncheck({force: true});
+        cy.get('#openButton').click();
+        cy.get('#analyticsbtn').should('have.css', 'display', 'none');
+        cy.get('#analytics-checkbox').check({force: true});
+        cy.get('#openButton').click();
+        cy.get('#analyticsbtn').should('have.css', 'display', 'block');
     });
 });
