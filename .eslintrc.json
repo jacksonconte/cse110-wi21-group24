@@ -10,7 +10,9 @@
   },
   "rules": {
     "curly": ["error", "all"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "prefer-const": "off",
+    
   },
   "noInlineConfig": true
 }
