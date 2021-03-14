@@ -1,7 +1,7 @@
 describe('Testing the Task List Page', () => {
     beforeEach(() => {
         cy.visit('http://127.0.0.1:5500/source');
-        cy.get('#openButton').click();
+        cy.get('#open-button').click();
         cy.get('#tasksbtn').click();
     });
 

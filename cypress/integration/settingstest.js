@@ -1,7 +1,7 @@
 describe('Testing the Settings Page', () => {
     beforeEach(() => {
         cy.visit('http://127.0.0.1:5500/source');
-        cy.get('#openButton').click();
+        cy.get('#open-button').click();
         cy.get('#settingsbtn').click();
     });
 
@@ -45,10 +45,10 @@ describe('Testing the Settings Page', () => {
 
     it('Check if analytics toggle makes analytics page appear/disappear', () => {
         cy.get('#analytics-checkbox').uncheck({force: true});
-        cy.get('#openButton').click();
+        cy.get('#open-button').click();
         cy.get('#analyticsbtn').should('have.css', 'display', 'none');
         cy.get('#analytics-checkbox').check({force: true});
-        cy.get('#openButton').click();
+        cy.get('#open-button').click();
         cy.get('#analyticsbtn').should('have.css', 'display', 'block');
     });
 });

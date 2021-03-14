@@ -87,7 +87,7 @@ function setDarkMode(enabled) {
     document.getElementById('dark-mode').checked = true;
     document.getElementsByTagName('body')[0].style =
       'background: linear-gradient(90deg, #333, #444, #555, #888); background-size: 150% 800%;';
-    document.getElementById('openButton').style = 'color: white';
+    document.getElementById('open-button').style = 'color: white';
     document.getElementById('timerbtn').style =
       'border: 3px solid white; color: white;';
     document.getElementById('tasksbtn').style =
@@ -98,12 +98,12 @@ function setDarkMode(enabled) {
 
     document.getElementById('settingsbtn').style =
       'border: 3px solid white; color: white;';
-    document.getElementById('mySidebar').style =
+    document.getElementById('my-sidebar').style =
       'background-color: rgba(0,0,0,0.1);';
   } else {
     document.getElementById('dark-mode').checked = false;
     document.getElementsByTagName('body')[0].style = '';
-    document.getElementById('openButton').style = '';
+    document.getElementById('open-button').style = '';
 
     document.getElementById('timerbtn').style = '';
     document.getElementById('tasksbtn').style = '';
@@ -112,7 +112,7 @@ function setDarkMode(enabled) {
     document.getElementById('analyticsbtn').style.color = 'black';
 
     document.getElementById('settingsbtn').style = '';
-    document.getElementById('mySidebar').style = '';
+    document.getElementById('my-sidebar').style = '';
   }
   window.localStorage.setItem('darkModeToggle', enabled);
 }

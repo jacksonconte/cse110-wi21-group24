@@ -93,10 +93,10 @@ function startTimer() {
 
   timerStarted = true;
   if (pomoIndex % 2 === 0) {
-    // document.getElementById('openButton').style.color = document.body.style.backgroundColor;
-    // document.getElementById('openButton').onclick = '';
-    // document.getElementById('openButton').style.cursor = 'default';
-    document.getElementById('openButton').style.visibility = 'hidden';
+    // document.getElementById('open-button').style.color = document.body.style.backgroundColor;
+    // document.getElementById('open-button').onclick = '';
+    // document.getElementById('open-button').style.cursor = 'default';
+    document.getElementById('open-button').style.visibility = 'hidden';
   }
 
   // Play the chirp sound, since the timer just started
@@ -148,7 +148,7 @@ function resumeTimer() {
     );
 
     // sets the new circle to be running and the circle bar at correct position
-    document.getElementById('circle_svg').appendChild(newCircle);
+    document.getElementById('circle-svg').appendChild(newCircle);
   }
 }
 
@@ -201,18 +201,18 @@ function stopTimer(forced) {
   readout.innerHTML = convertToPrettyTime(timerSeconds);
 
   // forces a rerender of the svg
-  let temp = document.getElementById('circle_svg');
-  document.getElementById('circle_svg').remove();
+  let temp = document.getElementById('circle-svg');
+  document.getElementById('circle-svg').remove();
   document.getElementById('countdown').appendChild(temp);
 
   // removes circle bar offsets so we dont have any half circles rendering
   let circle = document.getElementsByTagName('circle')[0];
   circle.style.setProperty('--circleBarOffset', '0px');
 
-  // document.getElementById('openButton').style.color = 'black';
-  // document.getElementById('openButton').onclick = openNav;
-  // document.getElementById('openButton').style.cursor = 'pointer';
-  document.getElementById('openButton').style.visibility = '';
+  // document.getElementById('open-button').style.color = 'black';
+  // document.getElementById('open-button').onclick = openNav;
+  // document.getElementById('open-button').style.cursor = 'pointer';
+  document.getElementById('open-button').style.visibility = '';
   circle.style.animationPlayState = 'paused';
 }
 
