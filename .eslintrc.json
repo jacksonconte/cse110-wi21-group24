@@ -12,7 +12,9 @@
     "curly": ["error", "all"],
     "semi": ["error", "always"],
     "prefer-const": "off",
-    
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-unused-expressions": "off"
   },
   "noInlineConfig": true
 }
