@@ -85,8 +85,9 @@ class TaskItem extends HTMLElement {
      * @description removes task from dictionary and window
      */
     function removeTask() {
-      if (localStorage.getItem('curr-task-id') == dv.id) {
+      if (localStorage.getItem('curr-task-id') === dv.id) {
         delete localStorage['curr-task'];
+        delete localStorage['curr-task-id'];
 
         setTime(localStorage.getItem('workPomoTime'));
         stopTimer(true);

@@ -2,19 +2,19 @@
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
  function openNav() {
-  document.getElementById('mySidebar').style.width = '350px';
-  document.getElementById('openButton').style.cursor = 'cursor';
-  document.getElementById('openButton').style.marginLeft = '260px';
-  document.getElementById('openButton').onclick = closeNav;
+  document.getElementById('my-sidebar').style.width = '350px';
+  document.getElementById('open-button').style.cursor = 'cursor';
+  document.getElementById('open-button').style.marginLeft = '260px';
+  document.getElementById('open-button').onclick = closeNav;
 }
 
 /**
  * @description Hides sidebar, moves menu button right, sets menu button to open sidebar
  */
 function closeNav() {
-  document.getElementById('mySidebar').style.width = '0';
-  document.getElementById('openButton').style.marginLeft = '5px';
-  document.getElementById('openButton').onclick = openNav;
+  document.getElementById('my-sidebar').style.width = '0';
+  document.getElementById('open-button').style.marginLeft = '5px';
+  document.getElementById('open-button').onclick = openNav;
 }
 
 /**
