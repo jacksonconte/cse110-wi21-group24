@@ -1,20 +1,20 @@
 /**
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
-function openNav() {
-    document.getElementById("mySidebar").style.width = "350px";
-    document.getElementById("openButton").style.cursor = "cursor";
-    document.getElementById("openButton").style.marginLeft = "260px";
-    document.getElementById("openButton").onclick = closeNav;
+ function openNav() {
+  document.getElementById('mySidebar').style.width = '350px';
+  document.getElementById('openButton').style.cursor = 'cursor';
+  document.getElementById('openButton').style.marginLeft = '260px';
+  document.getElementById('openButton').onclick = closeNav;
 }
 
 /**
  * @description Hides sidebar, moves menu button right, sets menu button to open sidebar
  */
 function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("openButton").style.marginLeft = "5px";
-  document.getElementById("openButton").onclick = openNav;
+  document.getElementById('mySidebar').style.width = '0';
+  document.getElementById('openButton').style.marginLeft = '5px';
+  document.getElementById('openButton').onclick = openNav;
 }
 
 /**
@@ -23,16 +23,16 @@ function closeNav() {
 function openTimer() {
   resumeTimer();
   /* display appropriate content */
-  document.getElementById("tasks").style.display = "none";
-  document.getElementById("analytics").style.display = "none";
-  document.getElementById("settings").style.display = "none";
-  document.getElementById("timer").style.display = "block";
+  document.getElementById('tasks').style.display = 'none';
+  document.getElementById('analytics').style.display = 'none';
+  document.getElementById('settings').style.display = 'none';
+  document.getElementById('timer').style.display = 'block';
 
   /* update buttons */
-  document.getElementById("timerbtn").onclick = closeNav;
-  document.getElementById("tasksbtn").onclick = openTasks;
-  document.getElementById("analyticsbtn").onclick = openAnalytics;
-  document.getElementById("settingsbtn").onclick = openSettings;
+  document.getElementById('timerbtn').onclick = closeNav;
+  document.getElementById('tasksbtn').onclick = openTasks;
+  document.getElementById('analyticsbtn').onclick = openAnalytics;
+  document.getElementById('settingsbtn').onclick = openSettings;
 
   closeNav();
 }
@@ -41,15 +41,15 @@ function openTimer() {
  * @description Displays tasks content, updates menu buttons
  */
 function openTasks() {
-  document.getElementById("timer").style.display = "none";
-  document.getElementById("analytics").style.display = "none";
-  document.getElementById("settings").style.display = "none";
-  document.getElementById("tasks").style.display = "block";
+  document.getElementById('timer').style.display = 'none';
+  document.getElementById('analytics').style.display = 'none';
+  document.getElementById('settings').style.display = 'none';
+  document.getElementById('tasks').style.display = 'block';
 
-  document.getElementById("timerbtn").onclick = openTimer;
-  document.getElementById("tasksbtn").onclick = closeNav;
-  document.getElementById("analyticsbtn").onclick = openAnalytics;
-  document.getElementById("settingsbtn").onclick = openSettings;
+  document.getElementById('timerbtn').onclick = openTimer;
+  document.getElementById('tasksbtn').onclick = closeNav;
+  document.getElementById('analyticsbtn').onclick = openAnalytics;
+  document.getElementById('settingsbtn').onclick = openSettings;
 
   closeNav();
 }
@@ -60,15 +60,15 @@ function openTasks() {
 function openAnalytics() {
   loadAnalytics();
 
-  document.getElementById("timer").style.display = "none";
-  document.getElementById("tasks").style.display = "none";
-  document.getElementById("settings").style.display = "none";
-  document.getElementById("analytics").style.display = "block";
+  document.getElementById('timer').style.display = 'none';
+  document.getElementById('tasks').style.display = 'none';
+  document.getElementById('settings').style.display = 'none';
+  document.getElementById('analytics').style.display = 'block';
 
-  document.getElementById("timerbtn").onclick = openTimer;
-  document.getElementById("tasksbtn").onclick = openTasks;
-  document.getElementById("analyticsbtn").onclick = closeNav;
-  document.getElementById("settingsbtn").onclick = openSettings;
+  document.getElementById('timerbtn').onclick = openTimer;
+  document.getElementById('tasksbtn').onclick = openTasks;
+  document.getElementById('analyticsbtn').onclick = closeNav;
+  document.getElementById('settingsbtn').onclick = openSettings;
 
   closeNav();
 }
@@ -77,15 +77,15 @@ function openAnalytics() {
  * @description Displays settings content, updates menu buttons
  */
 function openSettings() {
-  document.getElementById("timer").style.display = "none";
-  document.getElementById("tasks").style.display = "none";
-  document.getElementById("analytics").style.display = "none";
-  document.getElementById("settings").style.display = "block";
+  document.getElementById('timer').style.display = 'none';
+  document.getElementById('tasks').style.display = 'none';
+  document.getElementById('analytics').style.display = 'none';
+  document.getElementById('settings').style.display = 'block';
 
-  document.getElementById("timerbtn").onclick = openTimer;
-  document.getElementById("tasksbtn").onclick = openTasks;
-  document.getElementById("analyticsbtn").onclick = openAnalytics;
-  document.getElementById("settingsbtn").onclick = closeNav;
+  document.getElementById('timerbtn').onclick = openTimer;
+  document.getElementById('tasksbtn').onclick = openTasks;
+  document.getElementById('analyticsbtn').onclick = openAnalytics;
+  document.getElementById('settingsbtn').onclick = closeNav;
 
   closeNav();
 }
