@@ -8,6 +8,7 @@ let currTaskTime;
 let currTaskID = -1;
 
 /**
+ * @method setCurrTask
  * @description Loads task into timer based on taskID
  * @param {Number} taskID
  */
@@ -24,7 +25,7 @@ function setCurrTask(taskID) {
 }
 
 /**
- * @function endTask
+ * @method endTask
  * @description Finishes a task and removes it from the task list.
  */
 function endTask() {
@@ -63,7 +64,7 @@ function endTask() {
 }
 
 /**
- * @function startTimer
+ * @method startTimer
  * @description starts timer and animation
  */
 function startTimer() {
@@ -104,7 +105,7 @@ function startTimer() {
 }
 
 /**
- * @function resumeTimer
+ * @method resumeTimer
  * @description resumes timer and animation
  */
 function resumeTimer() {
@@ -153,7 +154,7 @@ function resumeTimer() {
 }
 
 /**
- * @function stopTimer
+ * @method stopTimer
  * @description stops timer and resets animation
  */
 function stopTimer(forced) {
@@ -217,7 +218,7 @@ function stopTimer(forced) {
 }
 
 /**
- * @function resetAnimation
+ * @method resetAnimation
  * @description triggers animation reflow
  */
 function resetAnimation() {
@@ -246,7 +247,7 @@ function tick() {
 }
 
 /**
- * @function incrementPomo
+ * @method incrementPomo
  * @description updates number of pomos at end of pomo
  */
 function incrementPomo() {
@@ -296,7 +297,7 @@ function incrementPomo() {
 }
 
 /**
- * @function convertToPrettyTime
+ * @method convertToPrettyTime
  * @description converts seconds to MM:SS
  * @param {Number} seconds
  * @return {String} formatted time
@@ -313,7 +314,7 @@ function convertToPrettyTime(seconds) {
 }
 
 /**
- * @function setTime
+ * @method setTime
  * @description updates timer readout on page
  * @param {number} minutes
  */
@@ -322,11 +323,18 @@ function setTime(minutes) {
   readout.innerHTML = convertToPrettyTime(duration);
 }
 
+/**
+ * @method logDistraction
+ * @description logs a distraction during the work pomo
+ */
 function logDistraction() {
   currTaskDistractions.push(currTaskTime);
 }
 
-// sets element vars and defines button onclick
+/**
+ * @event
+ * @description sets element vars and defines button onclick
+ */
 window.addEventListener('DOMContentLoaded', () => {
   button = document.getElementById('toggle');
   readout = document.getElementById('countdown-number');
@@ -348,6 +356,10 @@ window.addEventListener('DOMContentLoaded', () => {
     setCurrTask(currTaskID);
   }
 
+  /**
+   * @event
+   * @description start/stop the timer with the button click
+   */
   button.onclick = () => {
     if (timerStarted) {
       stopTimer(true);

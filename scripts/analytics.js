@@ -1,7 +1,7 @@
 /**
+ * @event
  * @description Loads analytics page depending on whether any tasks have been completed
  */
-
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('comp-tasks-dropdown').selectedIndex = -1;
   document
@@ -11,6 +11,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/**
+ * @method loadAnalytics
+ * @description Creates drop-down on analytics page for tasks
+ */
 function loadAnalytics() {
   document.getElementById('comp-tasks-dropdown').innerHTML = '';
   document.getElementById('stat-display').innerHTML = '';
@@ -36,6 +40,7 @@ function loadAnalytics() {
 }
 
 /**
+ * @method displayAnalytics
  * @description Displays analytics for selected task
  */
 function displayAnalytics() {
@@ -162,6 +167,7 @@ function displayAnalytics() {
 }
 
 /**
+ * @method setLabel
  * @description Sets text inside hover label
  * @param {String} text
  */

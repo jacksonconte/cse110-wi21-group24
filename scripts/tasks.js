@@ -3,6 +3,7 @@ let dict = {};
 let finishDict = {};
 let ID = 0;
 let first = true;
+
 /**
  * @description gets the max key value in the dictionary
  * @param {dict} dict
@@ -17,7 +18,9 @@ let first = true;
 //    }
 //    return Number(currentMax)
 // }
+
 /**
+ * @method setId
  * @description Sets the ID for the element to be added to the dict
  * @returns {String} Returns the ID in string form
  */
@@ -33,11 +36,13 @@ function setId() {
     */
   return nextId.toString();
 }
+
 /**
  * @class TaskItem
  * @description A custom component that defines the task
  */
 class TaskItem extends HTMLElement {
+
   /**
    * @constructor
    * @description Constructor of the TaskItem class
@@ -122,6 +127,10 @@ class TaskItem extends HTMLElement {
       this.parentElement.remove();
     }
 
+    /**
+     * @method startTask
+     * @description Starts the timer from the current task
+     */
     function startTask() {
       resumeTimer();
       /* display appropriate content */
@@ -274,16 +283,29 @@ function loadTasks() {
   }
 }
 
+/**
+ * @event
+ * @description Returns an empty string before the browser unloads its data
+ * @returns {String} An empty string
+ */
 window.onbeforeunload = function () {
   return '';
 };
 
+/**
+ * @event
+ * @description Sets the tasks, analytics, and dark mode 
+ */
 window.addEventListener('DOMContentLoaded', () => {
   // repopulating page if 'tasks' in local storage is not null
   if (!(window.localStorage.getItem('tasks') === null)) {
     loadTasks();
   }
 
+  /**
+   * @event
+   * @description Sets the analytics page
+   */
   document
     .getElementById('analytics-checkbox')
     .addEventListener('change', (event) => {
@@ -293,6 +315,10 @@ window.addEventListener('DOMContentLoaded', () => {
       setAnalytics(analyticsToggle);
     });
 
+  /**
+   * @event
+   * @description Sets dark mode
+   */
   document.getElementById('dark-mode').addEventListener('change', (event) => {
     let darkModeToggle = Number(document.getElementById('dark-mode').checked);
     setDarkMode(darkModeToggle);
