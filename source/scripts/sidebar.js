@@ -1,4 +1,5 @@
 /**
+ * @method openNav
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
  function openNav() {
@@ -9,6 +10,7 @@
 }
 
 /**
+ * @method closeNav
  * @description Hides sidebar, moves menu button right, sets menu button to open sidebar
  */
 function closeNav() {
@@ -18,6 +20,7 @@ function closeNav() {
 }
 
 /**
+ * @method openTimer
  * @description Displays timer content, updates menu buttons
  */
 function openTimer() {
@@ -38,6 +41,7 @@ function openTimer() {
 }
 
 /**
+ * @method openTasks
  * @description Displays tasks content, updates menu buttons
  */
 function openTasks() {
@@ -55,6 +59,7 @@ function openTasks() {
 }
 
 /**
+ * @method openAnalytics
  * @description Displays analytics content, updates menu buttons
  */
 function openAnalytics() {
@@ -74,6 +79,7 @@ function openAnalytics() {
 }
 
 /**
+ * @method openSettings
  * @description Displays settings content, updates menu buttons
  */
 function openSettings() {

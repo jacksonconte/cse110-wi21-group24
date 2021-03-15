@@ -1,4 +1,5 @@
 /**
+ * @method checkSettings
  * @description Checks if settings exist in local storage. If not, creates defaults.
  */
  function checkSettings() {
@@ -27,6 +28,7 @@ function isValidInput(str) {
 }
 
 /**
+ * @method submitSettings
  * @description Updates settings in local storage based on inputs on settings page
  */
 function submitSettings() {
@@ -52,6 +54,7 @@ function submitSettings() {
 }
 
 /**
+ * @method resetSettings
  * @description Resets settings in local storage to defaults
  */
 function resetSettings() {
@@ -65,6 +68,7 @@ function resetSettings() {
 }
 
 /**
+ * @method setSettings
  * @description Sets values on settings page based on local storage values
  */
 function setSettings() {
@@ -82,6 +86,11 @@ function setSettings() {
   setAnalytics(analyticsToggle);
 }
 
+/**
+ * @method setDarkMode
+ * @description Enables dark mode if the user checks the toggle for it, enables the default if not
+ * @param {Number} enabled 
+ */
 function setDarkMode(enabled) {
   if (Number(enabled)) {
     document.getElementById('dark-mode').checked = true;
@@ -117,6 +126,11 @@ function setDarkMode(enabled) {
   window.localStorage.setItem('darkModeToggle', enabled);
 }
 
+/**
+ * @method setAnalytics
+ * @description Enables the analytics page if user has the toggle checked, otherwise does not
+ * @param {Number} enabled 
+ */
 function setAnalytics(enabled) {
   if (Number(enabled)) {
     console.log('re');
