@@ -13,7 +13,7 @@ jobs:
       - name: Check if Prettier was ran
         run: npx prettier --check .
       - name: Lint JS
-        run: npx eslint "source/**/*.js"
+        run: npx eslint .
       - name: Lint HTML
         run: npx htmlhint "source/**/*.html"
       - name: Lint CSS

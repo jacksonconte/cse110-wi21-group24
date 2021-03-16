@@ -1,2 +1,8 @@
 .DS_Store
+admin/
+docs/
+specs/
 node_modules/
+cypress/fixtures/
+cypress/plugins/
+cypress/support/
