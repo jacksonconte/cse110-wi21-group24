@@ -66,7 +66,7 @@ function displayAnalytics() {
     rect.setAttribute('height', '100');
     rect.setAttribute('x', String(xtrack));
     rect.setAttribute('y', '20');
-    rect.setAttribute('id', 'progressRect' + String(i));  //for testing
+    rect.setAttribute('id', 'progressRect' + String(i)); //for testing
     xtrack += Math.round((1000 * taskProgress[i][1]) / totalTime);
 
     let pomoType;
@@ -146,22 +146,22 @@ function displayAnalytics() {
 
   let statEstPomo = document.createElement('p');
   statEstPomo.innerHTML = 'Estimated Work Pomos: ' + tasks[taskID][1] + '<br>';
-  statEstPomo.setAttribute("id", "stat-est-pomo");
+  statEstPomo.setAttribute('id', 'stat-est-pomo');
   stats.appendChild(statEstPomo);
 
   let statActPomo = document.createElement('p');
   statActPomo.innerHTML = 'Completed Work Pomos: ' + tasks[taskID][2];
-  statActPomo.setAttribute("id", "stat-act-pomo");
+  statActPomo.setAttribute('id', 'stat-act-pomo');
   stats.appendChild(statActPomo);
 
   let statDistractions = document.createElement('p');
   statDistractions.innerHTML = 'Distractions Logged: ' + distractions.length;
-  statDistractions.setAttribute("id", "stat-distractions");
+  statDistractions.setAttribute('id', 'stat-distractions');
   stats.appendChild(statDistractions);
 
   let statCancelledPomo = document.createElement('p');
   statCancelledPomo.innerHTML = 'Cancelled Work Pomos: ' + cancelledWorkPomos;
-  statCancelledPomo.setAttribute("id", "stat-cancelled-pomo");
+  statCancelledPomo.setAttribute('id', 'stat-cancelled-pomo');
   stats.appendChild(statCancelledPomo);
 
   let statTotalTime = document.createElement('h3');

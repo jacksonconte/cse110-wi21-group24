@@ -42,7 +42,6 @@ function setId() {
  * @description A custom component that defines the task
  */
 class TaskItem extends HTMLElement {
-
   /**
    * @constructor
    * @description Constructor of the TaskItem class
@@ -294,7 +293,7 @@ window.onbeforeunload = function () {
 
 /**
  * @event
- * @description Sets the tasks, analytics, and dark mode 
+ * @description Sets the tasks, analytics, and dark mode
  */
 window.addEventListener('DOMContentLoaded', () => {
   // repopulating page if 'tasks' in local storage is not null

@@ -2,7 +2,7 @@
  * @method openNav
  * @description Pulls out sidebar, moves menu button left, sets menu button to close sidebar
  */
- function openNav() {
+function openNav() {
   document.getElementById('my-sidebar').style.width = '350px';
   document.getElementById('open-button').style.cursor = 'cursor';
   document.getElementById('open-button').style.marginLeft = '260px';
