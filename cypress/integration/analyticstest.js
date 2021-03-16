@@ -4,7 +4,7 @@ describe('Testing the Analytics Page', () => {
   });
 
   it('When no tasks completed, message displays', () => {
-    cy.get('#openButton').click();
+    cy.get('#open-button').click();
     cy.get('#analyticsbtn').click();
     cy.get('#task-select').should('not.be.visible');
     cy.get('#no-tasks').should('be.visible');
@@ -15,7 +15,7 @@ describe('Testing the Analytics Page', () => {
       'finished-tasks',
       '{"0":["test1","10",5,[170,1000,2000],[["wc",181],["w",1500],["sb",300],["w",1200],["sbc",100],["sb",180],["w",1200],["sb",120],["wc",60],["w",1500],["lb",900],["w",1800]],8991]}'
     );
-    cy.get('#openButton').click();
+    cy.get('#open-button').click();
     cy.get('#analyticsbtn').click();
     cy.get('#analytics').should('be.visible');
     cy.get('#comp-tasks-dropdown').children().should('have.length', 2);
@@ -69,7 +69,7 @@ describe('Testing the Analytics Page', () => {
       'finished-tasks',
       '{"0":["test1","10",1,[170],[["w",1500]],1500],"1":["test2","10",1,[200],[["w",1200]],1200],"2":["test3","5",3,[170, 1000],[["w",1500],["sb",120],["w",1000]],2620]}'
     );
-    cy.get('#openButton').click();
+    cy.get('#open-button').click();
     cy.get('#analyticsbtn').click();
     cy.get('#comp-tasks-dropdown').children().should('have.length', 4);
 
