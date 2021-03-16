@@ -61,34 +61,35 @@ function displayAnalytics() {
     rect.setAttribute('height', '100');
     rect.setAttribute('x', String(xtrack));
     rect.setAttribute('y', '20');
+    rect.setAttribute('id', 'progressRect' + String(i));  //for testing
     xtrack += Math.round((1000 * taskProgress[i][1]) / totalTime);
 
     let pomoType;
     switch (taskProgress[i][0]) {
       case 'w':
         pomoType = 'Work Pomo';
-        rect.setAttribute('fill', 'rgba(0,0,127,0.6');
+        rect.setAttribute('class', 'wRect');
         break;
       case 'sb':
         pomoType = 'Short Break';
-        rect.setAttribute('fill', 'rgba(0,255,0,0.6)');
+        rect.setAttribute('class', 'sbRect');
         break;
       case 'lb':
         pomoType = 'Long Break';
-        rect.setAttribute('fill', 'rgba(0,255,0,0.8)');
+        rect.setAttribute('class', 'lbRect');
         break;
       case 'wc':
         pomoType = 'Cancelled Work Pomo';
-        rect.setAttribute('fill', 'rgba(0,0,0,0.5)');
+        rect.setAttribute('class', 'cRect');
         cancelledWorkPomos++;
         break;
       case 'sbc':
         pomoType = 'Cancelled Short Break';
-        rect.setAttribute('fill', 'rgba(0,0,0,0.5)');
+        rect.setAttribute('class', 'cRect');
         break;
       case 'lbc':
         pomoType = 'Cancelled Long Break';
-        rect.setAttribute('fill', 'grey');
+        rect.setAttribute('class', 'cRect');
         break;
     }
 
@@ -116,6 +117,7 @@ function displayAnalytics() {
     );
     rect.setAttribute('y', '15');
     rect.setAttribute('fill', 'rgba(255,0,0,0.8)');
+    rect.setAttribute('id', 'distRect' + String(i));
 
     let labelText =
       'This was a distraction logged at ' +
@@ -138,15 +140,23 @@ function displayAnalytics() {
   stats.setAttribute('id', 'stats');
 
   let statEstPomo = document.createElement('p');
-  statEstPomo.innerHTML = 'Estimated Pomos: ' + tasks[taskID][1] + '<br>';
+  statEstPomo.innerHTML = 'Estimated Work Pomos: ' + tasks[taskID][1] + '<br>';
+  statEstPomo.setAttribute("id", "stat-est-pomo");
   stats.appendChild(statEstPomo);
 
   let statActPomo = document.createElement('p');
-  statActPomo.innerHTML = 'Completed Pomos: ' + tasks[taskID][2];
+  statActPomo.innerHTML = 'Completed Work Pomos: ' + tasks[taskID][2];
+  statActPomo.setAttribute("id", "stat-act-pomo");
   stats.appendChild(statActPomo);
 
+  let statDistractions = document.createElement('p');
+  statDistractions.innerHTML = 'Distractions Logged: ' + distractions.length;
+  statDistractions.setAttribute("id", "stat-distractions");
+  stats.appendChild(statDistractions);
+
   let statCancelledPomo = document.createElement('p');
-  statCancelledPomo.innerHTML = 'Cancelled Pomos: ' + cancelledWorkPomos;
+  statCancelledPomo.innerHTML = 'Cancelled Work Pomos: ' + cancelledWorkPomos;
+  statCancelledPomo.setAttribute("id", "stat-cancelled-pomo");
   stats.appendChild(statCancelledPomo);
 
   let statTotalTime = document.createElement('h3');
