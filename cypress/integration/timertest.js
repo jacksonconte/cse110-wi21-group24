@@ -4,7 +4,7 @@ describe("Testing the timer page", () => {
     localStorage.setItem("workPomoTime", "0.05"); // 3 seconds each
     localStorage.setItem("shortBreakTime", "0.05");
     localStorage.setItem("longBreakTime", "0.05");
-    cy.get("#openButton").click();
+    cy.get("#open-button").click();
     cy.get("#tasksbtn").click();
   });
 
