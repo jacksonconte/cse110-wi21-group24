@@ -9,7 +9,7 @@ describe('Testing the Analytics Page', () => {
         cy.get('#analyticsbtn').click();
         cy.get('#task-select').should('not.be.visible');
         cy.get('#no-tasks').should('be.visible');
-    })
+    });
 
     it('1 task completed test, graph test', () => {
         window.localStorage.setItem('finished-tasks', '{"0":["test1","10",5,[170,1000,2000],[["wc",181],["w",1500],["sb",300],["w",1200],["sbc",100],["sb",180],["w",1200],["sb",120],["wc",60],["w",1500],["lb",900],["w",1800]],8991]}');
@@ -46,7 +46,7 @@ describe('Testing the Analytics Page', () => {
         
         cy.get('#distRect1').trigger('mouseout');
         cy.get('#svg-label').contains('Hover to Display Info');
-    })
+    });
 
     it('Multiple completed tasks dropdown test', () => {
         window.localStorage.setItem('finished-tasks', '{"0":["test1","10",1,[170],[["w",1500]],1500],"1":["test2","10",1,[200],[["w",1200]],1200],"2":["test3","5",3,[170, 1000],[["w",1500],["sb",120],["w",1000]],2620]}');
@@ -91,5 +91,5 @@ describe('Testing the Analytics Page', () => {
         cy.get('#stat-act-pomo').contains('Completed Work Pomos: 1');
         cy.get('#stat-distractions').contains('Distractions Logged: 1');
         cy.get('#stat-cancelled-pomo').contains('Cancelled Work Pomos: 0');
-    })
+    });
 });
