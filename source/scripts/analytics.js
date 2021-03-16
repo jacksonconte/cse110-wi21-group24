@@ -66,7 +66,7 @@ function displayAnalytics() {
     rect.setAttribute('height', '100');
     rect.setAttribute('x', String(xtrack));
     rect.setAttribute('y', '20');
-    rect.setAttribute('id', 'progressRect' + String(i)); // for testing
+    rect.setAttribute('id', 'progress-rect-' + String(i)); // for testing
     xtrack += Math.round((1000 * taskProgress[i][1]) / totalTime);
 
     let pomoType;
@@ -122,7 +122,7 @@ function displayAnalytics() {
     );
     rect.setAttribute('y', '15');
     rect.setAttribute('fill', 'rgba(255,0,0,0.8)');
-    rect.setAttribute('id', 'distRect' + String(i));
+    rect.setAttribute('id', 'dist-rect-' + String(i));
 
     let labelText =
       'This was a distraction logged at ' +

@@ -22,35 +22,35 @@ describe('Testing the Analytics Page', () => {
 
     cy.get('#comp-tasks-dropdown').select('test1');
 
-    cy.get('#progressRect0').trigger('mouseover');
+    cy.get('#progress-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Cancelled Work Pomo that lasted 3 minutes and 1 seconds.'
     );
-    cy.get('#progressRect1').trigger('mouseover');
+    cy.get('#progress-rect-1').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 25 minutes and 0 seconds.'
     );
-    cy.get('#progressRect2').trigger('mouseover');
+    cy.get('#progress-rect-2').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Short Break that lasted 5 minutes and 0 seconds.'
     );
-    cy.get('#progressRect3').trigger('mouseover');
+    cy.get('#progress-rect-3').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 20 minutes and 0 seconds.'
     );
-    cy.get('#progressRect4').trigger('mouseover');
+    cy.get('#progress-rect-4').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Cancelled Short Break that lasted 1 minutes and 40 seconds.'
     );
-    cy.get('#progressRect10').trigger('mouseover');
+    cy.get('#progress-rect-10').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Long Break that lasted 15 minutes and 0 seconds.'
     );
-    cy.get('#distRect0').trigger('mouseover');
+    cy.get('#dist-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 2 minutes and 50 seconds in.'
     );
-    cy.get('#distRect1').trigger('mouseover');
+    cy.get('#dist-rect-1').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 16 minutes and 40 seconds in.'
     );
@@ -60,7 +60,7 @@ describe('Testing the Analytics Page', () => {
     cy.get('#stat-distractions').contains('Distractions Logged: 3');
     cy.get('#stat-cancelled-pomo').contains('Cancelled Work Pomos: 2');
 
-    cy.get('#distRect1').trigger('mouseout');
+    cy.get('#dist-rect-1').trigger('mouseout');
     cy.get('#svg-label').contains('Hover to Display Info');
   });
 
@@ -74,12 +74,12 @@ describe('Testing the Analytics Page', () => {
     cy.get('#comp-tasks-dropdown').children().should('have.length', 4);
 
     cy.get('#comp-tasks-dropdown').select('test1');
-    cy.get('#progressRect0').trigger('mouseover');
+    cy.get('#progress-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 25 minutes and 0 seconds.'
     );
-    cy.get('#progressRect1').should('not.exist');
-    cy.get('#distRect0').trigger('mouseover');
+    cy.get('#progress-rect-1').should('not.exist');
+    cy.get('#dist-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 2 minutes and 50 seconds in.'
     );
@@ -89,23 +89,23 @@ describe('Testing the Analytics Page', () => {
     cy.get('#stat-cancelled-pomo').contains('Cancelled Work Pomos: 0');
 
     cy.get('#comp-tasks-dropdown').select('test3');
-    cy.get('#progressRect0').trigger('mouseover');
+    cy.get('#progress-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 25 minutes and 0 seconds.'
     );
-    cy.get('#progressRect1').trigger('mouseover');
+    cy.get('#progress-rect-1').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Short Break that lasted 2 minutes and 0 seconds.'
     );
-    cy.get('#progressRect2').trigger('mouseover');
+    cy.get('#progress-rect-2').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 16 minutes and 40 seconds.'
     );
-    cy.get('#distRect0').trigger('mouseover');
+    cy.get('#dist-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 2 minutes and 50 seconds in.'
     );
-    cy.get('#distRect1').trigger('mouseover');
+    cy.get('#dist-rect-1').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 16 minutes and 40 seconds in.'
     );
@@ -115,12 +115,12 @@ describe('Testing the Analytics Page', () => {
     cy.get('#stat-cancelled-pomo').contains('Cancelled Work Pomos: 0');
 
     cy.get('#comp-tasks-dropdown').select('test2');
-    cy.get('#progressRect0').trigger('mouseover');
+    cy.get('#progress-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a Work Pomo that lasted 20 minutes and 0 seconds.'
     );
-    cy.get('#progressRect1').should('not.exist');
-    cy.get('#distRect0').trigger('mouseover');
+    cy.get('#progress-rect-1').should('not.exist');
+    cy.get('#dist-rect-0').trigger('mouseover');
     cy.get('#svg-label').contains(
       'This was a distraction logged at 3 minutes and 20 seconds in.'
     );
