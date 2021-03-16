@@ -66,7 +66,7 @@ function displayAnalytics() {
     rect.setAttribute('height', '100');
     rect.setAttribute('x', String(xtrack));
     rect.setAttribute('y', '20');
-    rect.setAttribute('id', 'progressRect' + String(i));  //for testing
+    rect.setAttribute('id', 'progressRect' + String(i));  // for testing
     xtrack += Math.round((1000 * taskProgress[i][1]) / totalTime);
 
     let pomoType;
