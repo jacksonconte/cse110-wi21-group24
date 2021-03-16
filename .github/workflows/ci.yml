@@ -18,5 +18,5 @@ jobs:
         run: npx htmlhint "source/**/*.html"
       - name: Lint CSS
         run: npx stylelint "source/**/*.css"
-      # - name: Testing
-      #   run: yarn jest
+      - name: Testing
+        run: cypress-io/github-action@v2
