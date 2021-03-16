@@ -2,21 +2,21 @@ name: Lint and Test
 
 on: push
 jobs:
-  build:
-    name: Linting and Testing
+  lint-test:
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install modules
-        run: yarn
+        run: npm i
       - name: Check if Prettier was ran
         run: npx prettier --check .
       - name: Lint JS
-        run: yarn run eslint "source/**/*.js"
+        run: npx eslint "source/**/*.js"
       - name: Lint HTML
-        run: yarn run htmlhint "source/**/*.html"
+        run: npx htmlhint "source/**/*.html"
       - name: Lint CSS
-        run: yarn run stylelint "source/**/*.css"
+        run: npx stylelint "source/**/*.css"
       # - name: Testing
       #   run: yarn jest
