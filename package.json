@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "npx http-server -p 5500"
+    "start": "npx http-server -p 5500",
+    "pipeline": "./pipeline.sh"
   },
   "dependencies": {},
   "devDependencies": {
