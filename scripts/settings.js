@@ -22,6 +22,12 @@
   setSettings();
 }
 
+/**
+ * @method isValidInput
+ * @description checks whether the input put into the settings page is valid or not
+ * @param {String} str 
+ * @returns {Boolean} whether the time inputs are valid or not
+ */
 function isValidInput(str) {
   str = str.trim();
   return str !== '';
