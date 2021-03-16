@@ -1,168 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <script src="scripts/analytics.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/tasks.js"></script>
+    <script src="scripts/timer.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pomodoro Timer</title>
-  <script src="scripts/analytics.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/sidebar.js"></script>
-  <script src="scripts/tasks.js"></script>
-  <script src="scripts/timer.js"></script>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap" rel="stylesheet" />
-</head>
-
-<body onload="checkSettings()">
-  <div id="my-sidebar" class="sidebar">
-    <button id="timerbtn" onclick="closeNav()">Timer</button>
-    <button id="tasksbtn" onclick="openTasks()">Task List</button>
-    <button id="analyticsbtn" onclick="openAnalytics()">Analytics</button>
-    <button id="settingsbtn" onclick="openSettings()">Settings</button>
-  </div>
-
-  <span id="open-button" onclick="openNav()"> &#9776; </span>
-  <!--Timer Screen-->
-  <div id="display">
-    <div id="timer" class="content">
-      <div id="curr-task">
-        <h3>Start a new task!</h3>
-      </div>
-      <div id="pomo-status" hidden>Work Pomo</div>
-      <div id="countdown">
-        <div class="title">Pomodoro Timer</div>
-        <svg id="circle-svg">
-          <text id="countdown-number" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-            0
-          </text>
-          <circle cx="50%" cy="50%" r="100" class="animate" />
-        </svg>
-      </div>
-      <br />
-      <div id="toggle-div">
-        <button id="toggle">START</button>
-        <button id="end-task" onclick="endTask()">
-          TASK FINISHED
-        </button>
-        <button id="log-distraction" onclick="logDistraction()">
-          LOG DISTRACTION
-        </button>
-      </div>
+  <body onload="checkSettings()">
+    <div id="my-sidebar" class="sidebar">
+      <button id="timerbtn" onclick="closeNav()">Timer</button>
+      <button id="tasksbtn" onclick="openTasks()">Task List</button>
+      <button id="analyticsbtn" onclick="openAnalytics()">Analytics</button>
+      <button id="settingsbtn" onclick="openSettings()">Settings</button>
     </div>
-    <!--Tasks Screen-->
-    <div id="tasks" class="content">
-      <div class="task-inputs">
-        <label class="task-input-field" for="input-task-name">Enter task:</label>
-        <input type="text" class="task-input-field" id="input-task-name" />
-        <label for="input-pomos" class="task-input-field">Enter number of pomos:</label>
-        <input type="number" class="task-input-field" value="10" id="input-pomos" min="1" step="1"
-          oninput="validity.valid||(value='');" />
-        <button class="task-input-field" id="add-task-button">
-          Add Task
-        </button>
+
+    <span id="open-button" onclick="openNav()"> &#9776; </span>
+    <!--Timer Screen-->
+    <div id="display">
+      <div id="timer" class="content">
+        <div id="curr-task">
+          <h3>Start a new task!</h3>
+        </div>
+        <div id="pomo-status" hidden>Work Pomo</div>
+        <div id="countdown">
+          <div class="title">Pomodoro Timer</div>
+          <svg id="circle-svg">
+            <text
+              id="countdown-number"
+              x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+            >
+              0
+            </text>
+            <circle cx="50%" cy="50%" r="100" class="animate" />
+          </svg>
+        </div>
+        <br />
+        <div id="toggle-div">
+          <button id="toggle">START</button>
+          <button id="end-task" onclick="endTask()">TASK FINISHED</button>
+          <button id="log-distraction" onclick="logDistraction()">
+            LOG DISTRACTION
+          </button>
+        </div>
+      </div>
+      <!--Tasks Screen-->
+      <div id="tasks" class="content">
+        <div class="task-inputs">
+          <label class="task-input-field" for="input-task-name"
+            >Enter task:</label
+          >
+          <input type="text" class="task-input-field" id="input-task-name" />
+          <label for="input-pomos" class="task-input-field"
+            >Enter number of pomos:</label
+          >
+          <input
+            type="number"
+            class="task-input-field"
+            value="10"
+            id="input-pomos"
+            min="1"
+            step="1"
+            oninput="validity.valid||(value='');"
+          />
+          <button class="task-input-field" id="add-task-button">
+            Add Task
+          </button>
+        </div>
+        <br /><br />
+
+        <div class="task-list-header">
+          <div class="task-name-current">Your Tasks</div>
+          <div class="task-est-pomos-current">Estimated Pomos</div>
+          <div class="task-act-pomos-current">Actual Pomos</div>
+          <div class="control-current">Control</div>
+        </div>
+
+        <div id="task-list-id" class="task-list"></div>
+        <br />
+        <hr id="task-delimiter" />
+        <br />
+        <h2 id="completed-tasks-header">Completed Tasks</h2>
+        <br />
+        <div class="task-list-header">
+          <div class="task-name-done">Your Tasks</div>
+          <div class="task-est-pomos-done">Estimated Pomos</div>
+          <div class="task-est-pomos-done">Actual Pomos</div>
+        </div>
+        <div id="completed-tasks" class="task-list"></div>
       </div>
       <br /><br />
 
-      <div class="task-list-header">
-        <div class="task-name-current">Your Tasks</div>
-        <div class="task-est-pomos-current">Estimated Pomos</div>
-        <div class="task-act-pomos-current">Actual Pomos</div>
-        <div class="control-current">Control</div>
-      </div>
-
-      <div id="task-list-id" class="task-list"></div>
-      <br />
-      <hr id="task-delimiter">
-      <br />
-      <h2 id="completed-tasks-header">Completed Tasks</h2>
-      <br />
-      <div class="task-list-header">
-        <div class="task-name-done">Your Tasks</div>
-        <div class="task-est-pomos-done">Estimated Pomos</div>
-        <div class="task-est-pomos-done">Actual Pomos</div>
-      </div>
-      <div id="completed-tasks" class="task-list"></div>
-    </div>
-    <br /><br />
-
-    <!--Settings Screen-->
-    <div id="settings" class="content">
-      <table id="settings-table">
-        <tr>
-          <td>
-            <label for="work-pomo-time">Work Pomo Length (in minutes): &nbsp;</label>
-          </td>
-          <td>
-            <input type="number" value="25" id="work-pomo-time" min="1" step="1"
-              oninput="validity.valid||(value='');" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="short-break-time">Short Break Length (in minutes): &nbsp;</label>
-          </td>
-          <td>
-            <input type="number" value="5" id="short-break-time" min="1" step="1"
-              oninput="validity.valid||(value='');" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="long-break-time">Long Break Length (in minutes): &nbsp;</label>
-          </td>
-          <td>
-            <input type="number" value="15" id="long-break-time" min="1" step="1"
-              oninput="validity.valid||(value='');" />
-          </td>
-        </tr>
-        <tr>
-          <td>Toggle Analytics</td>
-          <td>
-            <label class="switch">
-              <input type="checkbox" id="analytics-checkbox" checked />
-              <span class="slider round"></span>
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>Toggle Dark Mode</td>
-          <td>
-            <label class="switch">
-              <input type="checkbox" id="dark-mode" checked />
-              <span class="slider round"></span>
-            </label>
-          </td>
-        </tr>
-      </table>
-      <br />
-      <button id="submit-button" onclick="submitSettings()">Submit</button>
-      <button id="reset-button" onclick="resetSettings()">
-        Reset to Defaults
-      </button>
-      <br /><br /><br />
-    </div>
-    <!--Analytics Screen-->
-    <div id="analytics" class="content">
-      <div id="task-select">
-        <h2>Select Analytics For:</h2>
+      <!--Settings Screen-->
+      <div id="settings" class="content">
+        <table id="settings-table">
+          <tr>
+            <td>
+              <label for="work-pomo-time"
+                >Work Pomo Length (in minutes): &nbsp;</label
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                value="25"
+                id="work-pomo-time"
+                min="1"
+                step="1"
+                oninput="validity.valid||(value='');"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="short-break-time"
+                >Short Break Length (in minutes): &nbsp;</label
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                value="5"
+                id="short-break-time"
+                min="1"
+                step="1"
+                oninput="validity.valid||(value='');"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="long-break-time"
+                >Long Break Length (in minutes): &nbsp;</label
+              >
+            </td>
+            <td>
+              <input
+                type="number"
+                value="15"
+                id="long-break-time"
+                min="1"
+                step="1"
+                oninput="validity.valid||(value='');"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Toggle Analytics</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" id="analytics-checkbox" checked />
+                <span class="slider round"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Toggle Dark Mode</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" id="dark-mode" checked />
+                <span class="slider round"></span>
+              </label>
+            </td>
+          </tr>
+        </table>
         <br />
-        <select name="comp-tasks-dropdown" id="comp-tasks-dropdown"></select>
-        <br /><br />
-        <div id="stat-display"></div>
+        <button id="submit-button" onclick="submitSettings()">Submit</button>
+        <button id="reset-button" onclick="resetSettings()">
+          Reset to Defaults
+        </button>
+        <br /><br /><br />
+      </div>
+      <!--Analytics Screen-->
+      <div id="analytics" class="content">
+        <div id="task-select">
+          <h2>Select Analytics For:</h2>
+          <br />
+          <select name="comp-tasks-dropdown" id="comp-tasks-dropdown"></select>
+          <br /><br />
+          <div id="stat-display"></div>
+        </div>
+
+        <h1 id="no-tasks">Complete A Task To View Analytics!</h1>
       </div>
 
-      <h1 id="no-tasks">
-        Complete A Task To View Analytics!
-      </h1>
+      <!--Audio Sounds for Timer-->
+      <audio id="chirp-sound" src="../media/audio/chirp.mp3"></audio>
+      <audio id="alert-sound" src="../media/audio/alert.mp3"></audio>
     </div>
-
-    <!--Audio Sounds for Timer-->
-    <audio id="chirp-sound" src="../media/audio/chirp.mp3"></audio>
-    <audio id="alert-sound" src="../media/audio/alert.mp3"></audio>
-  </div>
-</body>
-
+  </body>
 </html>

@@ -2,7 +2,7 @@
  * @method checkSettings
  * @description Checks if settings exist in local storage. If not, creates defaults.
  */
- function checkSettings() {
+function checkSettings() {
   if (window.localStorage.getItem('workPomoTime') === null) {
     window.localStorage.setItem('workPomoTime', 25);
   }
@@ -25,7 +25,7 @@
 /**
  * @method isValidInput
  * @description checks whether the input put into the settings page is valid or not
- * @param {String} str 
+ * @param {String} str
  * @returns {Boolean} whether the time inputs are valid or not
  */
 function isValidInput(str) {
@@ -95,7 +95,7 @@ function setSettings() {
 /**
  * @method setDarkMode
  * @description Enables dark mode if the user checks the toggle for it, enables the default if not
- * @param {Number} enabled 
+ * @param {Number} enabled
  */
 function setDarkMode(enabled) {
   if (Number(enabled)) {
@@ -135,7 +135,7 @@ function setDarkMode(enabled) {
 /**
  * @method setAnalytics
  * @description Enables the analytics page if user has the toggle checked, otherwise does not
- * @param {Number} enabled 
+ * @param {Number} enabled
  */
 function setAnalytics(enabled) {
   if (Number(enabled)) {
