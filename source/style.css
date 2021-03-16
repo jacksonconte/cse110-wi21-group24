@@ -71,6 +71,22 @@ rect:hover {
   transition: 0.1s ease-in;
 }
 
+.wRect {
+  fill: rgba(0,0,127,0.6);
+}
+
+.sbRect {
+  fill: rgba(0,255,0,0.6);
+}
+
+.lbRect {
+  fill: rgba(0,255,0,0.8);
+}
+
+.cRect {
+  fill: rgba(0,0,0,0.5);
+}
+
 #task-select {
   display: none;
 }
