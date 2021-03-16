@@ -21,33 +21,33 @@ describe('Testing the Task List Page', () => {
             
         });
         cy.get('task-item').shadow().find('#remove0').click().should(() => {
-            expect(JSON.parse(localStorage.getItem('tasks'))[0]).to.equal(undefined)
-        })
+            expect(JSON.parse(localStorage.getItem('tasks'))[0]).to.equal(undefined);
+        });
         
         
-        cy.get('task-item').shadow().find('#start1').click()
-        cy.get('#timer').should('be.visible')
+        cy.get('task-item').shadow().find('#start1').click();
+        cy.get('#timer').should('be.visible');
     });
 
     it('Testing if reloading the page saves tasks', () => {
         cy.get('#input-task-name').clear().type('hello1');
         cy.get('#input-pomos').clear().type('10');
-        cy.get('#add-task-button').click()
+        cy.get('#add-task-button').click();
         
         cy.get('#input-task-name').clear().type('hello2');
         cy.get('#input-pomos').clear().type('10');
-        cy.get('#add-task-button').click()
+        cy.get('#add-task-button').click();
 
         cy.get('#input-task-name').clear().type('hello3');
         cy.get('#input-pomos').clear().type('10');
-        cy.get('#add-task-button').click()
+        cy.get('#add-task-button').click();
 
-        cy.get('task-item').shadow().find('#remove1').click() 
+        cy.get('task-item').shadow().find('#remove1').click();
         
-        cy.reload()
+        cy.reload();
 
-        cy.get('task-item').shadow().find('#0').should('exist')
-        cy.get('task-item').shadow().find('#1').should('not.exist')
-        cy.get('task-item').shadow().find('#2').should('exist')
+        cy.get('task-item').shadow().find('#0').should('exist');
+        cy.get('task-item').shadow().find('#1').should('not.exist');
+        cy.get('task-item').shadow().find('#2').should('exist');
     });
 });
