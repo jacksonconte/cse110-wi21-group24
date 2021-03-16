@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest"
+    "start": "npx http-server -p 5500"
   },
   "dependencies": {},
   "devDependencies": {
@@ -12,6 +12,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "htmlhint": "^0.14.2",
+    "http-server": "^0.12.3",
     "jsdoc": "^3.6.6",
     "jsdoc-to-markdown": "^6.0.1",
     "prettier": "2.2.1",

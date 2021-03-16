@@ -18,5 +18,7 @@ jobs:
         run: npx htmlhint "source/**/*.html"
       - name: Lint CSS
         run: npx stylelint "source/**/*.css"
-      - name: Testing
-        run: cypress-io/github-action@v2
+      - name: Test with Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
