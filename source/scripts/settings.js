@@ -22,8 +22,6 @@ function checkSettings() {
   setSettings();
 }
 
-checkSettings();
-
 /**
  * @method isValidInput
  * @description checks whether the input put into the settings page is valid or not
