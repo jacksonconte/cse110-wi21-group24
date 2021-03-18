@@ -1,8 +1,7 @@
-/* timer section */
 body {
   height: 90vh !important;
   width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   background: linear-gradient(-45deg, #d8846a, #f2a5c3, #23a6d5, #23d5ab);
@@ -10,18 +9,32 @@ body {
   animation: gradient 120s ease infinite;
 }
 
+button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-family: inherit;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+}
 
 @keyframes gradient {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
+
   50% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
+
   100% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
 }
+
+/* timer section */
 
 #countdown {
   position: relative;
@@ -54,6 +67,63 @@ svg text {
   font: bold 30px sans-serif;
 }
 
+.animate {
+  stroke-dasharray: var(--strokeDashOffset);
+  stroke-linecap: butt;
+  stroke-width: 12px;
+  stroke: rgba(255, 0, 0, 0.7);
+  fill: rgba(255, 255, 255, 0.25);
+  animation-name: countdown;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+:root {
+  --circleBarOffset: 0;
+  --strokeDashOffset: 628px;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: var(--circleBarOffset);
+  }
+
+  to {
+    stroke-dashoffset: var(--strokeDashOffset);
+  }
+}
+
+#toggle-div {
+  text-align: center;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
+
+button[disabled]:hover {
+  background-color: transparent !important;
+}
+
+#toggle:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 2.5em;
+  padding: 10px 0;
+}
+
+#end-task {
+  display: none;
+}
+
+#log-distraction {
+  display: none;
+}
+
+/* analytics */
+
 #analytics-svg {
   display: block;
   width: 1000px;
@@ -63,7 +133,6 @@ svg text {
   border-radius: 10px;
 }
 
-
 rect:hover {
   stroke: black;
   stroke-width: 3;
@@ -71,19 +140,31 @@ rect:hover {
   transition: 0.1s ease-in;
 }
 
+.wRect {
+  fill: rgba(0, 0, 127, 0.6);
+}
+
+.sbRect {
+  fill: rgba(0, 255, 0, 0.6);
+}
+
+.lbRect {
+  fill: rgba(0, 255, 0, 0.8);
+}
+
+.cRect {
+  fill: rgba(0, 0, 0, 0.5);
+}
+
 #task-select {
   display: none;
+  text-align: center;
 }
 
 #stat-display {
   text-align: center;
   width: 1000px;
   margin: 0 auto;
-}
-
-
-#task-select {
-  text-align: center;
 }
 
 #comp-tasks-dropdown {
@@ -97,36 +178,24 @@ rect:hover {
   margin: 0 auto;
 }
 
-.animate {
-  stroke-dasharray: var(--strokeDashOffset); 
-  /* stroke-dashoffset: 0px; */
-  stroke-linecap: butt;
-  stroke-width: 12px;
-  stroke: rgba(255,0,0,0.7);
-  fill: rgba(255,255,255,0.25);
-
-  /* animation: countdown 10s linear infinite forwards; /* time needs to be user input */
-  animation-name: countdown;
-  /*animation-iteration-count: infinite;*/
-  animation-timing-function: linear;
-  /* animation-duration: 20s;*/
-  animation-play-state: paused;
-}
-
-@keyframes countdown {
-  from {
-    stroke-dashoffset: var(--circleBarOffset);
-  }
-  to {
-    stroke-dashoffset: var(--strokeDashOffset); 
-  }
-}
-
-#toggle-div {
+/* The sidebar links */
+.sidebar button {
+  padding: 8px 8px 8px 8px;
+  margin: 10px;
+  width: 90%;
+  background-color: transparent;
+  border: solid;
+  border-radius: 5px;
+  border-color: #000;
+  text-decoration: none;
   text-align: center;
+  font-size: 25px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+  white-space: nowrap; /* Stop text from wrapping during animation */
 }
-/* sidebar section */
-/* The sidebar menu */
+
 .sidebar {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -134,38 +203,18 @@ rect:hover {
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
-/* The sidebar links */
-.sidebar button {
-  padding: 8px 8px 8px 8px;
-  margin: 10px;
-  width: 90%;
-  background-color:transparent;
-  border: solid;
-  border-radius: 5px;
-  border-color: #000000;
-  text-decoration: none;
-  text-align: center;
-  font-size: 25px;
-  color: #000000;
-  display: block;
-  transition: 0.3s;
-  white-space: nowrap; /* Stop text from wrapping during animation */
-}
-
-/* When you mouse over the navigation links, change their color */
 .sidebar button:hover {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* The button used to open the sidebar */
-#openButton {
-  /* position: fixed; */
+/* sidebar elements */
+#open-button {
   position: sticky;
   font-size: 45px;
   cursor: pointer;
@@ -176,7 +225,6 @@ rect:hover {
 }
 
 #display {
-  /* position: fixed; */
   position: static;
   left: 50%;
 }
@@ -191,7 +239,7 @@ rect:hover {
   padding: 15px;
   max-width: 50%;
   margin: 0 auto;
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   word-break: break-word;
 }
@@ -205,6 +253,11 @@ rect:hover {
   display: block;
 }
 
+button:hover:enabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
 
 /* task list section */
 
@@ -215,7 +268,7 @@ rect:hover {
 .task-list {
   width: 1000px;
   margin: 20px auto;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
 .task-inputs {
@@ -225,13 +278,54 @@ rect:hover {
   align-items: center;
 }
 
-:root {
-  --circleBarOffset: 0px;
-  --strokeDashOffset: 628px;
+.task-list-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 940px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: -20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.task-name-current {
+  flex-basis: 50%;
+}
+
+.task-name-done {
+  flex-basis: 60%;
+}
+
+.task-est-pomos-current,
+.task-act-pomos-current {
+  flex-basis: 10%;
+}
+
+.task-est-pomos-done,
+.task-act-pomos-done {
+  flex-basis: 20%;
+}
+
+.control-current {
+  flex-basis: 30%;
+}
+
+#no-tasks {
+  text-align: center;
+}
+
+#completed-tasks-header {
+  text-align: center;
+}
+
+#task-delimiter {
+  max-width: 980px;
 }
 
 /* settings page section */
-
 
 #settings {
   text-align: center;
@@ -245,49 +339,15 @@ rect:hover {
 }
 
 td {
-  padding: 20px 0px;
+  padding: 20px 0;
 }
-
-button {
-  background-color: transparent; 
-  border: 1px solid white;
-  color: white;
-  font-family: inherit;
-  padding: 15px 30px;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 10px;
-}
-
-button:hover:enabled {
-  background-color: rgba(0,0,0,0.3);
-  transition: 0.3s ease-in;
-  cursor: pointer;
-}
-
-button[disabled] {
-  opacity: 0.5;
-}
-button[disabled]:hover {
-  background-color: transparent !important;
-}
-
-
-#toggle:hover {
-  background-color: rgba(0,0,0,0.3);
-}
-.title {
-  font-size: 2.5em;
-  padding: 10px 0px;
-}
-
 
 input {
   padding: 12px 20px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 select {
@@ -295,7 +355,7 @@ select {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* this is for the toggle buttons in settings */
@@ -306,12 +366,11 @@ select {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 
 .slider {
   position: absolute;
@@ -321,21 +380,20 @@ select {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -346,17 +404,16 @@ input:focus + .slider {
   box-shadow: 0 0 1px green;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }

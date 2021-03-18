@@ -1,18 +1,19 @@
 {
   "scripts": {
-    "test": "jest"
+    "start": "npx http-server -p 5500",
+    "pipeline": "./pipeline.sh"
   },
   "dependencies": {},
   "devDependencies": {
+    "cypress": "^6.6.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "htmlhint": "^0.14.2",
-    "jest": "^26.6.3",
+    "http-server": "^0.12.3",
     "jsdoc": "^3.6.6",
     "jsdoc-to-markdown": "^6.0.1",
     "prettier": "2.2.1",
