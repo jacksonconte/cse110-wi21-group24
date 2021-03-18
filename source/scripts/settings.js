@@ -15,7 +15,6 @@ if (window.localStorage.getItem('darkModeToggle') === null) {
   window.localStorage.setItem('darkModeToggle', 0);
 }
 
-
 /**
  * @method isValidInput
  * @description checks whether the input put into the settings page is valid or not
