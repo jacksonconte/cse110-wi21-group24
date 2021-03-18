@@ -116,14 +116,17 @@ function resumeTimer() {
       case 4:
       case 6:
         setTime(localStorage.getItem('workPomoTime'));
+        timerSeconds = duration;
         break;
       case 1:
       case 3:
       case 5:
         setTime(localStorage.getItem('shortBreakTime'));
+        timerSeconds = duration;
         break;
       case 7:
         setTime(localStorage.getItem('longBreakTime'));
+        timerSeconds = duration;
     }
   }
 
