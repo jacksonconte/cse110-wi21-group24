@@ -1,26 +1,20 @@
-/**
- * @method checkSettings
- * @description Checks if settings exist in local storage. If not, creates defaults.
- */
-function checkSettings() {
-  if (window.localStorage.getItem('workPomoTime') === null) {
-    window.localStorage.setItem('workPomoTime', 25);
-  }
-  if (window.localStorage.getItem('shortBreakTime') === null) {
-    window.localStorage.setItem('shortBreakTime', 5);
-  }
-  if (window.localStorage.getItem('longBreakTime') === null) {
-    window.localStorage.setItem('longBreakTime', 15);
-  }
-  if (window.localStorage.getItem('analyticsToggle') === null) {
-    window.localStorage.setItem('analyticsToggle', 1);
-  }
-  if (window.localStorage.getItem('darkModeToggle') === null) {
-    window.localStorage.setItem('darkModeToggle', 0);
-  }
-
-  setSettings();
+//This code runs before page load and sets local storage if it doesn't exist
+if (window.localStorage.getItem('workPomoTime') === null) {
+  window.localStorage.setItem('workPomoTime', 25);
 }
+if (window.localStorage.getItem('shortBreakTime') === null) {
+  window.localStorage.setItem('shortBreakTime', 5);
+}
+if (window.localStorage.getItem('longBreakTime') === null) {
+  window.localStorage.setItem('longBreakTime', 15);
+}
+if (window.localStorage.getItem('analyticsToggle') === null) {
+  window.localStorage.setItem('analyticsToggle', 1);
+}
+if (window.localStorage.getItem('darkModeToggle') === null) {
+  window.localStorage.setItem('darkModeToggle', 0);
+}
+
 
 /**
  * @method isValidInput
