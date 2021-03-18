@@ -5,21 +5,6 @@ let ID = 0;
 let first = true;
 
 /**
- * @description gets the max key value in the dictionary
- * @param {dict} dict
- * @returns {Number} The largest key in the dictionary
- */
-// function getMax(dict) {
-//    var currentMax = -1
-//    for (var key in dict) {
-//        if (Number(key) > currentMax) {
-//            currentMax = key
-//        }
-//    }
-//    return Number(currentMax)
-// }
-
-/**
  * @method setId
  * @description Sets the ID for the element to be added to the dict
  * @returns {String} Returns the ID in string form
@@ -27,13 +12,6 @@ let first = true;
 function setId() {
   let nextId = ID;
   ID++;
-  /*
-    if (Object.keys(dict).length > 0) {
-        nextId = getMax(dict) + 1
-      } else {
-      nextId = 1
-    }
-    */
   return nextId.toString();
 }
 
@@ -73,7 +51,6 @@ class TaskItem extends HTMLElement {
     startButton.setAttribute('id', 'start' + currentID);
     startButton.textContent = 'Start';
     startButton.addEventListener('click', startTask);
-    // startButton.setAttribute('class', 'start-task-btn');
 
     let removeButton = document.createElement('button');
     removeButton.setAttribute('id', 'remove' + currentID);
@@ -104,11 +81,9 @@ class TaskItem extends HTMLElement {
       }
 
       if (dict[dv.id] != null) {
-        // console.log("no hi")
         delete dict[dv.id];
         localStorage.setItem('tasks', JSON.stringify(dict));
       } else {
-        // console.log("hi")
         delete finishDict[dv.id];
         window.localStorage.setItem(
           'finished-tasks',
@@ -132,13 +107,13 @@ class TaskItem extends HTMLElement {
      */
     function startTask() {
       resumeTimer();
-      /* display appropriate content */
+      // display appropriate content
       document.getElementById('tasks').style.display = 'none';
       document.getElementById('analytics').style.display = 'none';
       document.getElementById('settings').style.display = 'none';
       document.getElementById('timer').style.display = 'block';
 
-      /* update buttons */
+      // update buttons
       document.getElementById('timerbtn').onclick = closeNav;
       document.getElementById('tasksbtn').onclick = openTasks;
       document.getElementById('analyticsbtn').onclick = openAnalytics;
@@ -156,7 +131,7 @@ class TaskItem extends HTMLElement {
         '<h3>' + dict[dv.id][0] + ' </h3>';
       document.getElementById('toggle').disabled = false;
       document.getElementById('toggle').innerText = 'START WORK POMO';
-      // rememmber current task so we can resume it when we refresh
+      // remember current task so we can resume it when we refresh
       localStorage.setItem('curr-task', taskName.innerText);
       closeNav();
     }
@@ -276,8 +251,6 @@ function loadTasks() {
     itemEstPomos.innerText = finishDict[key][1];
     itemActPomos.innerText = finishDict[key][2];
     let container = document.querySelector('#completed-tasks');
-    // item.shadowRoot.startButton.disabled = true;
-    // item.shadowRoot.removeButton.disabled = true;
     container.append(item);
   }
 }
