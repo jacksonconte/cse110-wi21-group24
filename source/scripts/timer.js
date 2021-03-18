@@ -86,17 +86,8 @@ function startTimer() {
   let status = document.getElementById('pomo-status').innerText.toUpperCase();
   button.innerHTML = 'STOP ' + status;
 
-  /*
-  if (status == "WORK POMO") {
-    document.getElementById("log-distraction").style.display = "initial";
-  }
-  */
-
   timerStarted = true;
   if (pomoIndex % 2 === 0) {
-    // document.getElementById('open-button').style.color = document.body.style.backgroundColor;
-    // document.getElementById('open-button').onclick = '';
-    // document.getElementById('open-button').style.cursor = 'default';
     document.getElementById('open-button').style.visibility = 'hidden';
   }
 
@@ -135,7 +126,8 @@ function resumeTimer() {
       'http://www.w3.org/2000/svg',
       'circle'
     );
-    document.getElementsByClassName('animate')[0].remove(); // removes old circle
+    // removes old circle
+    document.getElementsByClassName('animate')[0].remove();
 
     // draws the new circle
     newCircle.setAttribute('class', 'animate');
@@ -195,12 +187,6 @@ function stopTimer(forced) {
   let status = document.getElementById('pomo-status').innerText.toUpperCase();
   button.innerHTML = 'START ' + status;
 
-  /*
-  if (status == "SHORT BREAK") {
-    document.getElementById('end-task').style.display = 'initial';
-  }
-  */
-
   timerSeconds = duration;
   readout.innerHTML = convertToPrettyTime(timerSeconds);
 
@@ -213,9 +199,6 @@ function stopTimer(forced) {
   let circle = document.getElementsByTagName('circle')[0];
   circle.style.setProperty('--circleBarOffset', '0px');
 
-  // document.getElementById('open-button').style.color = 'black';
-  // document.getElementById('open-button').onclick = openNav;
-  // document.getElementById('open-button').style.cursor = 'pointer';
   document.getElementById('open-button').style.visibility = '';
   circle.style.animationPlayState = 'paused';
 }
@@ -226,7 +209,8 @@ function stopTimer(forced) {
  */
 function resetAnimation() {
   circle.style.animation = 'none';
-  circle.offsetHeight; // trigger reflow
+  // trigger reflow
+  circle.offsetHeight;
   circle.style.animation = null;
 }
 
