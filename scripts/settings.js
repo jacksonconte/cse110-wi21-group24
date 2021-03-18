@@ -1,4 +1,4 @@
-//This code runs before page load and sets local storage if it doesn't exist
+// This code runs before page load and sets local storage if it doesn't exist
 if (window.localStorage.getItem('workPomoTime') === null) {
   window.localStorage.setItem('workPomoTime', 25);
 }
